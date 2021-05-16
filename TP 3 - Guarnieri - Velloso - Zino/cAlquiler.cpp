@@ -14,6 +14,14 @@ cAlquiler::cAlquiler(){
 
 
 
+cAlquiler::cAlquiler(unsigned int _CantAdicionales, tm _FechaFin, tm _FechaInicio, float _MontoTotal)
+{
+	CantAdicionales = _CantAdicionales;
+	FechaFin = _FechaFin;
+	FechaInicio = _FechaInicio;
+	MontoTotal = _MontoTotal;
+}
+
 cAlquiler::~cAlquiler(){
 
 }

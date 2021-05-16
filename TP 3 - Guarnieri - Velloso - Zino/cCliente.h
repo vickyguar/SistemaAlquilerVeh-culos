@@ -8,7 +8,9 @@
 #if !defined(EA_38B6FEF6_D888_4b51_B635_DC289A931700__INCLUDED_)
 #define EA_38B6FEF6_D888_4b51_B635_DC289A931700__INCLUDED_
 
-#include "string.h"
+#include <string>
+
+using namespace std;
 
 class cCliente
 {

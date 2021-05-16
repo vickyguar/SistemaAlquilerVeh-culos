@@ -35,7 +35,9 @@ protected:
 	tm UltimoMantenimiento;
 
 public:
-	cVehiculo();
+	cVehiculo(eEstadoVehiculo estado, float tarifa_base, eAdicionales adicionales, eColor color, unsigned int cant_alq, 
+		unsigned int capacidad, string chasis, string patente, string poliza, tm fecha_ult_mantenimiento);
+	
 	virtual ~cVehiculo();
 
 	virtual void AnadirAdicionales();

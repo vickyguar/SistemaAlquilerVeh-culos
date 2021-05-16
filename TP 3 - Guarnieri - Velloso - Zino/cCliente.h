@@ -15,15 +15,15 @@ using namespace std;
 class cCliente
 {
 
+private:
+	string Contacto;
+	string Nombre;
+	const string DNI;
+	unsigned int Edad;
+
 public:
 	cCliente();
 	virtual ~cCliente();
-
-private:
-	string Contacto;
-	const string DNI;
-	unsigned int Edad;
-	string Nombre;
 
 };
 #endif // !defined(EA_38B6FEF6_D888_4b51_B635_DC289A931700__INCLUDED_)

@@ -26,7 +26,7 @@ public:
 		unsigned int capacidad, string chasis, string patente, string poliza, tm fecha_ult_mantenimiento);
 
 	/**
-	* ~cAoutomovil 
+	* ~cAutomovil 
 	* destructor de la clase cAutomovil
 	*/
 	virtual ~cAutomovil();

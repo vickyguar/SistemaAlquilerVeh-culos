@@ -33,10 +33,22 @@ protected:
 	tm UltimoMantenimiento;
 
 public:
-	cVehiculo(eEstadoVehiculo estado, float tarifa_base, eAdicionales adicionales, eColor color, unsigned int cant_alq, 
+#pragma region CONSTRUCTORES & DESTRUCTORES
+	/**
+	* cVehiculo
+	* constructor de automovil
+	* @param estado del vehiculo, tarifa base, adicionales, color
+	* cantidad de alquileres, capacidad de pasajeros, chasis, patente, poliza, fecha de ultimo mantenimiento
+	*/
+	cVehiculo(eEstadoVehiculo estado, float tarifa_base, eAdicionales adicionales, eColor color, unsigned int cant_alq,
 		unsigned int capacidad, string chasis, string patente, string poliza, tm fecha_ult_mantenimiento);
-	
+
+	/**
+	* ~cVehiculo
+	* destructor de la clase cAutomovil
+	*/
 	virtual ~cVehiculo();
+#pragma endregion
 
 	virtual void AnadirAdicionales();
 	virtual float CalcularTarifa();

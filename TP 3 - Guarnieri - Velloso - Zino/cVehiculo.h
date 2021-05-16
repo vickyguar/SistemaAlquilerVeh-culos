@@ -19,6 +19,21 @@ using namespace std;
 class cVehiculo
 {
 
+private:
+	eEstadoVehiculo Estado; //No es const por si queremos cambiarla
+	float TarifaBase;
+
+protected:
+	eAdicionales Adicionales; //tiene el precio igualado en el enum para poder hacer ++
+	eColor Color;
+	unsigned int CantAdicionalesAlquilados;
+	const unsigned int CapacidadPasajeros;
+	const string Chasis;
+	const string Patente;
+	const string Poliza;
+	static float PrecioAlquilerXDia;
+	tm UltimoMantenimiento;
+
 public:
 	cVehiculo();
 	virtual ~cVehiculo();
@@ -26,27 +41,6 @@ public:
 	virtual void AnadirAdicionales();
 	virtual float CalcularTarifa();
 	virtual void PasosMantenimiento();
-
-protected:
-	/**
-	 * tiene el precio igualado en el enum para poder hacer ++
-	 */
-	eAdicionales Adicionales;
-	unsigned int CantAdicionalesAlquilados;
-	const unsigned int CapacidadPasajeros;
-	const string Chasis;
-	eColor Color;
-	const string Patente;
-	const string Poliza;
-	static float PrecioAlquilerXDia;
-	tm UltimoMantenimiento;
-
-private:
-	eEstadoVehiculo Estado;
-	/**
-	 * No es const por si queremos cambiarla
-	 */
-	float TarifaBase;
 
 };
 #endif // !defined(EA_EC55E7BC_2390_417c_A6F2_559933EB7B4E__INCLUDED_)

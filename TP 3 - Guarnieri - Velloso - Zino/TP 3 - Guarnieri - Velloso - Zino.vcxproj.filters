@@ -71,12 +71,6 @@
     <ClInclude Include="cVehiculo.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="eAdicionales.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="eEstadoVehiculo.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="enums.h">
       <Filter>Header Files</Filter>
     </ClInclude>

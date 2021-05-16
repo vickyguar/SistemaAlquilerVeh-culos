@@ -8,11 +8,6 @@
 #include "cAlquiler.h"
 
 
-cAlquiler::cAlquiler(){
-
-}
-
-
 
 cAlquiler::cAlquiler(unsigned int _CantAdicionales, tm _FechaFin, tm _FechaInicio, float _MontoTotal)
 {

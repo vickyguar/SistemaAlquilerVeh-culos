@@ -8,8 +8,13 @@
 #if !defined(EA_EC55E7BC_2390_417c_A6F2_559933EB7B4E__INCLUDED_)
 #define EA_EC55E7BC_2390_417c_A6F2_559933EB7B4E__INCLUDED_
 
-#include "string.h"
-#include "tm.h"
+#include <string>
+#include "eColor.h"
+#include "eEstadoVehiculo.h"
+#include "eAdicionales.h"
+#include <time.h>
+
+using namespace std;
 
 class cVehiculo
 {

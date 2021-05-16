@@ -14,8 +14,26 @@ class cAutomovil : public cVehiculo
 {
 
 public:
-	cAutomovil();
+#pragma region CONSTRUCTORES & DESTRUCTORES
+
+	/**
+	* cAutomovil 
+	* constructor de automovil
+	* @param estado del vehiculo, tarifa base, adicionales, color
+	* cantidad de alquileres, capacidad de pasajeros, chasis, patente, poliza, fecha de ultimo mantenimiento
+	*/
+	cAutomovil(eEstadoVehiculo estado, float tarifa_base, eAdicionales adicionales, eColor color, unsigned int cant_alq,
+		unsigned int capacidad, string chasis, string patente, string poliza, tm fecha_ult_mantenimiento);
+
+	/**
+	* ~cAoutomovil 
+	* destructor de la clase cAutomovil
+	*/
 	virtual ~cAutomovil();
+
+#pragma endregion
+
+	
 
 	virtual void AnadirAdicionales();
 	virtual float CalcularTarifa();

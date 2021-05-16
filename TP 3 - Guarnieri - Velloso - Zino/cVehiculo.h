@@ -12,7 +12,7 @@
 #include "eColor.h"
 #include "eEstadoVehiculo.h"
 #include "eAdicionales.h"
-#include <time.h>
+#include <ctime>
 
 using namespace std;
 

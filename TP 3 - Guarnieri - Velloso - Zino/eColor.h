@@ -10,7 +10,7 @@
 
 enum eColor
 {
-	Gris,
+	Gris = 1,
 	Negro,
 	Blanco,
 	Rojo,

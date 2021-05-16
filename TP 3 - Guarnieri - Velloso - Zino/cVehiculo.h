@@ -9,9 +9,7 @@
 #define EA_EC55E7BC_2390_417c_A6F2_559933EB7B4E__INCLUDED_
 
 #include <string>
-#include "eColor.h"
-#include "eEstadoVehiculo.h"
-#include "eAdicionales.h"
+#include "enums.h"
 #include <ctime>
 
 using namespace std;

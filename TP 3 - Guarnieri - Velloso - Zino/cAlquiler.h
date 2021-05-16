@@ -15,7 +15,7 @@ class cAlquiler
 {
 
 public:
-	cAlquiler();
+	cAlquiler(unsigned int, tm, tm, float);
 	virtual ~cAlquiler();
 
 private:

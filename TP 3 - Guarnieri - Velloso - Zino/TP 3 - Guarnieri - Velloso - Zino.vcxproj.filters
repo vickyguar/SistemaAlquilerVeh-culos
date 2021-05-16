@@ -74,10 +74,10 @@
     <ClInclude Include="eAdicionales.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="eColor.h">
+    <ClInclude Include="eEstadoVehiculo.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="eEstadoVehiculo.h">
+    <ClInclude Include="enums.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

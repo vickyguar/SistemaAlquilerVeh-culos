@@ -34,7 +34,7 @@ public:
 
 	virtual void AnadirAdicionales(unsigned int cant);
 	virtual float CalcularTarifa();
-	virtual void PasosMantenimiento();
+	virtual string PasosMantenimiento();
 
 };
 #endif // !defined(EA_5A24C7CC_36CA_4341_A725_018D81902B96__INCLUDED_)

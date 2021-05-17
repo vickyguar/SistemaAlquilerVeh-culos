@@ -32,6 +32,13 @@ float cMotocicleta::CalcularTarifa(){
 }
 
 
-void cMotocicleta::PasosMantenimiento(){
+string cMotocicleta::PasosMantenimiento(){
+	string steps = "PASOS MANTENIMIENTO MOTOCICLETA: \n";
+	steps += "1. Comprobar el nivel de aceite del carter \n";
+	steps += "2. Comprobar las ruedas\n";
+	steps += "3. Comprobar la batería\n";
+	steps += "4. Comprobar las pastillas de freno y la cadena\n";
+	steps += "5. Limpiar y lubricar\n";
 
+	return steps;
 }

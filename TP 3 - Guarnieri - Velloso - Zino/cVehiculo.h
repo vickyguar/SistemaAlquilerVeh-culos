@@ -50,9 +50,10 @@ public:
 	virtual ~cVehiculo();
 #pragma endregion
 
-	virtual void AnadirAdicionales();
+	virtual void AnadirAdicionales(unsigned int cant);
 	virtual float CalcularTarifa();
 	virtual void PasosMantenimiento();
+	float GetTarifa();
 
 #pragma region GETTERS & SETTERS
 	string getPatente()const;

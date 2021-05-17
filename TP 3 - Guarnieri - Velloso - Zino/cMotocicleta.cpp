@@ -17,14 +17,18 @@ cMotocicleta::~cMotocicleta(){
 
 }
 
-void cMotocicleta::AnadirAdicionales(){
+void cMotocicleta::AnadirAdicionales(unsigned int cant){
 
+	if (cant == 1 || cant == 2) //si quieren añadir 1 o 2 cascos
+		PrecioAlquilerXDia += cant * int (eAdicionales::CASCO);
+	return;
 }
-
 
 float cMotocicleta::CalcularTarifa(){
 
-	return 0;
+	float result = GetTarifa() + PrecioAlquilerXDia;
+
+	return result;
 }
 
 

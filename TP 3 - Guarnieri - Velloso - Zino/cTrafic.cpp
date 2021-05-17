@@ -17,14 +17,16 @@ cTrafic::~cTrafic(){
 
 }
 
-void cTrafic::AnadirAdicionales(){
+void cTrafic::AnadirAdicionales(unsigned int cant){
 
 }
 
 
 float cTrafic::CalcularTarifa(){
 
-	return 0;
+	float result = GetTarifa() + PrecioAlquilerXDia;
+
+	return result;
 }
 
 

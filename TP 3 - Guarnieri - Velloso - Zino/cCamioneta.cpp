@@ -17,14 +17,16 @@ cCamioneta::~cCamioneta(){
 
 }
 
-void cCamioneta::AnadirAdicionales(){
+void cCamioneta::AnadirAdicionales(unsigned int cant){
 
 }
 
 
 float cCamioneta::CalcularTarifa(){
 
-	return 0;
+	float result = GetTarifa() + PrecioAlquilerXDia;
+
+	return result;
 }
 
 

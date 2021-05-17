@@ -17,14 +17,19 @@ cAutomovil::~cAutomovil(){
 
 }
 
-void cAutomovil::AnadirAdicionales(){
+void cAutomovil::AnadirAdicionales(unsigned int cant){
 
+	if (cant >= 1 || cant <= 3)
+		PrecioAlquilerXDia += cant * ((int)eAdicionales::SILLA_SEGURIDAD);
+	return;
 }
 
 
 float cAutomovil::CalcularTarifa(){
 
-	return 0;
+	float result = GetTarifa() + PrecioAlquilerXDia;
+
+	return result;
 }
 
 

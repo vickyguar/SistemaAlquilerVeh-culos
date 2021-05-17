@@ -35,7 +35,7 @@ public:
 
 	
 
-	virtual void AnadirAdicionales();
+	virtual void AnadirAdicionales(unsigned int cant);
 	virtual float CalcularTarifa();
 	virtual void PasosMantenimiento();
 

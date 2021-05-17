@@ -24,7 +24,7 @@ cVehiculo::~cVehiculo(){
 
 }
 
-void cVehiculo::AnadirAdicionales(){
+void cVehiculo::AnadirAdicionales(unsigned int cant){
 
 }
 
@@ -35,6 +35,12 @@ float cVehiculo::CalcularTarifa(){
 
 void cVehiculo::PasosMantenimiento(){
 
+}
+
+float cVehiculo::GetTarifa()
+{
+	return TarifaBase;
+}
 }
 
 string cVehiculo::getPatente() const

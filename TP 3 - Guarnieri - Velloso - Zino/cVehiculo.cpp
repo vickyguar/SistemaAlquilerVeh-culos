@@ -25,15 +25,15 @@ cVehiculo::~cVehiculo(){
 }
 
 void cVehiculo::AnadirAdicionales(unsigned int cant){
-
+	this->CantAdicionalesAlquilados = cant;
 }
 
 float cVehiculo::CalcularTarifa(){
-
+	float aux = TarifaBase + PrecioAlquilerXDia;
 	return;
 }
 
-void cVehiculo::PasosMantenimiento(){
+string cVehiculo::PasosMantenimiento(){
 
 }
 

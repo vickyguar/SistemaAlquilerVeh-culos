@@ -36,3 +36,8 @@ float cVehiculo::CalcularTarifa(){
 void cVehiculo::PasosMantenimiento(){
 
 }
+
+string cVehiculo::getPatente() const
+{
+	return Patente;
+}

@@ -50,6 +50,8 @@ public:
 	}
 	*/
 
+	T* operator[](unsigned int pos);
+
 
 };
 

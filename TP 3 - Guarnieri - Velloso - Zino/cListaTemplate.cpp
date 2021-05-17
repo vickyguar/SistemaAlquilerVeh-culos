@@ -157,3 +157,8 @@ template<class T>
 void cListaTemplate<T>::Listar() const
 {
 }
+
+template<class T>
+T* cListaTemplate<T>::operator[](unsigned int pos) {
+	return getItem(pos);
+}

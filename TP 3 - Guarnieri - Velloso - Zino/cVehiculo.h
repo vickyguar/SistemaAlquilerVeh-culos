@@ -54,5 +54,10 @@ public:
 	virtual float CalcularTarifa();
 	virtual void PasosMantenimiento();
 
+#pragma region GETTERS & SETTERS
+	string getPatente()const;
+#pragma endregion
+
+
 };
 #endif // !defined(EA_EC55E7BC_2390_417c_A6F2_559933EB7B4E__INCLUDED_)

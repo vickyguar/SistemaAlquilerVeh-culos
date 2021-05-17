@@ -22,6 +22,7 @@ void cEmpresa::Adquirir(cVehiculo* newVehiculo) {
 				throw new exception(("El auto con patente " + newVehiculo->getPatente() + "ya esta en la empresa").c_str());
 		}
 		ListaVehiculos().Agregar(newVehiculo);
+		newVehiculo->setEstado(eEstadoVehiculo::DISPONIBLE);
 	}
 }
 
@@ -31,8 +32,13 @@ void cEmpresa::Alquilar(cVehiculo* newVehiculo){
 
 void cEmpresa::Mantenimiento(cVehiculo *Vehiculo){
 	if (Vehiculo != NULL) {
-		Vehiculo->PasosMantenimiento();
-		Vehiculo->setEstado(eEstadoVehiculo::EN_MANTENIMIENTO);
+		if (Vehiculo->getEstado()!=eEstadoVehiculo::DISPONIBLE)
+			throw new exception(("El auto con patente " + Vehiculo->getPatente() + 
+				"no esta disponible y por lo tanto puede someterse a mantenimiento").c_str());
+		else {
+			Vehiculo->PasosMantenimiento();
+			Vehiculo->setEstado(eEstadoVehiculo::EN_MANTENIMIENTO);
+		}
 	}
 	
 }

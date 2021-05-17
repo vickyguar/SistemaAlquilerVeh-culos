@@ -48,6 +48,11 @@ string cVehiculo::getPatente() const
 	return Patente;
 }
 
+eEstadoVehiculo cVehiculo::getEstado() const
+{
+	return Estado;
+}
+
 void cVehiculo::setEstado(eEstadoVehiculo newEstado)
 {
 	Estado = newEstado;

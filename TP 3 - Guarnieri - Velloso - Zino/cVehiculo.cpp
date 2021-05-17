@@ -41,9 +41,19 @@ float cVehiculo::GetTarifa()
 {
 	return TarifaBase;
 }
-}
+
 
 string cVehiculo::getPatente() const
 {
 	return Patente;
+}
+
+void cVehiculo::setEstado(eEstadoVehiculo newEstado)
+{
+	Estado = newEstado;
+}
+
+void cVehiculo::setFechaUltMantenimiento(tm newUltMantenimiento)
+{
+	UltimoMantenimiento = newUltMantenimiento;
 }

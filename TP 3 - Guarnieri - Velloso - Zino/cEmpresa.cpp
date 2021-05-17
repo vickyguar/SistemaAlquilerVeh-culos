@@ -25,14 +25,18 @@ void cEmpresa::Adquirir(cVehiculo* newVehiculo) {
 	}
 }
 
-void cEmpresa::Alquilar(){
+void cEmpresa::Alquilar(cVehiculo* newVehiculo){
 
 }
 
-void cEmpresa::Mantenimiento(){
-
+void cEmpresa::Mantenimiento(cVehiculo *Vehiculo){
+	if (Vehiculo != NULL) {
+		Vehiculo->PasosMantenimiento();
+		Vehiculo->setEstado(eEstadoVehiculo::EN_MANTENIMIENTO);
+	}
+	
 }
 
-void cEmpresa::RetirarCirculacion(){
+void cEmpresa::RetirarCirculacion(cVehiculo* newVehiculo){
 
 }

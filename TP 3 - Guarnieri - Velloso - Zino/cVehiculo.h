@@ -57,6 +57,8 @@ public:
 
 #pragma region GETTERS & SETTERS
 	string getPatente()const;
+	void setEstado(eEstadoVehiculo newEstado);
+	void setFechaUltMantenimiento(tm newUltMantenimiento);
 #pragma endregion
 
 

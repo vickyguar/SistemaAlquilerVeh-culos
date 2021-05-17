@@ -27,9 +27,9 @@ public:
 	virtual ~cEmpresa();
 
 	void Adquirir(cVehiculo* newVehiculo);
-	void Alquilar();
-	void Mantenimiento();
-	void RetirarCirculacion();
+	void Alquilar(cVehiculo* newVehiculo);
+	void Mantenimiento(cVehiculo* newVehiculo);
+	void RetirarCirculacion(cVehiculo* newVehiculo);
 
 };
 #endif // !defined(EA_1AE703F9_42E0_4b65_A672_7DE8013B46E2__INCLUDED_)

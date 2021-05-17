@@ -35,6 +35,15 @@ float cCamioneta::CalcularTarifa(){
 }
 
 
-void cCamioneta::PasosMantenimiento(){
+string cCamioneta::PasosMantenimiento(){
+	
+	string steps = "PASOS MANTENIMIENTO MOTOCICLETA: \n";
+	steps += "1. Revisión de fluidos \n";
+	steps += "2. Estado de batería\n";
+	steps += "3. Revision de frenos\n";
+	steps += "4. Neumáticos\n";
+	steps += "5. Amortiguadores\n";
+	steps += "6. Revisión de las luces\n";
+	return steps;
 
 }

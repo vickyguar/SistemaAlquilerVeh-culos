@@ -10,10 +10,10 @@
 
 enum eColor
 {
-	Gris = 1,
-	Negro,
-	Blanco,
-	Rojo,
-	Azul
+	GRIS = 1,
+	NEGRO,
+	BLANCO,
+	ROJO,
+	AZUL
 };
 #endif // !defined(EA_C52A1F53_D428_43a1_BDEA_184C2FF46D19__INCLUDED_)

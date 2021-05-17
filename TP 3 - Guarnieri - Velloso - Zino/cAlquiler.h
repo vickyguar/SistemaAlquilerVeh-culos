@@ -15,8 +15,10 @@ class cAlquiler
 {
 
 public:
+#pragma region CONSTRUCTORES Y DESTRUCTORES
 	cAlquiler(unsigned int _CantidadAdicionales, tm _FechaFin, tm _FechaInicio, float _MontoTotal);
 	virtual ~cAlquiler();
+#pragma endregion
 
 private:
 	unsigned int CantAdicionales;

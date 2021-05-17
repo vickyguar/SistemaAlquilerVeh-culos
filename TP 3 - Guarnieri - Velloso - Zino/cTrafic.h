@@ -14,8 +14,24 @@ class cTrafic : public cVehiculo
 {
 
 public:
-	cTrafic();
+#pragma region CONSTRUCTORES & DESTRUCTORES
+
+	/**
+	* cTrafic
+	* constructor de trafic
+	* @param estado del vehiculo, tarifa base, adicionales, color
+	* cantidad de alquileres, capacidad de pasajeros, chasis, patente, poliza, fecha de ultimo mantenimiento
+	*/
+	cTrafic(eEstadoVehiculo estado, float tarifa_base, eAdicionales adicionales, eColor color, unsigned int cant_alq,
+		unsigned int capacidad, string chasis, string patente, string poliza, tm fecha_ult_mantenimiento);
+
+	/**
+	* ~cTrafic
+	* destructor de la clase Trafic
+	*/
 	virtual ~cTrafic();
+
+#pragma endregion
 
 	virtual void AnadirAdicionales();
 	virtual float CalcularTarifa();

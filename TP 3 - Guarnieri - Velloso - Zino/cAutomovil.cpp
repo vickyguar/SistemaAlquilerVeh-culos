@@ -24,7 +24,9 @@ void cAutomovil::AnadirAdicionales(){
 
 float cAutomovil::CalcularTarifa(){
 
-	return 0;
+	float result = GetTarifa() + PrecioAlquilerXDia;
+
+	return result;
 }
 
 

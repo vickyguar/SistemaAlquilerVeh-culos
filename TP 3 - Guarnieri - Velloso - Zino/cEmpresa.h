@@ -13,21 +13,23 @@
 #include "cAlquileres.h"
 #include "cListaTemplate.h"
 
-class cEmpresa : public cListaTemplate<class T>
+class cEmpresa 
 {
 private:
 
-	cListaTemplate<cCliente> ListaClientes;
-	cListaTemplate<cVehiculo> ListaVehiculos;
-	cListaTemplate<cAlquiler> ListaAlquileres;
+	cListaTemplate<cCliente>* ListaClientes;
+	cListaTemplate<cVehiculo>* ListaVehiculos;
+	cAlquileres* ListaAlquileres;
+
+
+
 
 public:
 	
 	cEmpresa();
 	virtual ~cEmpresa();
-
 	void Adquirir(cVehiculo* newVehiculo);
-	void Alquilar(cVehiculo* Vehiculo);
+	void Alquilar(cVehiculo* Vehiculo, unsigned int CantDias, unsigned int CantAdicionales = 0);
 	void Mantenimiento(cVehiculo* Vehiculo);
 	void RetirarCirculacion(cVehiculo* Vehiculo);
 

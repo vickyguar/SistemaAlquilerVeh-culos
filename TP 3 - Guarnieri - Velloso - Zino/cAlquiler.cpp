@@ -8,8 +8,8 @@
 #include "cAlquiler.h"
 
 
-
-cAlquiler::cAlquiler(unsigned int _CantAdicionales, tm _FechaFin, tm _FechaInicio, float _MontoTotal)
+cAlquiler::cAlquiler(unsigned int _CantAdicionales, tm _FechaFin, tm _FechaInicio, float _MontoTotal, const string _DNI, const string _Patente)
+	:DNI(_DNI), Patente(_Patente)
 {
 	CantAdicionales = _CantAdicionales;
 	FechaFin = _FechaFin;

@@ -65,7 +65,7 @@ T* cListaTemplate<T>::Quitar(const string Key)
 
 	Lista[--CA] = NULL; //El ultimo elemento es aux. Tambien hacemos un predecremento de CA
 
-	return aux; //Retornamos aux: el Pasajero que quitamos
+	return aux; //Retornamos aux
 
 }
 
@@ -83,7 +83,7 @@ void cListaTemplate<T>::Eliminar(const string Key)
 			throw ex; 
 		}
 	}
-	delete aux; //Eliminamos el Pasajero
+	delete aux; //Eliminamos
 }
 
 template<class T>
@@ -156,6 +156,7 @@ unsigned int cListaTemplate<T>::getTAM() const
 template<class T>
 void cListaTemplate<T>::Listar() const
 {
+	//sobrecarga del cout
 }
 
 template<class T>

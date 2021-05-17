@@ -12,29 +12,37 @@
 
 
 
-cEmpresa::cEmpresa() :ListaAlquileres(), ListaClientes(), ListaVehiculos()
+cEmpresa::cEmpresa()
 {
+	ListaAlquileres = new cAlquileres();
+	ListaClientes = new cListaTemplate<cCliente>();
+	ListaVehiculos = new cListaTemplate<cVehiculo>();
 }
 
-cEmpresa::~cEmpresa(){
-	
+cEmpresa::~cEmpresa() {
+	if (ListaAlquileres != NULL)
+		delete ListaAlquileres;
+	if (ListaClientes != NULL)
+		delete ListaClientes;
+	if (ListaVehiculos != NULL)
+		delete ListaVehiculos;
 }
 
 void cEmpresa::Adquirir(cVehiculo* newVehiculo) {
 	
 	unsigned int pos = -1;
 	if (newVehiculo != NULL) {
-		try { pos = ListaVehiculos.getIndex(newVehiculo->getPatente()); }
+		try { pos = ListaVehiculos->getIndex(newVehiculo->getPatente()); }
 		catch (exception* ex) {
 			delete ex; //si entra al catch, significa que no existe
-			ListaVehiculos.Agregar(newVehiculo);
+			ListaVehiculos->Agregar(newVehiculo);
 			newVehiculo->setEstado(eEstadoVehiculo::DISPONIBLE);
 		}
 		throw new exception(("El auto con patente" + newVehiculo->getPatente() + " ya existe en la empresa").c_str());
 	}
 }
 
-void cEmpresa::Alquilar(cVehiculo* Vehiculo, unsigned int CantAdicionales = 0){
+void cEmpresa::Alquilar(cVehiculo* Vehiculo, unsigned int CantDias, const string DNI, unsigned int CantAdicionales = 0){
 	if (Vehiculo != NULL) {
 		if (Vehiculo->getEstado() != eEstadoVehiculo::DISPONIBLE) //Si no esta disponible, no lo puedo poner en mantenimiento
 			throw new exception(("El auto con patente " + Vehiculo->getPatente() +
@@ -46,6 +54,13 @@ void cEmpresa::Alquilar(cVehiculo* Vehiculo, unsigned int CantAdicionales = 0){
 
 		if (CantAdicionales > 0)
 			Vehiculo->AnadirAdicionales(CantAdicionales);
+
+		time_t now = time(NULL); //para obtener hora de SO
+		tm FECHA = *localtime(&now); //inicializo la fecha (fechaUltVIsita)
+
+		cAlquiler* aux = new cAlquiler(CantAdicionales, FECHA, Vehiculo->CalcularTarifa(CantDias), DNI, Vehiculo->getPatente());
+
+
 
 
 	}

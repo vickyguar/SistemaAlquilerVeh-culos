@@ -8,7 +8,7 @@
 #include "cAlquileres.h"
 
 
-cAlquileres::cAlquileres(){
+cAlquileres::cAlquileres(unsigned int _TAM, bool _Eliminar):cListaTemplate(_TAM,_Eliminar){
 
 }
 
@@ -20,13 +20,27 @@ cAlquileres::~cAlquileres(){
 
 
 
-
-
-void cAlquileres::CalcularGananciaTotal(){
-
+float cAlquileres::CalcularGananciaTotal(){
+	float GananciaTotal = 0;
+	for (int i = 0; i < CA; i++)
+	{
+		if (Lista[i] != NULL)
+			GananciaTotal += Lista[i]->getMontoTotal();
+		//PONEMOS GASTOS DE LA EMPRESA PARA RESTAR AL MONTO QUE SE GANA?
+	}
+	return GananciaTotal;
 }
 
 
-void cAlquileres::ListarXVehiculo(cVehiculo Vehiculo){
+void cAlquileres::ListarXVehiculo(cVehiculo*Vehiculo){
+	dynamic_cast<cVehiculo*>(Vehiculo);
+	for (int i = 0; i < CA; i++)
+	{
+		if (dynamic_cast<cVehiculo*>(Vehiculo) == dynamic_cast<cVehiculo*>(Lista[i]))
+			Lista[i]->Imprimir(); cout << endl;
+		
 
+	}
+	//DUDA sobre estar casteando el tipo cAlquiler con cVehiculo
+	//cAnimal ptr y (dynamic_cast<cMamiferos*>(ptr))->Nombre
 }

@@ -20,3 +20,13 @@ cAlquiler::cAlquiler(unsigned int _CantAdicionales, tm _FechaFin, tm _FechaInici
 cAlquiler::~cAlquiler(){
 
 }
+
+float cAlquiler::getMontoTotal()
+{
+	return MontoTotal;
+}
+
+void cAlquiler::Imprimir()
+{
+}
+

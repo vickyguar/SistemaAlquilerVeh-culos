@@ -18,6 +18,8 @@ public:
 #pragma region CONSTRUCTORES Y DESTRUCTORES
 	cAlquiler(unsigned int _CantidadAdicionales, tm _FechaFin, tm _FechaInicio, float _MontoTotal);
 	virtual ~cAlquiler();
+	float getMontoTotal();
+	void Imprimir();
 #pragma endregion
 
 private:

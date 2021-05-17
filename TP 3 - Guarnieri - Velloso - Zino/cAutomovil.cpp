@@ -19,7 +19,9 @@ cAutomovil::~cAutomovil(){
 
 void cAutomovil::AnadirAdicionales(unsigned int cant){
 
-
+	if (cant >= 1 || cant <= 3)
+		PrecioAlquilerXDia += cant * ((int)eAdicionales::SILLA_SEGURIDAD);
+	return;
 }
 
 

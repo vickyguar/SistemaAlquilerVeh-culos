@@ -52,7 +52,7 @@ public:
 
 	virtual void AnadirAdicionales(unsigned int cant);
 	virtual float CalcularTarifa();
-	virtual void PasosMantenimiento();
+	virtual string PasosMantenimiento();
 	float GetTarifa();
 
 #pragma region GETTERS & SETTERS

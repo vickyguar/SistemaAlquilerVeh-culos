@@ -24,7 +24,9 @@ void cMotocicleta::AnadirAdicionales(){
 
 float cMotocicleta::CalcularTarifa(){
 
-	return 0;
+	float result = GetTarifa() + PrecioAlquilerXDia;
+
+	return result;
 }
 
 

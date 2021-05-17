@@ -53,6 +53,7 @@ public:
 	virtual void AnadirAdicionales();
 	virtual float CalcularTarifa();
 	virtual void PasosMantenimiento();
+	float GetTarifa();
 
 };
 #endif // !defined(EA_EC55E7BC_2390_417c_A6F2_559933EB7B4E__INCLUDED_)

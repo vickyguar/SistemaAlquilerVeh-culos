@@ -36,3 +36,8 @@ float cVehiculo::CalcularTarifa(){
 void cVehiculo::PasosMantenimiento(){
 
 }
+
+float cVehiculo::GetTarifa()
+{
+	return TarifaBase;
+}

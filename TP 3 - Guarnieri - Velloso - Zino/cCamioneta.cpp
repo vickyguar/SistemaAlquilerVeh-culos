@@ -8,7 +8,7 @@
 #include "cCamioneta.h"
 
 
-cCamioneta::cCamioneta(eEstadoVehiculo estado, float tarifa_base, eAdicionales adicionales, eColor color, unsigned int cant_alq, unsigned int capacidad, string chasis, string patente, string poliza, tm fecha_ult_mantenimiento):
+cCamioneta::cCamioneta(eEstadoVehiculo estado, float tarifa_base, eAdicionales adicionales, eColor color, unsigned int cant_alq, const unsigned int capacidad, const string chasis, const string patente, const string poliza, tm fecha_ult_mantenimiento):
 	cVehiculo::cVehiculo(estado, tarifa_base, adicionales, color, cant_alq, capacidad, chasis, patente, poliza, fecha_ult_mantenimiento)
 {
 }

@@ -41,7 +41,7 @@ public:
 	* cantidad de alquileres, capacidad de pasajeros, chasis, patente, poliza, fecha de ultimo mantenimiento
 	*/
 	cVehiculo(eEstadoVehiculo estado, float tarifa_base, eAdicionales adicionales, eColor color, unsigned int cant_alq,
-		unsigned int capacidad, string chasis, string patente, string poliza, tm fecha_ult_mantenimiento);
+		const unsigned int capacidad, const string chasis, const string patente, const string poliza, tm fecha_ult_mantenimiento);
 
 	/**
 	* ~cVehiculo

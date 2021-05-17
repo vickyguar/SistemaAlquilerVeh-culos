@@ -24,9 +24,6 @@
     <ClCompile Include="cAutomovil.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="cCaminoeta.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="cCliente.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -42,6 +39,9 @@
     <ClCompile Include="cVehiculo.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="cCamioneta.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="cAlquiler.h">
@@ -51,9 +51,6 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="cAutomovil.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="cCaminoeta.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="cCliente.h">
@@ -72,6 +69,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="enums.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="cCamioneta.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

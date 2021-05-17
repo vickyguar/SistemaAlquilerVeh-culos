@@ -142,7 +142,7 @@
     <ClCompile Include="cAlquiler.cpp" />
     <ClCompile Include="cAlquileres.cpp" />
     <ClCompile Include="cAutomovil.cpp" />
-    <ClCompile Include="cCaminoeta.cpp" />
+    <ClCompile Include="cCamioneta.cpp" />
     <ClCompile Include="cCliente.cpp" />
     <ClCompile Include="cEmpresa.cpp" />
     <ClCompile Include="cMotocicleta.cpp" />
@@ -153,7 +153,7 @@
     <ClInclude Include="cAlquiler.h" />
     <ClInclude Include="cAlquileres.h" />
     <ClInclude Include="cAutomovil.h" />
-    <ClInclude Include="cCaminoeta.h" />
+    <ClInclude Include="cCamioneta.h" />
     <ClInclude Include="cCliente.h" />
     <ClInclude Include="cEmpresa.h" />
     <ClInclude Include="cMotocicleta.h" />

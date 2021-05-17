@@ -23,7 +23,7 @@ public:
 	* cantidad de alquileres, capacidad de pasajeros, chasis, patente, poliza, fecha de ultimo mantenimiento
 	*/
 	cTrafic(eEstadoVehiculo estado, float tarifa_base, eAdicionales adicionales, eColor color, unsigned int cant_alq,
-		unsigned int capacidad, string chasis, string patente, string poliza, tm fecha_ult_mantenimiento);
+		const unsigned int capacidad, const string chasis, const string patente, const string poliza, tm fecha_ult_mantenimiento);
 
 	/**
 	* ~cTrafic
@@ -35,7 +35,7 @@ public:
 
 	virtual void AnadirAdicionales(unsigned int cant_portaequipaje, unsigned int cant_sillas);
 	virtual float CalcularTarifa();
-	virtual void PasosMantenimiento();
+	virtual string PasosMantenimiento();
 
 };
 #endif // !defined(EA_3737C318_36CB_4163_A3E3_C785B54048AA__INCLUDED_)

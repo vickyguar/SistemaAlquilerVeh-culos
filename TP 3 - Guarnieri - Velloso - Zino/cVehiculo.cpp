@@ -25,7 +25,7 @@ cVehiculo::~cVehiculo(){
 }
 
 void cVehiculo::AnadirAdicionales(unsigned int cant){
-
+	this->CantAdicionalesAlquilados = cant;
 }
 
 float cVehiculo::CalcularTarifa(){

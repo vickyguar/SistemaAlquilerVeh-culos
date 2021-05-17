@@ -40,7 +40,7 @@ public:
 	* @param estado del vehiculo, tarifa base, adicionales, color
 	* cantidad de alquileres, capacidad de pasajeros, chasis, patente, poliza, fecha de ultimo mantenimiento
 	*/
-	cVehiculo(eEstadoVehiculo estado, float tarifa_base, eAdicionales adicionales, eColor color, unsigned int cant_alq,
+	cVehiculo(eEstadoVehiculo estado, float tarifa_base, eAdicionales adicionales, eColor color,
 		const unsigned int capacidad, const string chasis, const string patente, const string poliza, tm fecha_ult_mantenimiento);
 
 	/**
@@ -51,9 +51,8 @@ public:
 #pragma endregion
 
 	virtual void AnadirAdicionales(unsigned int cant);
-	virtual float CalcularTarifa();
+	virtual float CalcularTarifa(unsigned int dias);
 	virtual string PasosMantenimiento();
-	float GetTarifa();
 
 #pragma region GETTERS & SETTERS
 	string getPatente()const;

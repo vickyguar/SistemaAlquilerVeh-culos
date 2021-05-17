@@ -33,6 +33,14 @@ float cAutomovil::CalcularTarifa(){
 }
 
 
-void cAutomovil::PasosMantenimiento(){
+string cAutomovil::PasosMantenimiento(){
 
+	string steps = "PASOS MANTENIMIENTO AUTOMOVIL: \n";
+	steps += "1. Cambio de filtros y de aceite \n";
+	steps += "2. Revision de frenos\n";
+	steps += "3. Neumáticos\n";
+	steps += "4. Amortiguadores\n";
+	steps += "5. Revisión de las luces\n";
+
+	return steps;
 }

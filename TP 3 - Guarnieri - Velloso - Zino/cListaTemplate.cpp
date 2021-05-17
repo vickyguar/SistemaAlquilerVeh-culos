@@ -152,3 +152,8 @@ unsigned int cListaTemplate<T>::getTAM() const
 {
 	return TAM;
 }
+
+template<class T>
+void cListaTemplate<T>::Listar() const
+{
+}

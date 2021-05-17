@@ -17,10 +17,9 @@ cMotocicleta::~cMotocicleta(){
 
 }
 
-void cMotocicleta::AnadirAdicionales(){
+void cMotocicleta::AnadirAdicionales(unsigned int cant){
 
 }
-
 
 float cMotocicleta::CalcularTarifa(){
 

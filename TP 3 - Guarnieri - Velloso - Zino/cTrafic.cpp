@@ -17,7 +17,7 @@ cTrafic::~cTrafic(){
 
 }
 
-void cTrafic::AnadirAdicionales(){
+void cTrafic::AnadirAdicionales(unsigned int cant){
 
 }
 

@@ -24,7 +24,7 @@ cVehiculo::~cVehiculo(){
 
 }
 
-void cVehiculo::AnadirAdicionales(){
+void cVehiculo::AnadirAdicionales(unsigned int cant){
 
 }
 

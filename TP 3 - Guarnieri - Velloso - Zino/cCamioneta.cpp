@@ -17,7 +17,7 @@ cCamioneta::~cCamioneta(){
 
 }
 
-void cCamioneta::AnadirAdicionales(){
+void cCamioneta::AnadirAdicionales(unsigned int cant){
 
 }
 

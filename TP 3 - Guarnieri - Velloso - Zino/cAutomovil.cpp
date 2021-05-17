@@ -17,7 +17,7 @@ cAutomovil::~cAutomovil(){
 
 }
 
-void cAutomovil::AnadirAdicionales(){
+void cAutomovil::AnadirAdicionales(unsigned int cant){
 
 }
 

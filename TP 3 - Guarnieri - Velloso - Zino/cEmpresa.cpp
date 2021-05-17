@@ -16,13 +16,16 @@ cEmpresa::~cEmpresa(){
 }
 
 void cEmpresa::Adquirir(cVehiculo* newVehiculo) {
+	
+	unsigned int pos = -1;
 	if (newVehiculo != NULL) {
-		for (int i = 0; i < ListaVehiculos().getCA(); i++) {
-			if (ListaVehiculos()[i]->getPatente() == newVehiculo->getPatente())
-				throw new exception(("El auto con patente " + newVehiculo->getPatente() + "ya esta en la empresa").c_str());
+		try { pos = ListaVehiculos().getIndex(newVehiculo->getPatente()); }
+		catch (exception* ex) {
+			delete ex; //si entra al catch, significa que no existe
+			ListaVehiculos().Agregar(newVehiculo);
+			newVehiculo->setEstado(eEstadoVehiculo::DISPONIBLE);
 		}
-		ListaVehiculos().Agregar(newVehiculo);
-		newVehiculo->setEstado(eEstadoVehiculo::DISPONIBLE);
+		throw new exception(("El auto con patente" + newVehiculo->getPatente() + " ya existe en la empresa").c_str());
 	}
 }
 
@@ -32,11 +35,11 @@ void cEmpresa::Alquilar(cVehiculo* newVehiculo){
 
 void cEmpresa::Mantenimiento(cVehiculo *Vehiculo){
 	if (Vehiculo != NULL) {
-		if (Vehiculo->getEstado()!=eEstadoVehiculo::DISPONIBLE)
+		if (Vehiculo->getEstado() != eEstadoVehiculo::DISPONIBLE) //Si no esta disponible, no lo puedo poner en mantenimiento
 			throw new exception(("El auto con patente " + Vehiculo->getPatente() + 
 				"no esta disponible y por lo tanto puede someterse a mantenimiento").c_str());
 		else {
-			Vehiculo->PasosMantenimiento();
+			cout << Vehiculo->PasosMantenimiento();
 			Vehiculo->setEstado(eEstadoVehiculo::EN_MANTENIMIENTO);
 		}
 	}

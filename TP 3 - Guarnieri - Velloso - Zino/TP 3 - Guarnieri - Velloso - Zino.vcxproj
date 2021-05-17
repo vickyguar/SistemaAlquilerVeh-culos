@@ -157,6 +157,7 @@
     <ClInclude Include="cCamioneta.h" />
     <ClInclude Include="cCliente.h" />
     <ClInclude Include="cEmpresa.h" />
+    <ClInclude Include="cListaTemplate.h" />
     <ClInclude Include="cMotocicleta.h" />
     <ClInclude Include="cTrafic.h" />
     <ClInclude Include="cVehiculo.h" />

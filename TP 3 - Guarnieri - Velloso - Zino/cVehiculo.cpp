@@ -29,11 +29,11 @@ void cVehiculo::AnadirAdicionales(unsigned int cant){
 }
 
 float cVehiculo::CalcularTarifa(){
-
+	float aux = TarifaBase + PrecioAlquilerXDia;
 	return;
 }
 
-void cVehiculo::PasosMantenimiento(){
+string cVehiculo::PasosMantenimiento(){
 
 }
 

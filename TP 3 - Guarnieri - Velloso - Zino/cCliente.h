@@ -22,7 +22,16 @@ private:
 	unsigned int Edad;
 
 public:
-	cCliente();
+	/**
+	* cCliente 
+	* constructor de la calse cliente
+	* @param contacto, nombre, dni y edad
+	*/
+	cCliente(string contacto, string nombre, string dni, unsigned int edad);
+	/**
+	* ~cCliente 
+	* destructor de la clase cliente
+	*/
 	virtual ~cCliente();
 
 };

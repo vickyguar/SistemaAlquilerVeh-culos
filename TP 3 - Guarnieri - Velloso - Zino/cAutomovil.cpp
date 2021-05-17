@@ -8,19 +8,14 @@
 #include "cAutomovil.h"
 
 
-cAutomovil::cAutomovil(){
-
+cAutomovil::cAutomovil(eEstadoVehiculo estado, float tarifa_base, eAdicionales adicionales, eColor color, unsigned int cant_alq, unsigned int capacidad, string chasis, string patente, string poliza, tm fecha_ult_mantenimiento): 
+	cVehiculo::cVehiculo(estado, tarifa_base, adicionales,color, cant_alq, capacidad, chasis, patente,poliza, fecha_ult_mantenimiento)
+{
 }
-
-
 
 cAutomovil::~cAutomovil(){
 
 }
-
-
-
-
 
 void cAutomovil::AnadirAdicionales(){
 

@@ -9,9 +9,7 @@
 #define EA_EC55E7BC_2390_417c_A6F2_559933EB7B4E__INCLUDED_
 
 #include <string>
-#include "eColor.h"
-#include "eEstadoVehiculo.h"
-#include "eAdicionales.h"
+#include "enums.h"
 #include <ctime>
 
 using namespace std;
@@ -35,8 +33,22 @@ protected:
 	tm UltimoMantenimiento;
 
 public:
-	cVehiculo();
+#pragma region CONSTRUCTORES & DESTRUCTORES
+	/**
+	* cVehiculo
+	* constructor de automovil
+	* @param estado del vehiculo, tarifa base, adicionales, color
+	* cantidad de alquileres, capacidad de pasajeros, chasis, patente, poliza, fecha de ultimo mantenimiento
+	*/
+	cVehiculo(eEstadoVehiculo estado, float tarifa_base, eAdicionales adicionales, eColor color, unsigned int cant_alq,
+		unsigned int capacidad, string chasis, string patente, string poliza, tm fecha_ult_mantenimiento);
+
+	/**
+	* ~cVehiculo
+	* destructor de la clase cAutomovil
+	*/
 	virtual ~cVehiculo();
+#pragma endregion
 
 	virtual void AnadirAdicionales();
 	virtual float CalcularTarifa();

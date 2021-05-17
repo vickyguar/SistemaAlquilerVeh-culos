@@ -7,13 +7,12 @@
 
 #include "cCliente.h"
 
-
-cCliente::cCliente(){
-
+cCliente::cCliente(string contacto, string nombre, string dni, unsigned int edad): DNI(dni)
+{
+	this->Contacto = contacto;
+	this->Nombre = nombre;
+	this->Edad = edad;
 }
 
-
-
 cCliente::~cCliente(){
-
 }

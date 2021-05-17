@@ -24,7 +24,9 @@ void cTrafic::AnadirAdicionales(){
 
 float cTrafic::CalcularTarifa(){
 
-	return 0;
+	float result = GetTarifa() + PrecioAlquilerXDia;
+
+	return result;
 }
 
 

@@ -14,8 +14,23 @@ class cMotocicleta : public cVehiculo
 {
 
 public:
-	cMotocicleta();
+#pragma region CONSTRUCTORES & DESTRUCTORES
+	/**
+	* cMotocicleta
+	* constructor de motocicleta
+	* @param estado del vehiculo, tarifa base, adicionales, color
+	* cantidad de alquileres, capacidad de pasajeros, chasis, patente, poliza, fecha de ultimo mantenimiento
+	*/
+	cMotocicleta(eEstadoVehiculo estado, float tarifa_base, eAdicionales adicionales, eColor color, unsigned int cant_alq,
+		unsigned int capacidad, string chasis, string patente, string poliza, tm fecha_ult_mantenimiento);
+
+	/**
+	* ~cMotocicleta
+	* destructor de la clase Motocicleta
+	*/
 	virtual ~cMotocicleta();
+
+#pragma endregion
 
 	virtual void AnadirAdicionales();
 	virtual float CalcularTarifa();

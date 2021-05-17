@@ -19,8 +19,8 @@ cAutomovil::~cAutomovil(){
 
 void cAutomovil::AnadirAdicionales(unsigned int cant){
 
-	if (cant >= 1 || cant <= 3)
-		PrecioAlquilerXDia += cant * ((int)eAdicionales::SILLA_SEGURIDAD);
+	if (cant >= 1 || cant <= 3) //si quiere añadir 1 o más (hasta 3) sillas de seguridad 
+		PrecioAlquilerXDia += cant * ((int)eAdicionales::SILLA_SEGURIDAD); //se suma el costo a el precio por día
 	return;
 }
 

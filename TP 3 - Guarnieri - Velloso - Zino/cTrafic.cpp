@@ -17,8 +17,13 @@ cTrafic::~cTrafic(){
 
 }
 
-void cTrafic::AnadirAdicionales(unsigned int cant){
+void cTrafic::AnadirAdicionales(unsigned int cant_asientos, unsigned int cant_sillas){
+	if (cant_asientos >= 1|| cant_asientos <= 10) //si quiere añadir asientos retraibles
+		PrecioAlquilerXDia += cant_asientos * ((int)eAdicionales::ASIENTOS_REBATIBLES); //se suma el costo a el precio por día
 
+	if (cant_sillas >= 1 || cant_sillas <= 5) //si quiere añadir 1 o más (hasta 5) sillas de seguridad 
+		PrecioAlquilerXDia += cant_sillas * ((int)eAdicionales::SILLA_SEGURIDAD); //se suma el costo a el precio por día
+	return;
 }
 
 

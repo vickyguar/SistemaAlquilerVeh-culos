@@ -17,8 +17,13 @@ cCamioneta::~cCamioneta(){
 
 }
 
-void cCamioneta::AnadirAdicionales(unsigned int cant){
+void cCamioneta::AnadirAdicionales(unsigned int cant_portaequipaje, unsigned int cant_sillas) {
+	if (cant_portaequipaje == 1) //si quiere añadir un portaequipaje
+		PrecioAlquilerXDia += cant_portaequipaje * ((int)eAdicionales::PORTA_EQUIPAJE); //se suma el costo a el precio por día
 
+	if (cant_sillas >= 1 || cant_sillas <= 3) //si quiere añadir 1 o más (hasta 3) sillas de seguridad 
+		PrecioAlquilerXDia += cant_sillas * ((int)eAdicionales::SILLA_SEGURIDAD); //se suma el costo a el precio por día
+	return;
 }
 
 

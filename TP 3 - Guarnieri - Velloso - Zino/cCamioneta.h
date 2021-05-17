@@ -33,7 +33,7 @@ public:
 
 #pragma endregion
 
-	void AnadirAdicionales(unsigned int cant);
+	void AnadirAdicionales(unsigned int cant_portaequipaje, unsigned int cant_sillas);
 	float CalcularTarifa();
 	void PasosMantenimiento();
 

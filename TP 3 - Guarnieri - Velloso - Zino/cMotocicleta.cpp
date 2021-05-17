@@ -20,7 +20,7 @@ cMotocicleta::~cMotocicleta(){
 void cMotocicleta::AnadirAdicionales(unsigned int cant){
 
 	if (cant == 1 || cant == 2) //si quieren añadir 1 o 2 cascos
-		PrecioAlquilerXDia += cant * int (eAdicionales::CASCO);
+		PrecioAlquilerXDia += cant * ((int)eAdicionales::CASCO);
 	return;
 }
 

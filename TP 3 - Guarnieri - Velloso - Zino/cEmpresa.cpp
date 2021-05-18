@@ -9,7 +9,7 @@
 
 //cVehiculo era una clase abstracta --> no hay instancias (objetos) de clase vehiculo
 
-
+#pragma warning(disable : 4996)
 
 
 cEmpresa::cEmpresa()

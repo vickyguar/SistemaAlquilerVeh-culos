@@ -12,7 +12,8 @@
 
 class cTrafic : public cVehiculo
 {
-
+private:
+	static float PrecioAlquilerXDia;
 public:
 #pragma region CONSTRUCTORES & DESTRUCTORES
 

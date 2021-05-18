@@ -29,7 +29,6 @@ protected:
 	const string Chasis;
 	const string Patente;
 	const string Poliza;
-	static float PrecioAlquilerXDia;
 	tm UltimoMantenimiento;
 
 public:

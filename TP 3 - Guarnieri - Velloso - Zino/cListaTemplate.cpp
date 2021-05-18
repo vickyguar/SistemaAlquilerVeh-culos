@@ -38,7 +38,7 @@ void cListaTemplate<T>::Agregar(T* newItem)
 			int pos = getIndex(newItem->Key);
 		}
 		catch (exception* ex) {
-			Lista[CA++] = pasajero;
+			Lista[CA++] = newItem;
 			delete ex;
 		}
 		throw new exception("El item ya esta en la lista");
@@ -84,6 +84,25 @@ void cListaTemplate<T>::Eliminar(const string Key)
 		}
 	}
 	delete aux; //Eliminamos
+}
+
+template<class T>
+void cListaTemplate<T>::AgregarXCopia(T newItem)
+{
+	if (Lista != NULL) {
+
+		if (CA == TAM) //Si la cantidad actual es igual al tamaño máximo
+			Redimensionar(); //Redimensiono la lista
+
+		try {
+			int pos = getIndex(newItem->Key);
+		}
+		catch (exception* ex) {
+			Lista[CA++] = &newItem;
+			delete ex;
+		}
+		throw new exception("El item ya esta en la lista");
+	}
 }
 
 template<class T>

@@ -43,6 +43,12 @@ void cEmpresa::Adquirir(cVehiculo* newVehiculo) {
 }
 
 void cEmpresa::Alquilar(cVehiculo* Vehiculo, unsigned int CantDias, const string DNI, unsigned int CantAdicionales = 0){
+	
+	time_t now = time(NULL); //para obtener hora de SO
+	tm FECHA = *localtime(&now); 
+	tm FECHA_FIN = FECHA;
+	FECHA_FIN.tm_mday += CantDias;
+	
 	if (Vehiculo != NULL) {
 		if (Vehiculo->getEstado() != eEstadoVehiculo::DISPONIBLE) //Si no esta disponible, no lo puedo poner en mantenimiento
 			throw new exception(("El auto con patente " + Vehiculo->getPatente() +
@@ -55,13 +61,9 @@ void cEmpresa::Alquilar(cVehiculo* Vehiculo, unsigned int CantDias, const string
 		if (CantAdicionales > 0)
 			Vehiculo->AnadirAdicionales(CantAdicionales);
 
-		time_t now = time(NULL); //para obtener hora de SO
-		tm FECHA = *localtime(&now); //inicializo la fecha (fechaUltVIsita)
-
-		cAlquiler* aux = new cAlquiler(CantAdicionales, FECHA, Vehiculo->CalcularTarifa(CantDias), DNI, Vehiculo->getPatente());
-
-
-
+		cAlquiler* aux = new cAlquiler(CantAdicionales, FECHA, FECHA_FIN, Vehiculo->CalcularTarifa(CantDias), DNI, Vehiculo->getPatente());
+		ListaAlquileres->AgregarXCopia(*aux);
+		delete aux;
 
 	}
 }
@@ -80,5 +82,16 @@ void cEmpresa::Mantenimiento(cVehiculo *Vehiculo){
 }
 
 void cEmpresa::RetirarCirculacion(cVehiculo* Vehiculo){
-
+	unsigned int pos = -1;
+	if (Vehiculo != NULL) {
+		try { pos = ListaVehiculos->getIndex(Vehiculo->getPatente()); }
+		catch (exception* ex) {
+			string error = ex->what();
+			delete ex;
+			ex = new exception(("No se puede quitar de circulacion al vehiculo " + error).c_str());
+			throw ex;
+		}
+		Vehiculo->setEstado(eEstadoVehiculo::FUERA_CIRCULACION); //hay que sacarlo de la lista?
+		//ListaVehiculos->Quitar(Vehiculo->getPatente());
+	}
 }

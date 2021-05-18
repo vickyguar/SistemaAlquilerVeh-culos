@@ -29,7 +29,7 @@ public:
 	cEmpresa();
 	virtual ~cEmpresa();
 	void Adquirir(cVehiculo* newVehiculo);
-	void Alquilar(cVehiculo* Vehiculo, unsigned int CantDias, unsigned int CantAdicionales = 0);
+	void Alquilar(cVehiculo* Vehiculo, unsigned int CantDias, const string DNI, unsigned int CantAdicionales = 0);
 	void Mantenimiento(cVehiculo* Vehiculo);
 	void RetirarCirculacion(cVehiculo* Vehiculo);
 

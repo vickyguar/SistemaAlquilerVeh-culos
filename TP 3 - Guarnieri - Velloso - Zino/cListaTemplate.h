@@ -28,6 +28,7 @@ public:
 	void Agregar(T* newItem);
 	T* Quitar(const string Key);
 	void Eliminar(const string Key);
+	void AgregarXCopia(T newItem); //Agrego por copia
 
 #pragma endregion
 

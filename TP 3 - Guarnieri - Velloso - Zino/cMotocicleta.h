@@ -33,7 +33,7 @@ public:
 #pragma endregion
 
 	virtual void AnadirAdicionales(unsigned int cant);
-	virtual float CalcularTarifa();
+	virtual float CalcularTarifa(unsigned int dias);
 	virtual string PasosMantenimiento();
 
 };

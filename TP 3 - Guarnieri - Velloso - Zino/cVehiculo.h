@@ -51,11 +51,12 @@ public:
 #pragma endregion
 
 	virtual void AnadirAdicionales(unsigned int cant);
-	virtual float CalcularTarifa(unsigned int dias);
+	virtual float CalcularTarifas();
 	virtual string PasosMantenimiento();
 
 #pragma region GETTERS & SETTERS
 	string getPatente()const;
+	float getTarifaBase(); //se puede poner en el virtual?
 	eEstadoVehiculo getEstado()const;
 	void setEstado(eEstadoVehiculo newEstado);
 	void setFechaUltMantenimiento(tm newUltMantenimiento);

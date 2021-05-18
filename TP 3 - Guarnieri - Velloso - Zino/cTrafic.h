@@ -34,7 +34,7 @@ public:
 #pragma endregion
 
 	virtual void AnadirAdicionales(unsigned int cant_portaequipaje, unsigned int cant_sillas);
-	virtual float CalcularTarifa();
+	virtual float CalcularTarifa(unsigned int dias);
 	virtual string PasosMantenimiento();
 
 };

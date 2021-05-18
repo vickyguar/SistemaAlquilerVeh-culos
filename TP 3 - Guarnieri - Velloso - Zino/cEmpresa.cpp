@@ -76,6 +76,13 @@ void cEmpresa::Mantenimiento(cVehiculo *Vehiculo){
 		else {
 			cout << Vehiculo->PasosMantenimiento();
 			Vehiculo->setEstado(eEstadoVehiculo::EN_MANTENIMIENTO);
+
+			//---------------------------------------------------------------------------------------
+			time_t now = time(NULL); //para obtener hora de SO
+			tm FECHA = *localtime(&now);
+			Vehiculo->setFechaUltMantenimiento(FECHA); //cambio la fecha de ultimo mantenimiento
+			//---------------------------------------------------------------------------------------
+
 		}
 	}
 	

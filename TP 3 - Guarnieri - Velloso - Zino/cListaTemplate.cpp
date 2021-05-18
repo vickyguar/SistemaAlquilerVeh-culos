@@ -98,7 +98,8 @@ void cListaTemplate<T>::AgregarXCopia(T newItem)
 			int pos = getIndex(newItem->Key);
 		}
 		catch (exception* ex) {
-			Lista[CA++] = &newItem;
+			//Lista[CA++] = &newItem;
+			Lista + newItem; //SObrecarga de +
 			delete ex;
 		}
 		throw new exception("El item ya esta en la lista");
@@ -181,4 +182,10 @@ void cListaTemplate<T>::Listar() const
 template<class T>
 T* cListaTemplate<T>::operator[](unsigned int pos) {
 	return getItem(pos);
+}
+
+template<class T>
+T* cListaTemplate<T>::operator+(T newItem)
+{
+		Lista[CA++] = newItem;
 }

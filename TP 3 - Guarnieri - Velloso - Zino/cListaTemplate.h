@@ -51,7 +51,12 @@ public:
 	}
 	*/
 
+#pragma region SOBRECARGA
 	T* operator[](unsigned int pos);
+	T* operator+(T newItem);
+#pragma endregion
+
+	
 
 
 };

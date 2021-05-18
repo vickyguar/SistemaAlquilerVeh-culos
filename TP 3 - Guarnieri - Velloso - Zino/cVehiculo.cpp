@@ -29,11 +29,11 @@ void cVehiculo::AnadirAdicionales(unsigned int cant){
 
 float cVehiculo::CalcularTarifas(){
 	
-
+	return float();
 }
 
 string cVehiculo::PasosMantenimiento(){
-
+	return string();
 }
 
 

@@ -36,5 +36,5 @@ float cTrafic::CalcularTarifa(unsigned int dia){
 
 
 string cTrafic::PasosMantenimiento(){
-
+	return string();
 }

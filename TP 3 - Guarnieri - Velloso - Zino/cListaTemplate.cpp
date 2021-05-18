@@ -1,11 +1,11 @@
 #include "cListaTemplate.h"
 
 template<class T>
-cListaTemplate<T>::cListaTemplate(unsigned int _TAM, bool _Eliminar)
+cListaTemplate<T>::cListaTemplate(unsigned int _TAM, bool _Delete)
 {
 	TAM = _TAM;
 	CA = 0;
-	Eliminar = _Eliminar;
+	Delete = _Delete;
 
 	//Creo la lista dinamica
 	Lista = new T * [TAM];
@@ -18,7 +18,7 @@ template<class T>
 cListaTemplate<T>::~cListaTemplate()
 {
 	if (Lista != NULL) {
-		if (Eliminar) {
+		if (Delete) {
 			for (int i = 0; i < CA; i++)
 				delete Lista[i];
 		}
@@ -98,8 +98,8 @@ void cListaTemplate<T>::AgregarXCopia(T newItem)
 			int pos = getIndex(newItem->Key);
 		}
 		catch (exception* ex) {
-			//Lista[CA++] = &newItem;
-			Lista + newItem; //SObrecarga de +
+			Lista[CA++] = &newItem;
+			//Lista + newItem; //SObrecarga de +
 			delete ex;
 		}
 		throw new exception("El item ya esta en la lista");
@@ -146,7 +146,7 @@ template<class T>
 T* cListaTemplate<T>::BuscarXPos(unsigned int Index)
 {
 	if (Index > CA)
-		throw new exception(("La posicion " + Index + "no existe en la lista").c_str());
+		throw new exception(("La posicion " + to_string(Index) + "no existe en la lista").c_str());
 	return Lista[Index];
 }
 
@@ -181,7 +181,7 @@ void cListaTemplate<T>::Listar() const
 
 template<class T>
 T* cListaTemplate<T>::operator[](unsigned int pos) {
-	return getItem(pos);
+	return BuscarItem(pos);
 }
 
 template<class T>

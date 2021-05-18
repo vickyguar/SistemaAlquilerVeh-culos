@@ -21,9 +21,6 @@ private:
 	cListaTemplate<cVehiculo>* ListaVehiculos;
 	cAlquileres* ListaAlquileres;
 
-
-
-
 public:
 	
 	cEmpresa();

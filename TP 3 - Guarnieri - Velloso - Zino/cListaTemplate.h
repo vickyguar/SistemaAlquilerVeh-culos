@@ -15,12 +15,12 @@ class cListaTemplate
 protected:
 	T** Lista;
 	unsigned int CA, TAM;
-	bool Eliminar;
+	bool Delete;
 	void Redimensionar();
 
 public:
 #pragma region CONSTRUCTORES Y DESTRUCTORES
-	cListaTemplate(unsigned int _TAM = NMAX, bool _Eliminar = true);
+	cListaTemplate(unsigned int _TAM = NMAX, bool _Delete = true);
 	virtual ~cListaTemplate();
 #pragma endregion
 

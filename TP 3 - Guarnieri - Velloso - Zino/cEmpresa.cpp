@@ -42,7 +42,7 @@ void cEmpresa::Adquirir(cVehiculo* newVehiculo) {
 	}
 }
 
-void cEmpresa::Alquilar(cVehiculo* Vehiculo, unsigned int CantDias, const string DNI, unsigned int CantAdicionales = 0){
+void cEmpresa::Alquilar(cVehiculo* Vehiculo, unsigned int CantDias, const string DNI, unsigned int CantAdicionales){
 	
 	time_t now = time(NULL); //para obtener hora de SO
 	tm FECHA = *localtime(&now); 
@@ -61,9 +61,9 @@ void cEmpresa::Alquilar(cVehiculo* Vehiculo, unsigned int CantDias, const string
 		if (CantAdicionales > 0)
 			Vehiculo->AnadirAdicionales(CantAdicionales);
 
-		cAlquiler* aux = new cAlquiler(CantAdicionales, FECHA, FECHA_FIN, Vehiculo->CalcularTarifa(CantDias), DNI, Vehiculo->getPatente());
+		/*cAlquiler* aux = new cAlquiler(CantAdicionales, FECHA, FECHA_FIN, CalcularTarifa(CantDias), DNI, Vehiculo->getPatente());
 		ListaAlquileres->AgregarXCopia(*aux);
-		delete aux;
+		delete aux;*/
 
 	}
 }

@@ -24,9 +24,9 @@ void cMotocicleta::AnadirAdicionales(unsigned int cant){
 	return;
 }
 
-float cMotocicleta::CalcularTarifa(unsigned int dia){
+float cMotocicleta::CalcularTarifa(unsigned int dias){
 
-	float result = getTarifaBase() + PrecioAlquilerXDia*dia;
+	float result = getTarifaBase() + PrecioAlquilerXDia*dias;
 
 	return result;
 }

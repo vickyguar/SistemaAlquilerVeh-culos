@@ -187,5 +187,5 @@ T* cListaTemplate<T>::operator[](unsigned int pos) {
 template<class T>
 T* cListaTemplate<T>::operator+(T newItem)
 {
-		Lista[CA++] = newItem;
+		Lista[CA++] = &newItem;
 }

@@ -7,7 +7,6 @@
 
 #include "cVehiculo.h"
 
-float cVehiculo::PrecioAlquilerXDia = 1000;
 
 cVehiculo::cVehiculo(eEstadoVehiculo estado, float tarifa_base, eAdicionales adicionales, eColor color, const unsigned int capacidad, const string chasis, const string patente, const string poliza, tm fecha_ult_mantenimiento):
 	CapacidadPasajeros(capacidad), Chasis(chasis), Patente(patente), Poliza(poliza)
@@ -28,9 +27,9 @@ void cVehiculo::AnadirAdicionales(unsigned int cant){
 	this->CantAdicionalesAlquilados = cant;
 }
 
-float cVehiculo::CalcularTarifa(unsigned int dias){
-	float aux = TarifaBase + PrecioAlquilerXDia*dias+CantAdicionalesAlquilados*int(Adicionales);
-	return aux;
+float cVehiculo::CalcularTarifas(){
+	
+
 }
 
 string cVehiculo::PasosMantenimiento(){
@@ -41,6 +40,11 @@ string cVehiculo::PasosMantenimiento(){
 string cVehiculo::getPatente() const
 {
 	return Patente;
+}
+
+float cVehiculo::getTarifaBase()
+{
+	return TarifaBase;
 }
 
 eEstadoVehiculo cVehiculo::getEstado() const

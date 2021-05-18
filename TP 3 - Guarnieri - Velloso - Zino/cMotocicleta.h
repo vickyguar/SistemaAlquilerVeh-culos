@@ -12,7 +12,8 @@
 
 class cMotocicleta : public cVehiculo
 {
-
+private:
+	static float PrecioAlquilerXDia;
 public:
 #pragma region CONSTRUCTORES & DESTRUCTORES
 	/**
@@ -33,7 +34,7 @@ public:
 #pragma endregion
 
 	virtual void AnadirAdicionales(unsigned int cant);
-	virtual float CalcularTarifa();
+	virtual float CalcularTarifa(unsigned int dias);
 	virtual string PasosMantenimiento();
 
 };

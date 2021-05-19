@@ -59,3 +59,9 @@ string cCamioneta::To_string() const
 
 	return output;
 }
+}
+
+float cCamioneta::getPrecioXDia() const
+{
+	return PrecioAlquilerXDia;
+}

@@ -54,3 +54,8 @@ string cAutomovil::To_string() const
 
 	return output;
 }
+
+float cAutomovil::getPrecioXDia() const
+{
+	return PrecioAlquilerXDia;
+}

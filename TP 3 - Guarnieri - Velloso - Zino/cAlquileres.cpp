@@ -30,7 +30,7 @@ float cAlquileres::CalcularGanancia(){
 
 
 void cAlquileres::ListarXVehiculo(cVehiculo*Vehiculo){
-	dynamic_cast<cVehiculo*>(Vehiculo);
+	
 	for (unsigned int i = 0; i < CA; i++)
 	{
 		if (dynamic_cast<cVehiculo*>(Vehiculo) == dynamic_cast<cVehiculo*>(Lista[i]))

@@ -69,7 +69,7 @@ void cEmpresa::Alquilar(cVehiculo* Vehiculo, unsigned int CantDias, const string
 		if (CantAdicionales > 0)
 			Vehiculo->AnadirAdicionales(CantAdicionales);
 		//-----------------------------------------------------------------------------------------
-		float MontoTotal =  CantDias * Vehiculo->CalcularTarifas();
+		float MontoTotal =  CantDias * (dynamic_cast<cVehiculo*>(Vehiculo))->getPrecioXDia();
 
 		//-----------------------------------------------------------------------------------------
 

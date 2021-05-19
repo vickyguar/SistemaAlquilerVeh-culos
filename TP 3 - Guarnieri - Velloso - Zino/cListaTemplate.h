@@ -2,6 +2,7 @@
 
 #include <iostream>
 #include <string>
+#include <ostream>
 
 #define NMAX 50
 
@@ -31,6 +32,7 @@ public:
 
 #pragma endregion
 	void Redimensionar();
+
 #pragma region BUSCAR
 	T* BuscarItem(const string Key);
 	T* BuscarXPos(unsigned int Index);
@@ -42,7 +44,8 @@ public:
 	unsigned int getTAM()const;
 #pragma endregion
 
-	void Listar()const; //Imprime en pantalla la lista -> HAY QUE HACER UN TO STRING DE LOS ELEMENTOS!
+	void Listar()const; 
+	//Imprime en pantalla la lista -> HAY QUE HACER UN TO STRING DE LOS ELEMENTOS!
 	/*Damian tiene a Listar asi: DESPUES MIRAR!
 	for (unsigned int i = 0; i < CA; i++)
 	{
@@ -52,10 +55,13 @@ public:
 
 #pragma region SOBRECARGA
 	T* operator[](unsigned int pos);
-	T* operator+(T newItem);
+	void operator+(T newItem);
+	ostream& operator<<(ostream& out, T& obj);
+
 #pragma endregion
 
 };
+
 template<class T>
 cListaTemplate<T>::cListaTemplate(unsigned int _TAM, bool _Delete)
 {
@@ -94,7 +100,7 @@ void cListaTemplate<T>::Agregar(T* newItem)
 			int pos = getIndex(newItem->getClave());
 		}
 		catch (exception* ex) {
-			Lista[CA++] = newItem;
+			Lista[CA++]+newItem;
 			delete ex;
 		}
 		throw new exception("El item ya esta en la lista");
@@ -232,7 +238,10 @@ unsigned int cListaTemplate<T>::getTAM() const
 template<class T>
 void cListaTemplate<T>::Listar() const
 {
-	//sobrecarga del cout
+	for (unsigned int i = 0; i < CA; i++)
+	{
+		cout << Lista[i];
+	}
 }
 
 template<class T>
@@ -241,9 +250,25 @@ T* cListaTemplate<T>::operator[](unsigned int pos) {
 }
 
 template<class T>
-T* cListaTemplate<T>::operator+(T newItem)
+void cListaTemplate<T>::operator+(T newItem)
 {
 	Lista[CA++] = &newItem;
 }
 
+template<class T>
+ostream& cListaTemplate<T>::operator<<(ostream& out, T& obj)
+{
+	out << objeto.To_String();
+	return out;
+}
 
+//bool operator==(string clave)
+//{
+//	if (clave == DNI)
+//		return true;
+//	if (clave == Nombre)
+//		return true;
+//	if (clave == Apellido)
+//		return true;
+//	return false;
+//}

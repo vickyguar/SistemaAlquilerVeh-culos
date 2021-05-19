@@ -19,7 +19,7 @@ class cVehiculo
 
 private:
 	 
-	float TarifaBase;
+	static float TarifaBase;
 
 protected:
 	eEstadoVehiculo Estado;//No es const por si queremos cambiarla
@@ -60,6 +60,7 @@ public:
 	eEstadoVehiculo getEstado()const;
 	void setEstado(eEstadoVehiculo newEstado);
 	void setFechaUltMantenimiento(tm newUltMantenimiento);
+	void setTarifaBase(float tarifa);
 #pragma endregion
 
 

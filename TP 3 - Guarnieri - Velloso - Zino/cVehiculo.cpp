@@ -7,7 +7,7 @@
 
 #include "cVehiculo.h"
 
-
+float cVehiculo::TarifaBase= 10000;
 cVehiculo::cVehiculo(eEstadoVehiculo estado, float tarifa_base, eAdicionales adicionales, eColor color, const unsigned int capacidad, const string chasis, const string patente, const string poliza, tm fecha_ult_mantenimiento):
 	CapacidadPasajeros(capacidad), Chasis(chasis), Patente(patente), Poliza(poliza)
 {
@@ -60,4 +60,8 @@ void cVehiculo::setEstado(eEstadoVehiculo newEstado)
 void cVehiculo::setFechaUltMantenimiento(tm newUltMantenimiento)
 {
 	UltimoMantenimiento = newUltMantenimiento;
+}
+void cVehiculo::setTarifaBase(float tarifa)
+{
+	TarifaBase = tarifa;
 }

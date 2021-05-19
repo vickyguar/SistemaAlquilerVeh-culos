@@ -8,7 +8,6 @@
 
 #pragma warning(disable : 4996)
 
-bool VerificarPasajeros(int cant);
 int main() {
 
 	//TODO: GANANCIAS Y PERDIDAS

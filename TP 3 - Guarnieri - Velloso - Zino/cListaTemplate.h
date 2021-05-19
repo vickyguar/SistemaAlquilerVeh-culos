@@ -55,8 +55,8 @@ public:
 
 #pragma region SOBRECARGA
 	T* operator[](unsigned int pos);
-	void operator+(cListaTemplate<T>& lista, T* newItem);
-	ostream& operator<<(ostream& out, T& obj);
+	friend cListaTemplate<T>& operator+(cListaTemplate<T>& lista, T* newItem);
+	friend ostream& operator<<(ostream& out, T& obj);
 
 #pragma endregion
 
@@ -71,7 +71,7 @@ cListaTemplate<T>::cListaTemplate(unsigned int _TAM, bool _Delete)
 
 	//Creo la lista dinamica
 	Lista = new T * [TAM];
-	for (int i = 0; i < TAM; i++) {
+	for (unsigned int i = 0; i < TAM; i++) {
 		Lista[i] = NULL;
 	}
 }
@@ -81,7 +81,7 @@ cListaTemplate<T>::~cListaTemplate()
 {
 	if (Lista != NULL) {
 		if (Delete) {
-			for (int i = 0; i < CA; i++)
+			for (unsigned int i = 0; i < CA; i++)
 				delete Lista[i];
 		}
 		delete[] Lista;
@@ -100,7 +100,7 @@ void cListaTemplate<T>::Agregar(T* newItem)
 			int pos = getIndex(newItem->getClave());
 		}
 		catch (exception* ex) {
-			Lista[CA++]+newItem;
+			Lista[CA++] = newItem;
 			delete ex;
 		}
 		throw new exception("El item ya esta en la lista");
@@ -157,7 +157,7 @@ void cListaTemplate<T>::AgregarXCopia(T newItem)
 			Redimensionar(); //Redimensiono la lista
 
 		try {
-			int pos = getIndex(newItem->getClave());
+			int pos = getIndex(newItem.getClave()); //TODO: Fijarse
 		}
 		catch (exception* ex) {
 			Lista[CA++] = &newItem;
@@ -169,11 +169,11 @@ void cListaTemplate<T>::AgregarXCopia(T newItem)
 }
 
 template<class T>
-void cListaTemplate<T>::Redimensionar()
+void cListaTemplate<T>::Redimensionar() //TODO: ver redimensionar!!!!
 {
 	T** aux = new T * [2 * TAM]; //La redimensionamos al doble de su tamaño
 
-	for (int i = 0; i < TAM; i++) {
+	for (unsigned int i = 0; i < TAM; i++) {
 		aux[i] = Lista[i];
 		aux[i + TAM] = NULL;
 
@@ -250,12 +250,13 @@ T* cListaTemplate<T>::operator[](unsigned int pos) {
 }
 
 template<class T>
-void operator+(cListaTemplate<T>& lista, T* newItem)
+cListaTemplate<T>& operator+(cListaTemplate<T>& lista, T* newItem)
 {
 	try { lista.Agregar(newItem); }
 	catch (exception* ex) {
 		delete ex; //significa que no existe!
 	}
+	return lista;
 }
 
 template<class T>

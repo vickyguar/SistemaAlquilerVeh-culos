@@ -42,6 +42,7 @@ enum class eTipoVehiculo
 };
 
 struct sAdicional {
+
 	eAdicionales Adicional1;
 	eAdicionales Adicional2;
 	unsigned int cant1;

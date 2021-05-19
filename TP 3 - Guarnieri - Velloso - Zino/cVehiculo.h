@@ -23,6 +23,7 @@ private:
 
 protected:
 	eEstadoVehiculo Estado;//No es const por si queremos cambiarla
+	eTipoVehiculo Tipo;
 	eAdicionales Adicionales; //tiene el precio igualado en el enum para poder hacer ++
 	eColor Color;
 	unsigned int CantAdicionalesAlquilados;
@@ -40,7 +41,7 @@ public:
 	* @param estado del vehiculo, tarifa base, adicionales, color
 	* cantidad de alquileres, capacidad de pasajeros, chasis, patente, poliza, fecha de ultimo mantenimiento
 	*/
-	cVehiculo(eEstadoVehiculo estado, float tarifa_base, eAdicionales adicionales, eColor color,
+	cVehiculo(eEstadoVehiculo estado, float tarifa_base, eTipoVehiculo tipo, eAdicionales adicionales, eColor color,
 		const unsigned int capacidad, const string chasis, const string patente, const string poliza, tm fecha_ult_mantenimiento);
 
 	/**
@@ -56,12 +57,13 @@ public:
 
 #pragma region GETTERS & SETTERS
 	string getClave()const;
-	float getTarifaBase(); //se puede poner en el virtual?
+	float getTarifaBase()const; //se puede poner en el virtual?
 	eEstadoVehiculo getEstado()const;
 	void setEstado(eEstadoVehiculo newEstado);
 	void setFechaUltMantenimiento(tm newUltMantenimiento);
+	
 #pragma endregion
-
+	string To_string() const;
 
 };
 #endif // !defined(EA_EC55E7BC_2390_417c_A6F2_559933EB7B4E__INCLUDED_)

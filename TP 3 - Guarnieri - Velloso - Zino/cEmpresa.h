@@ -27,7 +27,7 @@ public:
 	virtual ~cEmpresa();
 	void Adquirir(cVehiculo* newVehiculo, float PrecioCompra);
 	void Alquilar(cVehiculo* Vehiculo, unsigned int CantDias, const string DNI, sAdicional adicional);
-	void RegistrarDevolucion(cVehiculo* Vehiculo, const string DNI, sAdicional adicionales);
+	void RegistrarDevolucion(cVehiculo* Vehiculo, const string DNI, sAdicional adicionales_devueltos);
 	void Mantenimiento(cVehiculo* Vehiculo, float GastoMantenimiento);
 	void RetirarCirculacion(cVehiculo* Vehiculo);
 	float CalcularGanancia();

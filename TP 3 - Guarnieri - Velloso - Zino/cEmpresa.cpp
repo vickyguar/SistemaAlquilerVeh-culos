@@ -100,19 +100,27 @@ void cEmpresa::Mantenimiento(cVehiculo *Vehiculo, float PrecioMantenimiento){
 	
 }
 
-void cEmpresa::RegistrarDevolucion(cVehiculo* Vehiculo, const string DNI, sAdicional adicionales) //TODO: Verificar el tema de los adicionales
+void cEmpresa::RegistrarDevolucion(cVehiculo* Vehiculo, const string DNI, sAdicional adicionales_devueltos)
 {
 	float CobroExtra = 0;
 	time_t now = time(NULL); //para obtener hora de SO
 	tm FECHA = *localtime(&now);
 	
-	//Cantidades
-	unsigned int CANT1 = ListaAlquileres->BuscarItem(DNI)->getAdicionales().cant1;
-	unsigned int CANT2 = ListaAlquileres->BuscarItem(DNI)->getAdicionales().cant2;
-
-	CobroExtra += ((CANT1 + CANT2) - (adicionales.cant1 + adicionales.cant2)) * 3000; //se cobran 3000 por adicionales no devueltos
-	CobroExtra += (FECHA.tm_mday - ListaAlquileres->BuscarItem(DNI)->getFechaFin().tm_mday) * 5000; // y 5000 por dia de atraso
-	//TODO: PREDIDA POR FALTa de devolucion de adicionales . Ganancia-=
+	//Cantidades de no devueltos
+	unsigned int CANT1 = ListaAlquileres->BuscarItem(DNI)->getAdicionales().cant1-adicionales_devueltos.cant1;
+	unsigned int CANT2 = ListaAlquileres->BuscarItem(DNI)->getAdicionales().cant2-adicionales_devueltos.cant2;
+	
+	
+	CobroExtra += (FECHA.tm_mday - ListaAlquileres->BuscarItem(DNI)->getFechaFin().tm_mday) * 5000; // se cobran 5000 por dia de atraso
+	CobroExtra += (CANT1 + CANT2) * 3000; //y 3000 por adicionales no devueltos pero se le resta la cantidad de plata destinada a reponer el adicional faltante
+	if (CANT1 > 0)
+	{
+		Ganancia -= float(CANT1 * unsigned int(adicionales_devueltos.Adicional1));
+	}
+	if (CANT2 > 0)
+	{
+		Ganancia -= float(CANT2 * unsigned int(adicionales_devueltos.Adicional2));
+	}
 	Ganancia += CobroExtra;
 
 }

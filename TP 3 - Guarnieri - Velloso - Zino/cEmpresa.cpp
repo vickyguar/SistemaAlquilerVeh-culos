@@ -33,7 +33,7 @@ cEmpresa::~cEmpresa() {
 
 void cEmpresa::Adquirir(cVehiculo* newVehiculo) {
 	
-	int pos = -1;
+	unsigned int pos;
 	if (newVehiculo != NULL) {
 		try { pos = ListaVehiculos->getIndex(newVehiculo->getPatente()); }
 		catch (exception* ex) {

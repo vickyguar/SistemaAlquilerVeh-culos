@@ -46,3 +46,8 @@ string cCamioneta::PasosMantenimiento(){
 	return steps;
 
 }
+
+float cCamioneta::getPrecioXDia() const
+{
+	return PrecioAlquilerXDia;
+}

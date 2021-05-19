@@ -8,7 +8,7 @@
 #include "cTrafic.h"
 
 float cTrafic::PrecioAlquilerXDia=1800.0;
-cTrafic::cTrafic(eEstadoVehiculo estado, float tarifa_base, eAdicionales adicionales, eColor color, const unsigned int capacidad, const string chasis, const string patente, const string poliza, tm fecha_ult_mantenimiento):
+cTrafic::cTrafic(eEstadoVehiculo estado, float tarifa_base, eAdicionales adicionales, eColor color, const unsigned int capacidad = 10, const string chasis, const string patente, const string poliza, tm fecha_ult_mantenimiento):
 	cVehiculo::cVehiculo(estado, tarifa_base, adicionales, color, capacidad, chasis, patente, poliza, fecha_ult_mantenimiento)
 {
 }
@@ -36,5 +36,13 @@ float cTrafic::CalcularTarifa(unsigned int dia){
 
 
 string cTrafic::PasosMantenimiento(){
-	return string();
+	string steps = "PASOS MANTENIMIENTO TRAFIC: \n";
+	steps += "1. Revisión de fluidos \n";
+	steps += "2. Estado de batería\n";
+	steps += "3. Revision de frenos\n";
+	steps += "4. Neumáticos\n";
+	steps += "5. Amortiguadores\n";
+	steps += "6. Revisión de las luces\n";
+	return steps;
 }
+

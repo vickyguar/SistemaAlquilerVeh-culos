@@ -41,7 +41,7 @@ public:
 	* @param estado del vehiculo, tarifa base, adicionales, color
 	* cantidad de alquileres, capacidad de pasajeros, chasis, patente, poliza, fecha de ultimo mantenimiento
 	*/
-	cVehiculo(eEstadoVehiculo estado, float tarifa_base, eTipoVehiculo tipo, eAdicionales adicionales, eColor color,
+	cVehiculo(eEstadoVehiculo estado, float tarifa_base, eAdicionales adicionales, eColor color,
 		const unsigned int capacidad, const string chasis, const string patente, const string poliza, tm fecha_ult_mantenimiento);
 
 	/**
@@ -62,8 +62,9 @@ public:
 	void setEstado(eEstadoVehiculo newEstado);
 	void setFechaUltMantenimiento(tm newUltMantenimiento);
 	void setTarifaBase(float tarifa);
+	virtual float getPrecioXDia()const;
 #pragma endregion
-	string To_string() const;
+	virtual string To_string() const;
 
 };
 #endif // !defined(EA_EC55E7BC_2390_417c_A6F2_559933EB7B4E__INCLUDED_)

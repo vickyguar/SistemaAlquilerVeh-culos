@@ -68,10 +68,14 @@ void cEmpresa::Alquilar(cVehiculo* Vehiculo, unsigned int CantDias, const string
 
 		if (CantAdicionales > 0)
 			Vehiculo->AnadirAdicionales(CantAdicionales);
+		//-----------------------------------------------------------------------------------------
+		float MontoTotal =  CantDias * Vehiculo->CalcularTarifas();
 
-		/*cAlquiler* aux = new cAlquiler(CantAdicionales, FECHA, FECHA_FIN, CalcularTarifa(CantDias), DNI, Vehiculo->getPatente());
+		//-----------------------------------------------------------------------------------------
+
+		cAlquiler* aux = new cAlquiler(CantAdicionales, FECHA, FECHA_FIN, CalcularTarifa(CantDias), DNI, Vehiculo->getClave());
 		ListaAlquileres->AgregarXCopia(*aux);
-		delete aux;*/
+		delete aux;
 
 	}
 }

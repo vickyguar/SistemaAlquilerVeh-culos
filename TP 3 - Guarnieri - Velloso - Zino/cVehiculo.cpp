@@ -8,10 +8,9 @@
 #include "cVehiculo.h"
 
 float cVehiculo::TarifaBase= 10000;
-cVehiculo::cVehiculo(eEstadoVehiculo estado, float tarifa_base, eTipoVehiculo tipo, eAdicionales adicionales, eColor color, const unsigned int capacidad, const string chasis, const string patente, const string poliza, tm fecha_ult_mantenimiento):
+cVehiculo::cVehiculo(eEstadoVehiculo estado, float tarifa_base, eAdicionales adicionales, eColor color, const unsigned int capacidad, const string chasis, const string patente, const string poliza, tm fecha_ult_mantenimiento):
 	CapacidadPasajeros(capacidad), Chasis(chasis), Patente(patente), Poliza(poliza)
 {
-	this->Tipo = tipo;
 	this->Estado = estado;
 	this->TarifaBase = tarifa_base;
 	this->Adicionales = adicionales;
@@ -28,7 +27,7 @@ void cVehiculo::AnadirAdicionales(unsigned int cant){
 }
 
 float cVehiculo::CalcularTarifas(){
-	return float();
+	return float(); //TODO: calcular tarifas
 }
 
 string cVehiculo::PasosMantenimiento(){
@@ -65,13 +64,6 @@ string cVehiculo::To_string()const
 {
 	string output;
 	//----------------------------------------------------------------------------------------------------
-	switch (Tipo) {
-	case eTipoVehiculo::AUTOMOVIL: output += "----Automovil----" + '\n'; break;
-	case eTipoVehiculo::CAMIONETA:output += "----Camioneta----" + '\n'; break;
-	case eTipoVehiculo::TRAFIC:output += "----Trafic----" + '\n'; break;
-	case eTipoVehiculo::MOTOCICLETA:output += "----Motocicleta----" + '\n'; break;
-	}
-	//----------------------------------------------------------------------------------------------------
 	switch (Estado) {
 	case eEstadoVehiculo::ALQUILADO: output += "Estado de vehiculo: Alquilado " + '\n'; break;
 	case eEstadoVehiculo::DISPONIBLE: output += "Estado de vehiculo: Disponible " + '\n'; break;
@@ -88,17 +80,21 @@ string cVehiculo::To_string()const
 	}
 	//----------------------------------------------------------------------------------------------------
 	output += "Capacidad de pasajeros: " + CapacidadPasajeros + '\n';
-	output +=""
+	output += "Numero de chasis: " + Chasis + '\n';
+	output += "Ptente: " + Patente + '\n';
+	output += "Poliza: " + Poliza + '\n';
+	output += "Fecha del ultimo mantenimiento: " +
+		to_string(UltimoMantenimiento.tm_mday) + '/' +
+		to_string(UltimoMantenimiento.tm_mon) + '/' +
+		to_string(UltimoMantenimiento.tm_year) + '\n';
 
-	eAdicionales Adicionales;
-	unsigned int CantAdicionalesAlquilados;
-	const unsigned int CapacidadPasajeros;
-	const string Chasis;
-	const string Patente;
-	const string Poliza;
-	tm UltimoMantenimiento;
 }
 void cVehiculo::setTarifaBase(float tarifa)
 {
 	TarifaBase = tarifa;
+}
+
+float cVehiculo::getPrecioXDia() const
+{
+	return float();
 }

@@ -8,7 +8,7 @@
 #include "cAlquiler.h"
 
 //LA PALABRA CONST NO VA
-cAlquiler::cAlquiler(unsigned int _CantAdicionales, tm _FechaFin, tm _FechaInicio, float _MontoTotal, const string _DNI, const string _Patente, const string code,bool _Devuelto)
+cAlquiler::cAlquiler(unsigned int _CantAdicionales, tm _FechaFin, tm _FechaInicio, float _MontoTotal, const string _DNI, const string _Patente, const string code, bool _Devuelto)
 	:DNI(_DNI), Patente(_Patente), Code(code)
 {
 	CantAdicionales = _CantAdicionales;

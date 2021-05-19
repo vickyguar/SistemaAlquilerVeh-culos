@@ -39,6 +39,7 @@ public:
 	virtual void AnadirAdicionales(unsigned int cant);
 	virtual float CalcularTarifa(unsigned int dias);
 	virtual string PasosMantenimiento();
+	virtual string To_string() const;
 
 };
 #endif // !defined(EA_13DEC193_FD8B_4c41_B1BB_56B69270B260__INCLUDED_)

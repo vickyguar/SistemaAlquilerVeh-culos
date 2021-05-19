@@ -43,3 +43,14 @@ string cAutomovil::PasosMantenimiento(){
 
 	return steps;
 }
+
+string cAutomovil::To_string() const
+{
+	string output;
+
+	output += "Tipo de vehiculo: Auto" + '\n';
+	output += "Cantidad de sillas de seguridad alquilada: " + to_string(CantAdicionalesAlquilados) + '\n';
+	output += cVehiculo::To_string();
+
+	return output;
+}

@@ -21,9 +21,8 @@ float cAlquileres::CalcularGanancia(){
 	float Ganancia= 0;
 	for (unsigned int i = 0; i < CA; i++)
 	{
-		if (Lista[i] != NULL)
-			Ganancia += Lista[i]->getMontoTotal();
-		//PONEMOS GASTOS DE LA EMPRESA PARA RESTAR AL MONTO QUE SE GANA?
+		if (Lista[i] != NULL&&Lista[i]->getDevuelto())
+			Ganancia += Lista[i]->getMontoTotal(); //se suman todos los alquileres que ya han sido pagados
 	}
 	return Ganancia;
 }

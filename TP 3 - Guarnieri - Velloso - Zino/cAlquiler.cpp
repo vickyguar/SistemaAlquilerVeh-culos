@@ -37,6 +37,11 @@ sAdicional cAlquiler::getAdicionales() const
 	return Adicional;
 }
 
+bool cAlquiler::getDevuelto()
+{
+	return Devuelto;
+}
+
 void cAlquiler::Imprimir()
 {
 }

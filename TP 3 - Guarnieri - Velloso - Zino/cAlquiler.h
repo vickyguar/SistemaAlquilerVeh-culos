@@ -40,6 +40,7 @@ public:
 	float getMontoTotal()const;
 	tm getFechaFin()const;
 	sAdicional getAdicionales()const;
+	bool getDevuelto();
 	void setDevuelto();
 #pragma endregion
 

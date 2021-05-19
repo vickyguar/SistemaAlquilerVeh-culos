@@ -46,3 +46,7 @@ string cTrafic::PasosMantenimiento(){
 	return steps;
 }
 
+float cTrafic::getPrecioXDia() const
+{
+	return PrecioAlquilerXDia;
+}

@@ -42,3 +42,8 @@ string cMotocicleta::PasosMantenimiento(){
 
 	return steps;
 }
+
+float cMotocicleta::getPrecioXDia() const
+{
+	return PrecioAlquilerXDia;
+}

@@ -22,8 +22,8 @@ public:
 	* @param estado del vehiculo, tarifa base, adicionales, color
 	* cantidad de alquileres, capacidad de pasajeros, chasis, patente, poliza, fecha de ultimo mantenimiento
 	*/
-	cMotocicleta(eEstadoVehiculo estado, float tarifa_base, eAdicionales adicionales, eColor color,
-		const unsigned int capacidad, const string chasis, const string patente, const string poliza, tm fecha_ult_mantenimiento);
+	cMotocicleta(eEstadoVehiculo estado, float tarifa_base, sAdicional adicional, eColor color, const string chasis, const string patente, const string poliza, tm fecha_ult_mantenimiento,
+		const unsigned int capacidad = 2);
 
 	/**
 	* ~cMotocicleta

@@ -26,8 +26,8 @@ public:
 	cEmpresa(cListaTemplate<cCliente>* _Clientes = NULL, cListaTemplate<cVehiculo>* _Vehiculos = NULL, cAlquileres * _Alquileres = NULL, float _Ganancia=0);
 	virtual ~cEmpresa();
 	void Adquirir(cVehiculo* newVehiculo, float PrecioCompra);
-	void Alquilar(cVehiculo* Vehiculo, unsigned int CantDias, const string DNI, unsigned int CantAdicionales = 0);
-	void RegistrarDevolucion(cVehiculo* Vehiculo, const string DNI, unsigned int CantAdicionales = 0);
+	void Alquilar(cVehiculo* Vehiculo, unsigned int CantDias, const string DNI, sAdicional adicional);
+	void RegistrarDevolucion(cVehiculo* Vehiculo, const string DNI, sAdicional adicionales);
 	void Mantenimiento(cVehiculo* Vehiculo, float GastoMantenimiento);
 	void RetirarCirculacion(cVehiculo* Vehiculo);
 	float CalcularGanancia();

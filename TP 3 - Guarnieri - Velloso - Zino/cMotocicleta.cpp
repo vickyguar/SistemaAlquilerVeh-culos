@@ -8,7 +8,7 @@
 #include "cMotocicleta.h"
 
 float cMotocicleta::PrecioAlquilerXDia = 500;
-cMotocicleta::cMotocicleta(eEstadoVehiculo estado, float tarifa_base, eAdicionales adicionales, eColor color, const unsigned int capacidad = 2, const string chasis, const string patente, const string poliza, tm fecha_ult_mantenimiento):
+cMotocicleta::cMotocicleta(eEstadoVehiculo estado, float tarifa_base, sAdicional adicionales, eColor color, const string chasis, const string patente, const string poliza, tm fecha_ult_mantenimiento, const unsigned int capacidad):
 		cVehiculo::cVehiculo(estado, tarifa_base, adicionales, color, capacidad, chasis, patente, poliza, fecha_ult_mantenimiento)
 {
 }

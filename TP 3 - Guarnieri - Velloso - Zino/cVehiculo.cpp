@@ -8,22 +8,21 @@
 #include "cVehiculo.h"
 
 float cVehiculo::TarifaBase= 10000;
-cVehiculo::cVehiculo(eEstadoVehiculo estado, float tarifa_base, eAdicionales adicionales, eColor color, const unsigned int capacidad, const string chasis, const string patente, const string poliza, tm fecha_ult_mantenimiento):
+cVehiculo::cVehiculo(eEstadoVehiculo estado, float tarifa_base, sAdicional adicionales, eColor color, const unsigned int capacidad, const string chasis, const string patente, const string poliza, tm fecha_ult_mantenimiento):
 	CapacidadPasajeros(capacidad), Chasis(chasis), Patente(patente), Poliza(poliza)
 {
 	this->Estado = estado;
 	this->TarifaBase = tarifa_base;
 	this->Adicionales = adicionales;
 	this->Color = color;
-	this->CantAdicionalesAlquilados = 0;
 	this->UltimoMantenimiento = fecha_ult_mantenimiento;
 }
 
 cVehiculo::~cVehiculo(){
 }
 
-void cVehiculo::AnadirAdicionales(unsigned int cant){
-	this->CantAdicionalesAlquilados = cant;
+void cVehiculo::AnadirAdicionales(sAdicional adicional){
+	this->Adicionales = adicional;
 }
 
 float cVehiculo::CalcularTarifas(){
@@ -87,6 +86,8 @@ string cVehiculo::To_string()const
 		to_string(UltimoMantenimiento.tm_mday) + '/' +
 		to_string(UltimoMantenimiento.tm_mon) + '/' +
 		to_string(UltimoMantenimiento.tm_year) + '\n';
+
+	return output;
 
 }
 void cVehiculo::setTarifaBase(float tarifa)

@@ -41,5 +41,10 @@ enum class eTipoVehiculo
 	TRAFIC
 };
 
-
+struct sAdicional {
+	eAdicionales Adicional1;
+	eAdicionales Adicional2;
+	unsigned int cant1;
+	unsigned int cant2;
+};
 #endif // !defined(EA_C52A1F53_D428_43a1_BDEA_184C2FF46D19__INCLUDED_)

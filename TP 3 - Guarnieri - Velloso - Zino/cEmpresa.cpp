@@ -50,7 +50,7 @@ void cEmpresa::Adquirir(cVehiculo* newVehiculo,float PrecioCompra) {
 	Ganancia -= PrecioCompra;
 }
 
-void cEmpresa::Alquilar(cVehiculo* Vehiculo, unsigned int CantDias, const string DNI, unsigned int CantAdicionales){
+void cEmpresa::Alquilar(cVehiculo* Vehiculo, unsigned int CantDias, const string DNI, sAdicional Adicional){
 	
 	time_t now = time(NULL); //para obtener hora de SO
 	tm FECHA = *localtime(&now); 
@@ -66,14 +66,13 @@ void cEmpresa::Alquilar(cVehiculo* Vehiculo, unsigned int CantDias, const string
 			Vehiculo->setEstado(eEstadoVehiculo::ALQUILADO);
 		}
 
-		if (CantAdicionales > 0)
-			Vehiculo->AnadirAdicionales(CantAdicionales);
+		if (Adicional.cant1 + Adicional.cant2 > 0)
+			Vehiculo->AnadirAdicionales(Adicional);
 		//-----------------------------------------------------------------------------------------
 		float MontoTotal =  CantDias * (dynamic_cast<cVehiculo*>(Vehiculo))->getPrecioXDia();
-
 		//-----------------------------------------------------------------------------------------
 
-		cAlquiler* aux = new cAlquiler(CantAdicionales, FECHA, FECHA_FIN, CalcularTarifa(CantDias), DNI, Vehiculo->getClave());
+		cAlquiler* aux = new cAlquiler(Adicional, FECHA, FECHA_FIN, MontoTotal, DNI, Vehiculo->getClave(), to_string(ListaAlquileres->getCA() + 1)); //El codigo es la cantidad "nueva" de alquileres resgistrados
 		ListaAlquileres->AgregarXCopia(*aux);
 		delete aux;
 
@@ -101,13 +100,17 @@ void cEmpresa::Mantenimiento(cVehiculo *Vehiculo, float PrecioMantenimiento){
 	
 }
 
-void cEmpresa::RegistrarDevolucion(cVehiculo* Vehiculo, const string DNI, unsigned int CantAdicionales)
+void cEmpresa::RegistrarDevolucion(cVehiculo* Vehiculo, const string DNI, sAdicional adicionales) //TODO: Verificar el tema de los adicionales
 {
 	float CobroExtra = 0;
 	time_t now = time(NULL); //para obtener hora de SO
 	tm FECHA = *localtime(&now);
 	
-	CobroExtra += (ListaAlquileres->BuscarItem(DNI)->getAdicionales() - CantAdicionales) * 3000; //se cobran 3000 por adicionales no devueltos
+	//Cantidades
+	unsigned int CANT1 = ListaAlquileres->BuscarItem(DNI)->getAdicionales().cant1;
+	unsigned int CANT2 = ListaAlquileres->BuscarItem(DNI)->getAdicionales().cant2;
+
+	CobroExtra += ((CANT1 + CANT2) - (adicionales.cant1 + adicionales.cant2)) * 3000; //se cobran 3000 por adicionales no devueltos
 	CobroExtra += (FECHA.tm_mday - ListaAlquileres->BuscarItem(DNI)->getFechaFin().tm_mday) * 5000; // y 5000 por dia de atraso
 	//TODO: PREDIDA POR FALTa de devolucion de adicionales . Ganancia-=
 	Ganancia += CobroExtra;

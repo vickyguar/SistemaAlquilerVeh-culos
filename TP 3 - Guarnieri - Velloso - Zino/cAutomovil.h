@@ -10,11 +10,6 @@
 
 #include "cVehiculo.h"
 
-typedef struct adicional {
-	eAdicionales adicional;
-	unsigned int cant;
-} sAdicional;
-
 class cAutomovil : public cVehiculo
 {
 private:
@@ -28,8 +23,7 @@ public:
 	* @param estado del vehiculo, tarifa base, adicionales, color
 	* cantidad de alquileres, capacidad de pasajeros, chasis, patente, poliza, fecha de ultimo mantenimiento
 	*/
-	cAutomovil(eEstadoVehiculo estado, float tarifa_base, eAdicionales adicionales, eColor color,
-		const unsigned int capacidad, const string chasis, const string patente, const string poliza, tm fecha_ult_mantenimiento);
+	cAutomovil(eEstadoVehiculo estado, float tarifa_base, sAdicional adicionales, eColor color, const string chasis, const string patente, const string poliza, tm fecha_ult_mantenimiento, const unsigned int capacidad);
 
 	/**
 	* ~cAutomovil 

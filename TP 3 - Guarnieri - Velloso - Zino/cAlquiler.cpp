@@ -8,10 +8,10 @@
 #include "cAlquiler.h"
 
 //LA PALABRA CONST NO VA
-cAlquiler::cAlquiler(unsigned int _CantAdicionales, tm _FechaFin, tm _FechaInicio, float _MontoTotal, const string _DNI, const string _Patente, const string code, bool _Devuelto)
+cAlquiler::cAlquiler(sAdicional _Adicional, tm _FechaFin, tm _FechaInicio, float _MontoTotal, const string _DNI, const string _Patente, const string code, bool _Devuelto)
 	:DNI(_DNI), Patente(_Patente), Code(code)
 {
-	CantAdicionales = _CantAdicionales;
+	Adicional = _Adicional;
 	FechaFin = _FechaFin;
 	FechaInicio = _FechaInicio;
 	MontoTotal = _MontoTotal;
@@ -22,19 +22,19 @@ cAlquiler::~cAlquiler(){
 
 }
 
-float cAlquiler::getMontoTotal()
+float cAlquiler::getMontoTotal() const
 {
 	return MontoTotal;
 }
 
-tm cAlquiler::getFechaFin()
+tm cAlquiler::getFechaFin() const
 {
 	return FechaFin;
 }
 
-unsigned int cAlquiler::getAdicionales()
+sAdicional cAlquiler::getAdicionales() const
 {
-	return CantAdicionales;
+	return Adicional;
 }
 
 void cAlquiler::Imprimir()

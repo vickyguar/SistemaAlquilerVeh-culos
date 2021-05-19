@@ -55,7 +55,7 @@ public:
 
 #pragma region SOBRECARGA
 	T* operator[](unsigned int pos);
-	void operator+(T newItem);
+	void operator+(cListaTemplate<T>& lista, T* newItem);
 	ostream& operator<<(ostream& out, T& obj);
 
 #pragma endregion
@@ -250,15 +250,18 @@ T* cListaTemplate<T>::operator[](unsigned int pos) {
 }
 
 template<class T>
-void cListaTemplate<T>::operator+(T newItem)
+void operator+(cListaTemplate<T>& lista, T* newItem)
 {
-	Lista[CA++] = &newItem;
+	try { lista.Agregar(newItem); }
+	catch (exception* ex) {
+		delete ex; //significa que no existe!
+	}
 }
 
 template<class T>
-ostream& cListaTemplate<T>::operator<<(ostream& out, T& obj)
+ostream& operator<<(ostream& out, T& obj)
 {
-	out << objeto.To_String();
+	out << obj.To_String();
 	return out;
 }
 

@@ -8,7 +8,7 @@
 #include "cAutomovil.h"
 
 float cAutomovil::PrecioAlquilerXDia = 20000;
-cAutomovil::cAutomovil(eEstadoVehiculo estado, float tarifa_base, eAdicionales adicionales, eColor color, const unsigned int capacidad = 4, const string chasis, const string patente, const string poliza, tm fecha_ult_mantenimiento):
+cAutomovil::cAutomovil(eEstadoVehiculo estado, float tarifa_base, sAdicional adicionales, eColor color, const string chasis, const string patente, const string poliza, tm fecha_ult_mantenimiento, const unsigned int capacidad):
 	cVehiculo::cVehiculo(estado, tarifa_base, adicionales,color, capacidad, chasis, patente,poliza, fecha_ult_mantenimiento)
 {
 }
@@ -49,7 +49,7 @@ string cAutomovil::To_string() const
 	string output;
 
 	output += "Tipo de vehiculo: Auto" + '\n';
-	output += "Cantidad de sillas de seguridad alquilada: " + to_string(CantAdicionalesAlquilados) + '\n';
+	output += "Cantidad de sillas de seguridad alquilada: " + to_string(Adicionales.cant1) + '\n';
 	output += cVehiculo::To_string();
 
 	return output;

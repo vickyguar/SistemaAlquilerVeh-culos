@@ -8,7 +8,7 @@
 #include "cCamioneta.h"
 
 float cCamioneta::PrecioAlquilerXDia=1000.0;
-cCamioneta::cCamioneta(eEstadoVehiculo estado, float tarifa_base, eAdicionales adicionales, eColor color, const unsigned int capacidad = 7, const string chasis, const string patente, const string poliza, tm fecha_ult_mantenimiento):
+cCamioneta::cCamioneta(eEstadoVehiculo estado, float tarifa_base, sAdicional adicionales, eColor color, const string chasis, const string patente, const string poliza, tm fecha_ult_mantenimiento, const unsigned int capacidad):
 	cVehiculo::cVehiculo(estado, tarifa_base, adicionales, color, capacidad, chasis, patente, poliza, fecha_ult_mantenimiento)
 {
 }
@@ -54,11 +54,10 @@ string cCamioneta::To_string() const
 	output += "Tipo de vehiculo: Camioneta" + '\n';
 	//Las camionetas pueden alquilar sillas para niños y/o portaequipahe adicinal
 
-	output += "Cantidad de sillas de seguridad alquilada: " + to_string(CantAdicionalesAlquilados) + '\n';
+	output += "Cantidad de sillas de seguridad alquilada: " + to_string(Adicionales.cant1) + '\n';
 	output += cVehiculo::To_string();
 
 	return output;
-}
 }
 
 float cCamioneta::getPrecioXDia() const

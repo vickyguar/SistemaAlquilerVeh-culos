@@ -10,12 +10,13 @@
 
 #include <ctime>
 #include <string>
+#include "Headers.h"
 using namespace std;
 
 class cAlquiler
 {
 private:
-	unsigned int CantAdicionales;
+	sAdicional Adicional;
 	tm FechaFin;
 	tm FechaInicio;
 	float MontoTotal;
@@ -26,17 +27,20 @@ private:
 
 public:
 #pragma region CONSTRUCTORES Y DESTRUCTORES
-	cAlquiler(unsigned int _CantidadAdicionales, tm _FechaFin, tm _FechaInicio, float _MontoTotal, const string _DNI, const string _Patente, const string code, bool _Devuelto=false);
+	cAlquiler(sAdicional _Adicional, tm _FechaFin, tm _FechaInicio, float _MontoTotal, const string _DNI, const string _Patente, const string code, bool _Devuelto=false);
 	virtual ~cAlquiler();
 	
+#pragma endregion
+
 	void Imprimir();
 
+
+#pragma region GETTERS Y SETTERS
 	string getClave() const;
-	float getMontoTotal();
-	tm getFechaFin();
-	unsigned int getAdicionales();
+	float getMontoTotal()const;
+	tm getFechaFin()const;
+	sAdicional getAdicionales()const;
 	void setDevuelto();
-	
 #pragma endregion
 
 };

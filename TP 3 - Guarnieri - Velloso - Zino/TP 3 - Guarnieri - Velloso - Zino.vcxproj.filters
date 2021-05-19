@@ -71,7 +71,7 @@
     <ClInclude Include="cVehiculo.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="enums.h">
+    <ClInclude Include="Headers.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="cCamioneta.h">

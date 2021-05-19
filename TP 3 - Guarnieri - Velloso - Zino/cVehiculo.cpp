@@ -8,7 +8,7 @@
 #include "cVehiculo.h"
 
 float cVehiculo::TarifaBase= 10000;
-cVehiculo::cVehiculo(eEstadoVehiculo estado, float tarifa_base, eAdicionales adicionales, eColor color, const unsigned int capacidad, const string chasis, const string patente, const string poliza, tm fecha_ult_mantenimiento):
+cVehiculo::cVehiculo(eEstadoVehiculo estado, float tarifa_base, eTipoVehiculo tipo, eAdicionales adicionales, eColor color, const unsigned int capacidad, const string chasis, const string patente, const string poliza, tm fecha_ult_mantenimiento):
 	CapacidadPasajeros(capacidad), Chasis(chasis), Patente(patente), Poliza(poliza)
 {
 	this->Tipo = tipo;

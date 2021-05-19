@@ -12,11 +12,14 @@
 #pragma warning(disable : 4996)
 
 
-cEmpresa::cEmpresa()
+cEmpresa::cEmpresa(cListaTemplate<cCliente>* _Clientes, cListaTemplate<cVehiculo>* _Vehiculos, cAlquileres* _Alquileres)
 {
-	ListaAlquileres = new cAlquileres();
-	ListaClientes = new cListaTemplate<cCliente>();
-	ListaVehiculos = new cListaTemplate<cVehiculo>();
+	ListaAlquileres = _Alquileres;
+
+	ListaClientes = _Clientes;
+
+	ListaVehiculos = _Vehiculos;
+
 }
 
 cEmpresa::~cEmpresa() {

@@ -23,7 +23,7 @@ private:
 
 public:
 	
-	cEmpresa();
+	cEmpresa(cListaTemplate<cCliente>* _Clientes = NULL, cListaTemplate<cVehiculo>* _Vehiculos = NULL, cAlquileres * _Alquileres = NULL);
 	virtual ~cEmpresa();
 	void Adquirir(cVehiculo* newVehiculo);
 	void Alquilar(cVehiculo* Vehiculo, unsigned int CantDias, const string DNI, unsigned int CantAdicionales = 0);

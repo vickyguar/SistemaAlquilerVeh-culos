@@ -21,13 +21,15 @@ private:
 	float MontoTotal;
 	const string DNI;
 	const string Patente;
+	const string Code;
 
 public:
 #pragma region CONSTRUCTORES Y DESTRUCTORES
-	cAlquiler(unsigned int _CantidadAdicionales, tm _FechaFin, tm _FechaInicio, float _MontoTotal, const string _DNI, const string _Patente);
+	cAlquiler(unsigned int _CantidadAdicionales, tm _FechaFin, tm _FechaInicio, float _MontoTotal, const string _DNI, const string _Patente, const string code);
 	virtual ~cAlquiler();
 	float getMontoTotal();
 	void Imprimir();
+	string getClave() const;
 #pragma endregion
 
 };

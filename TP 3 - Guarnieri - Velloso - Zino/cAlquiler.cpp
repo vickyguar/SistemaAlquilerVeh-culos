@@ -7,9 +7,9 @@
 
 #include "cAlquiler.h"
 
-
-cAlquiler::cAlquiler(unsigned int _CantAdicionales, tm _FechaFin, tm _FechaInicio, float _MontoTotal, const string _DNI, const string _Patente)
-	:DNI(_DNI), Patente(_Patente)
+//LA PALABRA CONST NO VA
+cAlquiler::cAlquiler(unsigned int _CantAdicionales, tm _FechaFin, tm _FechaInicio, float _MontoTotal, const string _DNI, const string _Patente, const string code)
+	:DNI(_DNI), Patente(_Patente), Code(code)
 {
 	CantAdicionales = _CantAdicionales;
 	FechaFin = _FechaFin;
@@ -28,5 +28,10 @@ float cAlquiler::getMontoTotal()
 
 void cAlquiler::Imprimir()
 {
+}
+
+string cAlquiler::getClave() const
+{
+	return Code;
 }
 

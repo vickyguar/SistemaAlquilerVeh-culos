@@ -33,6 +33,7 @@ public:
 	* destructor de la clase cliente
 	*/
 	virtual ~cCliente();
+	string getClave()const;
 
 };
 #endif // !defined(EA_38B6FEF6_D888_4b51_B635_DC289A931700__INCLUDED_)

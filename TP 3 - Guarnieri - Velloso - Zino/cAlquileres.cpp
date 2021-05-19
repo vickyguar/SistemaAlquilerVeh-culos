@@ -8,17 +8,13 @@
 #include "cAlquileres.h"
 
 
-cAlquileres::cAlquileres(unsigned int _TAM, bool _Delete):cListaTemplate(_TAM,_Delete){
+cAlquileres::cAlquileres(unsigned int _TAM, bool _Delete):cListaTemplate<class cAlquiler>(_TAM,_Delete){
 
 }
-
-
 
 cAlquileres::~cAlquileres(){
 
 }
-
-
 
 float cAlquileres::CalcularGananciaTotal(){
 	float GananciaTotal = 0;

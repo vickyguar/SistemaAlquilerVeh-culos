@@ -55,7 +55,7 @@ public:
 	virtual string PasosMantenimiento();
 
 #pragma region GETTERS & SETTERS
-	string getPatente()const;
+	string getClave()const;
 	float getTarifaBase(); //se puede poner en el virtual?
 	eEstadoVehiculo getEstado()const;
 	void setEstado(eEstadoVehiculo newEstado);

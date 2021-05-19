@@ -16,3 +16,8 @@ cCliente::cCliente(string contacto, string nombre, string dni, unsigned int edad
 
 cCliente::~cCliente(){
 }
+
+string cCliente::getClave() const
+{
+	return DNI;
+}

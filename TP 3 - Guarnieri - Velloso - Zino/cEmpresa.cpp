@@ -35,13 +35,13 @@ void cEmpresa::Adquirir(cVehiculo* newVehiculo) {
 	
 	unsigned int pos;
 	if (newVehiculo != NULL) {
-		try { pos = ListaVehiculos->getIndex(newVehiculo->getPatente()); }
+		try { pos = ListaVehiculos->getIndex(newVehiculo->getClave()); }
 		catch (exception* ex) {
 			delete ex; //si entra al catch, significa que no existe
 			newVehiculo->setEstado(eEstadoVehiculo::DISPONIBLE);
 			try{ ListaVehiculos->Agregar(newVehiculo); }
 			catch (exception* ex) {
-				ex = new exception(("Error en adquirir: el auto con patente" + newVehiculo->getPatente() + " ya existe en la empresa").c_str());
+				ex = new exception(("Error en adquirir: el auto con patente" + newVehiculo->getClave() + " ya existe en la empresa").c_str());
 				throw ex;
 			}
 		}
@@ -57,7 +57,7 @@ void cEmpresa::Alquilar(cVehiculo* Vehiculo, unsigned int CantDias, const string
 	
 	if (Vehiculo != NULL) {
 		if (Vehiculo->getEstado() != eEstadoVehiculo::DISPONIBLE) //Si no esta disponible, no lo puedo poner en mantenimiento
-			throw new exception(("El auto con patente " + Vehiculo->getPatente() +
+			throw new exception(("El auto con patente " + Vehiculo->getClave() +
 				"no esta disponible y por lo tanto puede ser alquilado").c_str());
 		else {
 			
@@ -77,7 +77,7 @@ void cEmpresa::Alquilar(cVehiculo* Vehiculo, unsigned int CantDias, const string
 void cEmpresa::Mantenimiento(cVehiculo *Vehiculo){
 	if (Vehiculo != NULL) {
 		if (Vehiculo->getEstado() != eEstadoVehiculo::DISPONIBLE) //Si no esta disponible, no lo puedo poner en mantenimiento
-			throw new exception(("El auto con patente " + Vehiculo->getPatente() + 
+			throw new exception(("El auto con patente " + Vehiculo->getClave() + 
 				"no esta disponible y por lo tanto puede someterse a mantenimiento").c_str());
 		else {
 			cout << Vehiculo->PasosMantenimiento();
@@ -97,7 +97,7 @@ void cEmpresa::Mantenimiento(cVehiculo *Vehiculo){
 void cEmpresa::RetirarCirculacion(cVehiculo* Vehiculo){
 	unsigned int pos = -1;
 	if (Vehiculo != NULL) {
-		try { pos = ListaVehiculos->getIndex(Vehiculo->getPatente()); }
+		try { pos = ListaVehiculos->getIndex(Vehiculo->getClave()); }
 		catch (exception* ex) {
 			string error = ex->what();
 			delete ex;

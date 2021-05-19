@@ -37,7 +37,7 @@ string cVehiculo::PasosMantenimiento(){
 }
 
 
-string cVehiculo::getPatente() const
+string cVehiculo::getClave() const
 {
 	return Patente;
 }

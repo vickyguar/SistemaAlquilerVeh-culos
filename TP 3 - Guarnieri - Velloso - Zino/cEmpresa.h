@@ -17,8 +17,8 @@ class cEmpresa
 {
 private:
 
-	cListaTemplate<cCliente>* ListaClientes;
-	cListaTemplate<cVehiculo>* ListaVehiculos;
+	cListaTemplate<class cCliente>* ListaClientes;
+	cListaTemplate<class cVehiculo>* ListaVehiculos;
 	cAlquileres* ListaAlquileres;
 
 public:

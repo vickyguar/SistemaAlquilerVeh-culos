@@ -141,6 +141,11 @@ void cEmpresa::RetirarCirculacion(cVehiculo* Vehiculo){
 	}
 }
 
+void cEmpresa::ListarxVehiculo(cVehiculo*Vehiculo)
+{
+	ListaAlquileres->ListarXVehiculo(Vehiculo);
+}
+
 float cEmpresa::CalcularGanancia()
 {
 	Ganancia+=ListaAlquileres->CalcularGanancia();

@@ -16,7 +16,6 @@ protected:
 	T** Lista;
 	unsigned int CA, TAM;
 	bool Delete;
-	void Redimensionar();
 
 public:
 #pragma region CONSTRUCTORES Y DESTRUCTORES
@@ -31,7 +30,7 @@ public:
 	void AgregarXCopia(T newItem); //Agrego por copia
 
 #pragma endregion
-
+	void Redimensionar();
 #pragma region BUSCAR
 	T* BuscarItem(const string Key);
 	T* BuscarXPos(unsigned int Index);

@@ -33,4 +33,13 @@ enum class eAdicionales
 	ASIENTOS_REBATIBLES = 400
 };
 
+enum class eTipoVehiculo
+{
+	MOTOCICLETA = 1,
+	AUTOMOVIL,
+	CAMIONETA,
+	TRAFIC
+};
+
+
 #endif // !defined(EA_C52A1F53_D428_43a1_BDEA_184C2FF46D19__INCLUDED_)

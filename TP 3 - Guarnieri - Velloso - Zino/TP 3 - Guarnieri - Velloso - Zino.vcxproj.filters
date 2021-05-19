@@ -39,9 +39,6 @@
     <ClCompile Include="cVehiculo.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="cListaTemplate.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="cCamioneta.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>

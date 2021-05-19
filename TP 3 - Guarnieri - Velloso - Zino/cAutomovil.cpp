@@ -8,7 +8,7 @@
 #include "cAutomovil.h"
 
 float cAutomovil::PrecioAlquilerXDia = 20000;
-cAutomovil::cAutomovil(eEstadoVehiculo estado, float tarifa_base, eAdicionales adicionales, eColor color, unsigned int cant_alq, const unsigned int capacidad, const string chasis, const string patente, const string poliza, tm fecha_ult_mantenimiento):
+cAutomovil::cAutomovil(eEstadoVehiculo estado, float tarifa_base, eAdicionales adicionales, eColor color, const unsigned int capacidad, const string chasis, const string patente, const string poliza, tm fecha_ult_mantenimiento):
 	cVehiculo::cVehiculo(estado, tarifa_base, adicionales,color, capacidad, chasis, patente,poliza, fecha_ult_mantenimiento)
 {
 }

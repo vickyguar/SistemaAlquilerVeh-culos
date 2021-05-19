@@ -7,8 +7,8 @@
 
 #include "cVehiculo.h"
 
-
-cVehiculo::cVehiculo(eEstadoVehiculo estado, float tarifa_base, eTipoVehiculo tipo, eAdicionales adicionales, eColor color, const unsigned int capacidad, const string chasis, const string patente, const string poliza, tm fecha_ult_mantenimiento):
+float cVehiculo::TarifaBase= 10000;
+cVehiculo::cVehiculo(eEstadoVehiculo estado, float tarifa_base, eAdicionales adicionales, eColor color, const unsigned int capacidad, const string chasis, const string patente, const string poliza, tm fecha_ult_mantenimiento):
 	CapacidadPasajeros(capacidad), Chasis(chasis), Patente(patente), Poliza(poliza)
 {
 	this->Tipo = tipo;
@@ -97,4 +97,8 @@ string cVehiculo::To_string()const
 	const string Patente;
 	const string Poliza;
 	tm UltimoMantenimiento;
+}
+void cVehiculo::setTarifaBase(float tarifa)
+{
+	TarifaBase = tarifa;
 }

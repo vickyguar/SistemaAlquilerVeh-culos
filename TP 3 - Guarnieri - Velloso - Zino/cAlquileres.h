@@ -17,8 +17,9 @@ class cAlquileres:public cListaTemplate<cAlquiler>
 public:
 	cAlquileres(unsigned int _TAM = NMAX, bool _Delete = true);
 	~cAlquileres();
-
-	float CalcularGananciaTotal();
+	
+	
+	float CalcularGanancia();
 	void ListarXVehiculo(cVehiculo*Vehiculo);
 
 };

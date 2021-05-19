@@ -12,7 +12,7 @@
 #pragma warning(disable : 4996)
 
 
-cEmpresa::cEmpresa(cListaTemplate<cCliente>* _Clientes, cListaTemplate<cVehiculo>* _Vehiculos, cAlquileres* _Alquileres)
+cEmpresa::cEmpresa(cListaTemplate<cCliente>* _Clientes, cListaTemplate<cVehiculo>* _Vehiculos, cAlquileres* _Alquileres,float _Ganancia)
 {
 	ListaAlquileres = _Alquileres;
 
@@ -20,6 +20,7 @@ cEmpresa::cEmpresa(cListaTemplate<cCliente>* _Clientes, cListaTemplate<cVehiculo
 
 	ListaVehiculos = _Vehiculos;
 
+	Ganancia = _Ganancia;
 }
 
 cEmpresa::~cEmpresa() {
@@ -31,7 +32,7 @@ cEmpresa::~cEmpresa() {
 		delete ListaVehiculos;
 }
 
-void cEmpresa::Adquirir(cVehiculo* newVehiculo) {
+void cEmpresa::Adquirir(cVehiculo* newVehiculo,float PrecioCompra) {
 	
 	unsigned int pos;
 	if (newVehiculo != NULL) {
@@ -46,6 +47,7 @@ void cEmpresa::Adquirir(cVehiculo* newVehiculo) {
 			}
 		}
 	}
+	Ganancia -= PrecioCompra;
 }
 
 void cEmpresa::Alquilar(cVehiculo* Vehiculo, unsigned int CantDias, const string DNI, unsigned int CantAdicionales){
@@ -74,7 +76,7 @@ void cEmpresa::Alquilar(cVehiculo* Vehiculo, unsigned int CantDias, const string
 	}
 }
 
-void cEmpresa::Mantenimiento(cVehiculo *Vehiculo){
+void cEmpresa::Mantenimiento(cVehiculo *Vehiculo, float PrecioMantenimiento){
 	if (Vehiculo != NULL) {
 		if (Vehiculo->getEstado() != eEstadoVehiculo::DISPONIBLE) //Si no esta disponible, no lo puedo poner en mantenimiento
 			throw new exception(("El auto con patente " + Vehiculo->getClave() + 
@@ -90,8 +92,22 @@ void cEmpresa::Mantenimiento(cVehiculo *Vehiculo){
 			//---------------------------------------------------------------------------------------
 
 		}
+		Ganancia -= PrecioMantenimiento;
 	}
 	
+}
+
+void cEmpresa::RegistrarDevolucion(cVehiculo* Vehiculo, const string DNI, unsigned int CantAdicionales)
+{
+	float CobroExtra = 0;
+	time_t now = time(NULL); //para obtener hora de SO
+	tm FECHA = *localtime(&now);
+	
+	CobroExtra += (ListaAlquileres->BuscarItem(DNI)->getAdicionales() - CantAdicionales) * 3000; //se cobran 3000 por adicionales no devueltos
+	CobroExtra += (FECHA.tm_mday - ListaAlquileres->BuscarItem(DNI)->getFechaFin().tm_mday) * 5000; // y 5000 por dia de atraso
+	//TODO: PREDIDA POR FALTa de devolucion de adicionales . Ganancia-=
+	Ganancia += CobroExtra;
+
 }
 
 void cEmpresa::RetirarCirculacion(cVehiculo* Vehiculo){
@@ -104,7 +120,15 @@ void cEmpresa::RetirarCirculacion(cVehiculo* Vehiculo){
 			ex = new exception(("No se puede quitar de circulacion al vehiculo " + error).c_str());
 			throw ex;
 		}
-		Vehiculo->setEstado(eEstadoVehiculo::FUERA_CIRCULACION); //hay que sacarlo de la lista?
+		Vehiculo->setEstado(eEstadoVehiculo::FUERA_CIRCULACION); 
+		//TODO: hay que sacarlo de la lista?
 		//ListaVehiculos->Quitar(Vehiculo->getPatente());
 	}
+}
+
+float cEmpresa::CalcularGanancia()
+{
+	Ganancia+=ListaAlquileres->CalcularGanancia();
+
+	return Ganancia;
 }

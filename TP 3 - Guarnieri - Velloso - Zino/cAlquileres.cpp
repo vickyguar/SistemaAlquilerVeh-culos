@@ -16,15 +16,16 @@ cAlquileres::~cAlquileres(){
 
 }
 
-float cAlquileres::CalcularGananciaTotal(){
-	float GananciaTotal = 0;
+
+float cAlquileres::CalcularGanancia(){
+	float Ganancia= 0;
 	for (unsigned int i = 0; i < CA; i++)
 	{
 		if (Lista[i] != NULL)
-			GananciaTotal += Lista[i]->getMontoTotal();
+			Ganancia += Lista[i]->getMontoTotal();
 		//PONEMOS GASTOS DE LA EMPRESA PARA RESTAR AL MONTO QUE SE GANA?
 	}
-	return GananciaTotal;
+	return Ganancia;
 }
 
 

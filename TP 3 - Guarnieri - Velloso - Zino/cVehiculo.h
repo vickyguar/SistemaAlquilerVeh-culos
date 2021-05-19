@@ -31,7 +31,7 @@ private:
 protected:
 	eEstadoVehiculo Estado;//No es const por si queremos cambiarla
 	sAdicional Adicionales; //tiene el precio igualado en el enum para poder hacer ++
-	eColor Color; 
+	eColor Color; //
 	const unsigned int CapacidadPasajeros;
 	const string Chasis;
 	const string Patente;

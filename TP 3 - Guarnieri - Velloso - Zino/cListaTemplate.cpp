@@ -153,7 +153,7 @@ T* cListaTemplate<T>::BuscarXPos(unsigned int Index)
 template<class T>
 unsigned int cListaTemplate<T>::getIndex(const string Key) const
 {
-	for (int i = 0; i < CA; i++) {
+	for (unsigned int i = 0; i < CA; i++) {
 		if (Lista[i]->Key == Key)
 			return i;
 	}

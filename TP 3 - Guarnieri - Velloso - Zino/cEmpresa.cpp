@@ -33,15 +33,18 @@ cEmpresa::~cEmpresa() {
 
 void cEmpresa::Adquirir(cVehiculo* newVehiculo) {
 	
-	unsigned int pos = -1;
+	int pos = -1;
 	if (newVehiculo != NULL) {
 		try { pos = ListaVehiculos->getIndex(newVehiculo->getPatente()); }
 		catch (exception* ex) {
 			delete ex; //si entra al catch, significa que no existe
-			ListaVehiculos->Agregar(newVehiculo);
 			newVehiculo->setEstado(eEstadoVehiculo::DISPONIBLE);
+			try{ ListaVehiculos->Agregar(newVehiculo); }
+			catch (exception* ex) {
+				ex = new exception(("Error en adquirir: el auto con patente" + newVehiculo->getPatente() + " ya existe en la empresa").c_str());
+				throw ex;
+			}
 		}
-		throw new exception(("El auto con patente" + newVehiculo->getPatente() + " ya existe en la empresa").c_str());
 	}
 }
 

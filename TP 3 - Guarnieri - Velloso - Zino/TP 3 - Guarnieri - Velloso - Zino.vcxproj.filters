@@ -45,6 +45,9 @@
     <ClCompile Include="cCamioneta.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Programa.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="cAlquiler.h">

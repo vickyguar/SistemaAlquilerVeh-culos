@@ -149,6 +149,7 @@
     <ClCompile Include="cTrafic.cpp" />
     <ClCompile Include="cVehiculo.cpp" />
     <ClCompile Include="cListaTemplate.cpp" />
+    <ClCompile Include="Programa.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="cAlquiler.h" />

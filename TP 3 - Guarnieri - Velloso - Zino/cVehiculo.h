@@ -18,10 +18,11 @@ class cVehiculo
 {
 
 private:
-	eEstadoVehiculo Estado; //No es const por si queremos cambiarla
+	 
 	float TarifaBase;
 
 protected:
+	eEstadoVehiculo Estado;//No es const por si queremos cambiarla
 	eAdicionales Adicionales; //tiene el precio igualado en el enum para poder hacer ++
 	eColor Color;
 	unsigned int CantAdicionalesAlquilados;

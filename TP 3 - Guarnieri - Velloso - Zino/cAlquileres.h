@@ -15,7 +15,7 @@ class cAlquileres:public cListaTemplate<cAlquiler>
 {
 
 public:
-	cAlquileres(unsigned int _TAM = NMAX, bool _Eliminar = true);
+	cAlquileres(unsigned int _TAM = NMAX, bool _Delete = true);
 	virtual ~cAlquileres();
 
 	float CalcularGananciaTotal();

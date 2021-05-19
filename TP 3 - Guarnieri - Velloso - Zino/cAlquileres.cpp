@@ -8,7 +8,7 @@
 #include "cAlquileres.h"
 
 
-cAlquileres::cAlquileres(unsigned int _TAM, bool _Eliminar):cListaTemplate(_TAM,_Eliminar){
+cAlquileres::cAlquileres(unsigned int _TAM, bool _Delete):cListaTemplate(_TAM,_Delete){
 
 }
 
@@ -22,7 +22,7 @@ cAlquileres::~cAlquileres(){
 
 float cAlquileres::CalcularGananciaTotal(){
 	float GananciaTotal = 0;
-	for (int i = 0; i < CA; i++)
+	for (unsigned int i = 0; i < CA; i++)
 	{
 		if (Lista[i] != NULL)
 			GananciaTotal += Lista[i]->getMontoTotal();
@@ -34,7 +34,7 @@ float cAlquileres::CalcularGananciaTotal(){
 
 void cAlquileres::ListarXVehiculo(cVehiculo*Vehiculo){
 	dynamic_cast<cVehiculo*>(Vehiculo);
-	for (int i = 0; i < CA; i++)
+	for (unsigned int i = 0; i < CA; i++)
 	{
 		if (dynamic_cast<cVehiculo*>(Vehiculo) == dynamic_cast<cVehiculo*>(Lista[i]))
 			Lista[i]->Imprimir(); cout << endl;

@@ -8,7 +8,7 @@
 #include "cTrafic.h"
 
 float cTrafic::PrecioAlquilerXDia=1800.0;
-cTrafic::cTrafic(eEstadoVehiculo estado, float tarifa_base, eAdicionales adicionales, eColor color, const unsigned int capacidad, const string chasis, const string patente, const string poliza, tm fecha_ult_mantenimiento):
+cTrafic::cTrafic(eEstadoVehiculo estado, float tarifa_base, eAdicionales adicionales, eColor color, const unsigned int capacidad = 10, const string chasis, const string patente, const string poliza, tm fecha_ult_mantenimiento):
 	cVehiculo::cVehiculo(estado, tarifa_base, adicionales, color, capacidad, chasis, patente, poliza, fecha_ult_mantenimiento)
 {
 }

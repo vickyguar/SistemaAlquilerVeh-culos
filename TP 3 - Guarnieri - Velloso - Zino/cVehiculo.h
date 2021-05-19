@@ -14,6 +14,13 @@
 
 using namespace std;
 
+struct sAdicional {
+	eAdicionales Adicional1;
+	eAdicionales Adicional2;
+	unsigned int cant1;
+	unsigned int cant2;
+};
+
 class cVehiculo
 {
 
@@ -23,9 +30,8 @@ private:
 
 protected:
 	eEstadoVehiculo Estado;//No es const por si queremos cambiarla
-	eAdicionales Adicionales; //tiene el precio igualado en el enum para poder hacer ++
+	sAdicional Adicionales; //tiene el precio igualado en el enum para poder hacer ++
 	eColor Color; 
-	unsigned int CantAdicionalesAlquilados;
 	const unsigned int CapacidadPasajeros;
 	const string Chasis;
 	const string Patente;

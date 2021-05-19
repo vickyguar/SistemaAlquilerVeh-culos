@@ -10,6 +10,11 @@
 
 #include "cVehiculo.h"
 
+typedef struct adicional {
+	eAdicionales adicional;
+	unsigned int cant;
+} sAdicional;
+
 class cAutomovil : public cVehiculo
 {
 private:
@@ -33,8 +38,6 @@ public:
 	virtual ~cAutomovil();
 
 #pragma endregion
-
-	
 
 	virtual void AnadirAdicionales(unsigned int cant);
 	virtual float CalcularTarifa(unsigned int dias);

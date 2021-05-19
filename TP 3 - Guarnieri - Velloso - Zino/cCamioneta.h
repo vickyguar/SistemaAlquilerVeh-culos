@@ -37,6 +37,7 @@ public:
 	void AnadirAdicionales(unsigned int cant_portaequipaje, unsigned int cant_sillas);
 	float CalcularTarifa(unsigned int dias);
 	virtual string PasosMantenimiento();
+	virtual string To_string() const;
 
 };
 #endif // !defined(EA_47399F2C_B863_4471_87EE_0238E7D8DCB0__INCLUDED_)

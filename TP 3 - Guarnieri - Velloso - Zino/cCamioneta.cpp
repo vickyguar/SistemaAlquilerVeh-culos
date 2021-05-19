@@ -46,3 +46,16 @@ string cCamioneta::PasosMantenimiento(){
 	return steps;
 
 }
+
+string cCamioneta::To_string() const
+{
+	string output;
+
+	output += "Tipo de vehiculo: Camioneta" + '\n';
+	//Las camionetas pueden alquilar sillas para niños y/o portaequipahe adicinal
+
+	output += "Cantidad de sillas de seguridad alquilada: " + to_string(CantAdicionalesAlquilados) + '\n';
+	output += cVehiculo::To_string();
+
+	return output;
+}

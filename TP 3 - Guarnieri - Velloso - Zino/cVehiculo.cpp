@@ -65,13 +65,13 @@ string cVehiculo::To_string()const
 {
 	string output;
 	//----------------------------------------------------------------------------------------------------
-	switch (Tipo) {----------------------------------------------
+	switch (Tipo) {
 	case eTipoVehiculo::AUTOMOVIL: output += "----Automovil----" + '\n'; break;
 	case eTipoVehiculo::CAMIONETA:output += "----Camioneta----" + '\n'; break;
 	case eTipoVehiculo::TRAFIC:output += "----Trafic----" + '\n'; break;
 	case eTipoVehiculo::MOTOCICLETA:output += "----Motocicleta----" + '\n'; break;
 	}
-	//------------------------------------------------------
+	//----------------------------------------------------------------------------------------------------
 	switch (Estado) {
 	case eEstadoVehiculo::ALQUILADO: output += "Estado de vehiculo: Alquilado " + '\n'; break;
 	case eEstadoVehiculo::DISPONIBLE: output += "Estado de vehiculo: Disponible " + '\n'; break;

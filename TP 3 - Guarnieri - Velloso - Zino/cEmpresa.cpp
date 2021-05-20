@@ -36,7 +36,7 @@ cEmpresa::~cEmpresa() {
 
 void cEmpresa::Adquirir(cVehiculo* newVehiculo,float PrecioCompra) {
 	
-	unsigned int pos;
+	//unsigned int pos; --> esta variable no sirve!!
 	if (newVehiculo != NULL) {
 		try 
 		{

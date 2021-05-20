@@ -185,6 +185,7 @@ void cListaTemplate<T>::Redimensionar()
 		aux[i] = Lista[i]; //me copio el elemento
 		aux[i + TAM] = NULL; //los otros los pongo en NULL
 	}
+	//Atencion: en este for al visual no le gusta!! preferible hacer dos
 	//--------------------------------------------
 
 	delete[] Lista; //borro el puntero grande
@@ -206,9 +207,13 @@ T* cListaTemplate<T>::BuscarItem(const string Key)
 			ex = new exception(("Error al buscar item: " + error).c_str());
 			throw ex;
 		}
+		return Lista[pos];
 	}
+	throw new exception("Error al buscar el item"); //Esto lo pongo, porque el visual me pone una advertencia:
+	//si la lista - SI - es NULL, entonces va a querer retornar Lista[pos], cuando pos= -1
+	//Por eso esta subrayado en verde! prueben de descomentar esto de abajo, y comentar el return que puse arriba (adentro del if)
 
-	return Lista[pos];
+	//return Lista[pos];
 }
 
 template<class T>

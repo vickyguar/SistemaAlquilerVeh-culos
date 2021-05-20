@@ -14,13 +14,14 @@
 
 cEmpresa::cEmpresa(cListaTemplate<cCliente>* _Clientes, cListaTemplate<cVehiculo>* _Vehiculos, cAlquileres* _Alquileres,float _Ganancia)
 {
-	ListaAlquileres = _Alquileres;
+	_Clientes = new cListaTemplate<cCliente>();
+	_Alquileres = new cAlquileres();
+	_Vehiculos = new cListaTemplate<cVehiculo>();
 
-	ListaClientes = _Clientes;
-
-	ListaVehiculos = _Vehiculos;
-
-	Ganancia = _Ganancia;
+	this->ListaAlquileres = _Alquileres;
+	this->ListaClientes = _Clientes;
+	this->ListaVehiculos = _Vehiculos;
+	this->Ganancia = _Ganancia;
 }
 
 cEmpresa::~cEmpresa() {
@@ -37,15 +38,16 @@ void cEmpresa::Adquirir(cVehiculo* newVehiculo,float PrecioCompra) {
 	
 	unsigned int pos;
 	if (newVehiculo != NULL) {
-		try { pos = ListaVehiculos->getIndex(newVehiculo->getClave()); }
-		catch (exception* ex) {
-			delete ex; //si entra al catch, significa que no existe
-			newVehiculo->setEstado(eEstadoVehiculo::DISPONIBLE);
-			try{ ListaVehiculos->Agregar(newVehiculo); }
-			catch (exception* ex) {
-				ex = new exception(("Error en adquirir: el auto con patente" + newVehiculo->getClave() + " ya existe en la empresa").c_str());
-				throw ex;
-			}
+		try 
+		{
+			newVehiculo->setEstado(eEstadoVehiculo::DISPONIBLE); //cambio el estado del vehiculo adquirido
+			ListaVehiculos->Agregar(newVehiculo); //intento agregar el vehiculo a la lista de vehiculos de la empresa
+		} 
+		catch (exception* ex) 
+		{
+			delete ex;
+			ex = new exception(("Error en adquirir: el auto con patente" + newVehiculo->getClave() + " ya existe en la empresa").c_str());
+			throw ex;
 		}
 	}
 	Ganancia -= PrecioCompra;
@@ -56,21 +58,21 @@ void cEmpresa::Alquilar(cVehiculo* Vehiculo, unsigned int CantDias, const string
 	time_t now = time(NULL); //para obtener hora de SO
 	tm FECHA = *localtime(&now); 
 	tm FECHA_FIN = FECHA;
-	FECHA_FIN.tm_mday += CantDias;
+	FECHA_FIN.tm_mday += CantDias; //fecha de fin es la misma que la del día de hoy, nada más que con != numero de día
 	
 	if (Vehiculo != NULL) {
-		if (Vehiculo->getEstado() != eEstadoVehiculo::DISPONIBLE) //Si no esta disponible, no lo puedo poner en mantenimiento
+		if (Vehiculo->getEstado() != eEstadoVehiculo::DISPONIBLE) //Si no esta disponible, no lo puede alquilar
 			throw new exception(("El auto con patente " + Vehiculo->getClave() +
 				"no esta disponible y por lo tanto puede ser alquilado").c_str());
 		else {
 			
-			Vehiculo->setEstado(eEstadoVehiculo::ALQUILADO);
+			Vehiculo->setEstado(eEstadoVehiculo::ALQUILADO); //si se puede alquilar, le cambio el estado
 		}
 
-		if (Adicional.cant1 + Adicional.cant2 > 0)
-			Vehiculo->AnadirAdicionales(Adicional);
+		if (Adicional.cant1 + Adicional.cant2 > 0) //la cantidad de adicionales solicitada es > 0
+			Vehiculo->AnadirAdicionales(Adicional); //agrego los adicionales
 		//-----------------------------------------------------------------------------------------
-		float MontoTotal =  CantDias * (dynamic_cast<cVehiculo*>(Vehiculo))->getPrecioXDia();
+		float MontoTotal =  dynamic_cast<cVehiculo*>(Vehiculo)->CalcularTarifa(CantDias); //calculo el monto total
 		//-----------------------------------------------------------------------------------------
 
 		cAlquiler* aux = new cAlquiler(Adicional, FECHA, FECHA_FIN, MontoTotal, DNI, Vehiculo->getClave(), to_string(ListaAlquileres->getCA() + 1)); //El codigo es la cantidad "nueva" de alquileres resgistrados
@@ -86,7 +88,7 @@ void cEmpresa::Mantenimiento(cVehiculo *Vehiculo, float PrecioMantenimiento){
 			throw new exception(("El auto con patente " + Vehiculo->getClave() + 
 				"no esta disponible y por lo tanto puede someterse a mantenimiento").c_str());
 		else {
-			cout << Vehiculo->PasosMantenimiento();
+			cout << endl << Vehiculo->PasosMantenimiento();
 			Vehiculo->setEstado(eEstadoVehiculo::EN_MANTENIMIENTO);
 
 			//---------------------------------------------------------------------------------------
@@ -94,7 +96,6 @@ void cEmpresa::Mantenimiento(cVehiculo *Vehiculo, float PrecioMantenimiento){
 			tm FECHA = *localtime(&now);
 			Vehiculo->setFechaUltMantenimiento(FECHA); //cambio la fecha de ultimo mantenimiento
 			//---------------------------------------------------------------------------------------
-
 		}
 		Ganancia -= PrecioMantenimiento;
 	}
@@ -150,6 +151,16 @@ void cEmpresa::ListarxVehiculo(cVehiculo*Vehiculo)
 cListaTemplate<cVehiculo>* cEmpresa::getListaVehiculos()
 {
 	return ListaVehiculos;
+}
+
+cListaTemplate<cCliente>* cEmpresa::getListaClientes()
+{
+	return ListaClientes;
+}
+
+cAlquileres* cEmpresa::getListaAlquileres()
+{
+	return ListaAlquileres;
 }
 
 float cEmpresa::CalcularGanancia()

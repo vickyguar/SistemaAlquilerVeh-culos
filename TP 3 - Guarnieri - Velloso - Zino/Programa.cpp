@@ -22,12 +22,7 @@ int main() {
 
 	sAdicional adicionales_devueltos = { eAdicionales::CASCO, eAdicionales::NINGUNO, 1, 0 };
 
-	//LISTAS
-	cListaTemplate<cCliente>* miListaClientes = new cListaTemplate<cCliente>();
-	cAlquileres* miListaAlquileres = new cAlquileres();
-	cListaTemplate<cVehiculo>* miListaVehiculos = new cListaTemplate<cVehiculo>();
-
-	cEmpresa* Alamo = new cEmpresa(miListaClientes, miListaVehiculos, miListaAlquileres);
+	cEmpresa* Alamo = new cEmpresa();
 
 	//AUTOS
 	cAutomovil* RayoMcqueen = new cAutomovil(eEstadoVehiculo::DISPONIBLE, 1000, adicionales_auto, eColor::ROJO, "CHASIS1", "AA 111 AA", "POLIZA1", FECHA, 4);
@@ -53,11 +48,13 @@ int main() {
 	cCliente* miCliente3 = new cCliente("555-111-0003", "Bat Man", "44131413", 40);
 
 	//LOS VEHICULOS QUE YA SON DE LA EMPRESA -> LOS QUE ESTAN EN MANTENIMIENTO
-	try
+	try { Alamo->getListaVehiculos()->Agregar(Mate); }
+	catch (exception* ex)
 	{
-		miListaVehiculos->Agregar(Mate);
-		miListaVehiculos->Agregar(March5);
+		cout << ex->what() << endl;
+		delete ex;
 	}
+	try { Alamo->getListaVehiculos()->Agregar(March5); }
 	catch (exception* ex)
 	{
 		cout << ex->what() << endl;
@@ -77,20 +74,26 @@ int main() {
 		delete ex;
 	}
 
+	Alamo->getListaVehiculos()->Listar();
 
-	//Alamo->getListaVehiculos()->Listar();
+	cout << "--- SE LLEVA A LA MOTO A ARREGLAR ---" << endl;
+	Alamo->Mantenimiento(Vespa, 50);
 
-	//ALQUILO AUTOS
-	try
-	{
-		Alamo->Alquilar(BatiMovil, 7, miCliente3->getClave(), adicionales_auto);
-		miListaClientes->Agregar(miCliente3);
-	}
+	//SE ALQUILAN AUTOS
+	try { Alamo->Alquilar(BatiMovil, 7, miCliente3->getClave(), adicionales_auto); }
 	catch (exception* ex)
 	{
 		cout << ex->what() << endl;
 		delete ex;
 	}
+	try { Alamo->getListaClientes()->Agregar(miCliente3); }
+	catch (exception* ex)
+	{
+		cout << ex->what() << endl;
+		delete ex;
+	}
+	
+	Alamo->getListaAlquileres()->Listar();
 
 	//Alamo->ListarxVehiculo(BatiMovil);
 	//PREGUNTAR AL CLIENTE SI QUIERE UN CASCO -> SI

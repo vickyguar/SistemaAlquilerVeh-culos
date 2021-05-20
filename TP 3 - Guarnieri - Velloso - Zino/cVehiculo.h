@@ -51,7 +51,7 @@ public:
 #pragma endregion
 
 	virtual void AnadirAdicionales(sAdicional adicional);
-	virtual float CalcularTarifas();
+	virtual float CalcularTarifa(unsigned int dias);
 	virtual string PasosMantenimiento();
 
 #pragma region GETTERS & SETTERS

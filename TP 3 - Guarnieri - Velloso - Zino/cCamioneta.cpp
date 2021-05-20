@@ -51,9 +51,9 @@ string cCamioneta::To_string() const
 {
 	string output;
 
-	output += "Tipo de vehiculo: Camioneta" + '\n';
+	output += "\nTipo de vehiculo: Camioneta\n";
 
-	output += "Cantidad de sillas para niños: " + to_string(Adicionales.cant1) + '\n';
+	output += "Cantidad de sillas para ninios: " + to_string(Adicionales.cant1) + '\n';
 	output += "Portaequipaje adicional: " + to_string(Adicionales.cant2) + '\n';
 
 	output += cVehiculo::To_string();

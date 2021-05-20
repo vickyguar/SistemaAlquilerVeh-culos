@@ -100,11 +100,12 @@ void cListaTemplate<T>::Agregar(T* newItem)
 			Redimensionar(); //Redimensiono la lista
 
 		try {
-			int pos = getIndex(newItem->getClave());
+			int pos = getIndex(newItem->getClave()); //busco el elemento en la lista
 		}
-		catch (exception* ex) {
-			Lista[CA++] = newItem;
+		catch (exception* ex) { //si el elemento no existe
 			delete ex;
+			Lista[CA] = newItem; //lo agrego a la lista
+			CA++;
 			return;
 		}
 		throw new exception("El item ya esta en la lista");
@@ -116,7 +117,7 @@ T* cListaTemplate<T>::Quitar(const string Key)
 {
 	int pos = -1; //Solo para inicializar
 
-	try { pos = getIndex(Key); }
+	try { pos = getIndex(Key); } //busco el elemento
 	catch (exception* ex) {
 		string error = ex->what();
 		delete ex;
@@ -124,7 +125,7 @@ T* cListaTemplate<T>::Quitar(const string Key)
 		throw ex;
 	}
 
-	T* aux = Lista[pos];
+	T* aux = Lista[pos]; //me lo guardo si lo encuentra
 
 	for (int i = pos; i < CA - 1; i++)
 		Lista[i] = Lista[i + 1]; //Corremos todo una posición para arriba
@@ -138,7 +139,7 @@ T* cListaTemplate<T>::Quitar(const string Key)
 template<class T>
 void cListaTemplate<T>::Eliminar(const string Key)
 {
-	T* aux = NULL;
+	T* aux = NULL; //auxiliar
 
 	if (Lista != NULL) {
 		try { aux = Quitar(Key); }
@@ -174,22 +175,22 @@ void cListaTemplate<T>::AgregarXCopia(T newItem)
 }
 
 template<class T>
-void cListaTemplate<T>::Redimensionar() //TODO: ver redimensionar!!!!
+void cListaTemplate<T>::Redimensionar()
 {
 	unsigned int n = 2 * TAM;
 	T** aux = new T * [n]; //La redimensionamos al doble de su tamaño
 
 	//--------------------------------------------
 	for (unsigned int i = 0; i < TAM; i++) {
-		aux[i] = Lista[i];
-		aux[i + TAM] = NULL;
+		aux[i] = Lista[i]; //me copio el elemento
+		aux[i + TAM] = NULL; //los otros los pongo en NULL
 	}
 	//--------------------------------------------
 
-	delete[] Lista;
+	delete[] Lista; //borro el puntero grande
 
-	Lista = aux;
-	TAM += TAM;
+	Lista = aux; //Lista ahora apunta a la lista redimencionada
+	TAM += TAM; //cambio el TAM 
 }
 
 template<class T>
@@ -246,7 +247,8 @@ void cListaTemplate<T>::Listar() const
 {
 	for (unsigned int i = 0; i < CA; i++)
 	{
-		cout << Lista[i]; //TODO: se rompe -> sobrecarga del To_String
+		cout << "\n\t# " << i + 1 << endl;
+		cout << Lista[i]->To_string(); //TODO: se rompe -> sobrecarga del To_String
 	}
 }
 

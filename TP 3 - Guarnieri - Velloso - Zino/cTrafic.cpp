@@ -55,7 +55,7 @@ string cTrafic::To_string() const
 {
 	string output;
 
-	output += "Tipo de vehiculo: Trafic" + '\n';
+	output += "\nTipo de vehiculo: Trafic\n";
 	output += "Cantidad de sillas de seguridad alquilada: " + to_string(Adicionales.cant1) + '\n';
 	output += "Cantidad de asientos rebatibles: " + to_string(Adicionales.cant2) + '\n';
 

@@ -48,7 +48,7 @@ string cAutomovil::To_string() const
 {
 	string output;
 
-	output += "Tipo de vehiculo: Auto" + '\n';
+	output += "\nTipo de vehiculo: Auto\n";
 	output += "Cantidad de sillas de seguridad alquilada: " + to_string(Adicionales.cant1) + '\n';
 	output += cVehiculo::To_string();
 

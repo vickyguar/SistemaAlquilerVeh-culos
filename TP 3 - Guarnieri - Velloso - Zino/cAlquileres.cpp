@@ -27,8 +27,9 @@ void cAlquileres::ListarXVehiculo(cVehiculo*Vehiculo){
 	
 	for (unsigned int i = 0; i < CA; i++)
 	{
-		if (dynamic_cast<cVehiculo*>(Vehiculo) == dynamic_cast<cVehiculo*>(Lista[i]))
-			Lista[i]->Imprimir(); cout << endl;
+		if (Vehiculo == dynamic_cast<cVehiculo*>(Lista[i])) //TODO: el condicional no funca
+			cout << Lista[i]->To_string() << endl;
+			//Lista[i]->Imprimir(); cout << endl;
 		
 
 	}

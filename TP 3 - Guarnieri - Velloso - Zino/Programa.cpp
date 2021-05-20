@@ -46,6 +46,7 @@ int main() {
 	cCliente* miCliente1 = new cCliente("555-111-0001", "Marty McFly", "44131411", 20);
 	cCliente* miCliente2 = new cCliente("555-111-0002", "Maggie Peyton", "44131412", 30);
 	cCliente* miCliente3 = new cCliente("555-111-0003", "Bat Man", "44131413", 40);
+	cCliente* miCliente4 = new cCliente("555-111-0004", "NN", "44131414", 50);
 
 	//LOS VEHICULOS QUE YA SON DE LA EMPRESA -> LOS QUE ESTAN EN MANTENIMIENTO
 	try { Alamo->getListaVehiculos()->Agregar(Mate); }
@@ -67,6 +68,9 @@ int main() {
 		Alamo->Adquirir(BatiMovil, 50000);
 		Alamo->Adquirir(DeLorean, 10000);
 		Alamo->Adquirir(Vespa, 500);
+		Alamo->Adquirir(Herbie, 20000);
+		Alamo->Adquirir(HarleyDavidson, 10000);
+
 	}
 	catch (exception* ex)
 	{
@@ -87,19 +91,26 @@ int main() {
 		delete ex;
 	}
 
-	try { Alamo->Alquilar(BatiMovil, 7, miCliente3->getClave(), adicionales_auto); } 
+	try 
+	{ 
+		Alamo->Alquilar(BatiMovil, 7, miCliente3->getClave(), adicionales_auto);
+		Alamo->Alquilar(Herbie, 4, miCliente2->getClave(), adicionales_auto);
+		adicionales_auto.Adicional1 = eAdicionales::SILLA_SEGURIDAD;
+		Alamo->Alquilar(DeLorean, 30, miCliente1->getClave(), adicionales_auto);
+		Alamo->Alquilar(HarleyDavidson, 14, miCliente4->getClave(), adicionales_moto);
+	} 
 	catch (exception* ex)
 	{
 		cout << ex->what() << endl;
 		delete ex;
 	}
 	
-	
+	cout << "\n--- LISTA DE ALQUILERES ---" << endl;
 	Alamo->getListaAlquileres()->Listar();
+	cout << "\n--- LISTA POR VEHICULO ---" << endl;
+	Alamo->getListaAlquileres()->ListarXVehiculo(BatiMovil);
 
-	//Alamo->ListarxVehiculo(BatiMovil);
 	//PREGUNTAR AL CLIENTE SI QUIERE UN CASCO -> SI
-
 
 	delete Alamo; //TODO: PROBLEMA AL DESTRUIR
 	//delete miListaAlquileres;

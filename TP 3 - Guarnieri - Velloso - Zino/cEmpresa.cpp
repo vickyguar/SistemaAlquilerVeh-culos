@@ -146,6 +146,11 @@ void cEmpresa::ListarxVehiculo(cVehiculo*Vehiculo)
 	ListaAlquileres->ListarXVehiculo(Vehiculo);
 }
 
+cListaTemplate<cVehiculo>* cEmpresa::getListaVehiculos()
+{
+	return ListaVehiculos;
+}
+
 float cEmpresa::CalcularGanancia()
 {
 	Ganancia+=ListaAlquileres->CalcularGanancia();

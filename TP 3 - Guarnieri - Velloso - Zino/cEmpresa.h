@@ -32,6 +32,7 @@ public:
 	void RetirarCirculacion(cVehiculo* Vehiculo);
 	void ListarxVehiculo(cVehiculo*Vehiculo);
 	float CalcularGanancia();
+	cListaTemplate<cVehiculo>* getListaVehiculos();
 
 
 

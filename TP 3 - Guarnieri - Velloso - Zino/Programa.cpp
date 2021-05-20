@@ -8,24 +8,80 @@
 
 #pragma warning(disable : 4996)
 
+//TODOS LOS PRECIOS SON EN U$D :)
+
 int main() {
 
-	//TODO: GANANCIAS Y PERDIDAS
-	//TODO: GET DE LA LISTA DE ALQUILERES -> LISTAR POR VEHICULO
+	time_t now = time(NULL); //para obtener hora de SO
+	tm FECHA = *localtime(&now);
 
-	//time_t now = time(NULL); //para obtener hora de SO
-	//tm FECHA = *localtime(&now);
+	sAdicional adicionales_moto = { eAdicionales::CASCO,eAdicionales::NINGUNO,0,0 }; //para moto
+	sAdicional adicionales_auto = { eAdicionales::SILLA_SEGURIDAD,eAdicionales::NINGUNO,0,0 }; //para auto
+	sAdicional adicionales_camioneta = { eAdicionales::SILLA_SEGURIDAD,eAdicionales::PORTA_EQUIPAJE,0,0 }; //para camioneta
+	sAdicional adicionales_trafic = { eAdicionales::SILLA_SEGURIDAD,eAdicionales::ASIENTOS_REBATIBLES,0,0 }; //para trafic
 
-	//cAutomovil* RayoMcqueen = new cAutomovil(eEstadoVehiculo::DISPONIBLE, 1000000, (eAdicionales)0, eColor::ROJO, 0, "RAYO1", "AA111QQ", "LaPoliza1", FECHA);
-	//cEmpresa* RustEze = new cEmpresa();
-	//cCliente* JacksonStorm = new cCliente("123456879", "Cliente", "12345673", 40);
-	//cCamioneta* Mate = new cCamioneta(eEstadoVehiculo::EN_MANTENIMIENTO, 50000, (eAdicionales)0, eColor::GRIS, 0, "TO-MATE", "BB111QQ", "LaPoliza2", FECHA);
-	//
-	//RustEze->Adquirir(RayoMcqueen);
-	//RustEze->Adquirir(Mate);
-	//RustEze->Alquilar(RayoMcqueen, 20, "12345673", 1);
-	
-	//PROBAR METODOS DE EMPRESA -> ADQUIRIR /
+	sAdicional adicionales_devueltos = { eAdicionales::CASCO, eAdicionales::NINGUNO, 1, 0 };
+
+	//LISTAS
+	cListaTemplate<cCliente>* miListaClientes = new cListaTemplate<cCliente>();
+	cAlquileres* miListaAlquileres = new cAlquileres();
+	cListaTemplate<cVehiculo>* miListaVehiculos = new cListaTemplate<cVehiculo>();
+
+	cEmpresa* Alamo = new cEmpresa(miListaClientes, miListaVehiculos, miListaAlquileres);
+
+	//AUTOS
+	cAutomovil* RayoMcqueen = new cAutomovil(eEstadoVehiculo::DISPONIBLE, 1000, adicionales_auto,eColor::ROJO, "CHASIS1", "AA 111 AA", "POLIZA1", FECHA, 4);
+	cAutomovil* Herbie = new cAutomovil(eEstadoVehiculo::DISPONIBLE, 500, adicionales_auto, eColor::BLANCO, "CHASIS2", "AA 222 AB", "POLIZA2", FECHA, 4);
+	cAutomovil* BatiMovil = new cAutomovil(eEstadoVehiculo::DISPONIBLE, 5000, adicionales_auto, eColor::NEGRO, "CHASIS3", "AA 333 AC", "POLIZA3", FECHA, 4);
+
+	//CAMIONETAS
+	cCamioneta* Mate = new cCamioneta(eEstadoVehiculo::EN_MANTENIMIENTO, 700, adicionales_camioneta, eColor::GRIS, "CHASIS4", "BB 444 AD", "POLIZA4", FECHA, 7);
+	cCamioneta* DeLorean = new cCamioneta(eEstadoVehiculo::DISPONIBLE, 750, adicionales_camioneta, eColor::GRIS, "CHASIS5", "BB 555 AE", "POLIZA5", FECHA, 7);
+	cCamioneta* March5 = new cCamioneta(eEstadoVehiculo::EN_MANTENIMIENTO, 800, adicionales_camioneta, eColor::BLANCO, "CHASIS6", "BB 666 AF", "POLIZA6", FECHA, 7);
+
+	//TRAFIC
+	cTrafic* Fillmore = new cTrafic(eEstadoVehiculo::DISPONIBLE, 2500, adicionales_trafic, eColor::AZUL, "CHASIS7", "CC 777 AG", "POLIZA7", FECHA, 10);
+	cTrafic* Dusty = new cTrafic(eEstadoVehiculo::DISPONIBLE, 2000, adicionales_trafic, eColor::AZUL, "CHASIS8", "CC 888 AH", "POLIZA8", FECHA, 10);
+
+	//MOTOS
+	cMotocicleta* Vespa = new cMotocicleta(eEstadoVehiculo::DISPONIBLE, 100, adicionales_moto, eColor::NEGRO, "CHASIS9", "DD 999 AI", "POLIZA9", FECHA, 1);
+	cMotocicleta* HarleyDavidson = new cMotocicleta(eEstadoVehiculo::DISPONIBLE, 150, adicionales_moto, eColor::NEGRO, "CHASIS10", "DD 110 AJ", "POLIZA10", FECHA, 1);
+
+	//CLIENTES
+	cCliente* miCliente1 = new cCliente("555-111-0001", "Marty McFly", "44131411", 20);
+	cCliente* miCliente2 = new cCliente("555-111-0002", "Maggie Peyton", "44131412", 30);
+	cCliente* miCliente3 = new cCliente("555-111-0003", "Bat Man", "44131413", 40);
+
+	//LOS VEHICULOS QUE YA SON DE LA EMPRESA -> LOS QUE ESTAN EN MANTENIMIENTO
+	try
+	{
+		miListaVehiculos->Agregar(Mate);
+		miListaVehiculos->Agregar(March5);
+	}
+	catch (exception* ex)
+	{
+		cout << ex->what() << endl;
+		delete ex;
+	}
+
+	//SE ADQUIEREN VEHICULOS
+	try
+	{
+	Alamo->Adquirir(BatiMovil, 50000);
+	Alamo->Adquirir(DeLorean, 10000);
+	Alamo->Adquirir(Vespa, 500);
+	}
+	catch (exception* ex)
+	{
+		cout << ex->what() << endl;
+		delete ex;
+	}
+
+	Alamo->getListaVehiculos()->Listar();
+
+
+	//PREGUNTAR AL CLIENTE SI QUIERE UN CASCO -> SI
+
 
 	return 0;
 }

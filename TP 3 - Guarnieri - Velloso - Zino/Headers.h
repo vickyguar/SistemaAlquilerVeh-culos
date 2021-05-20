@@ -30,7 +30,8 @@ enum class eAdicionales
 	CASCO = 100,
 	SILLA_SEGURIDAD = 200,
 	PORTA_EQUIPAJE = 300,
-	ASIENTOS_REBATIBLES = 400
+	ASIENTOS_REBATIBLES = 400,
+	NINGUNO = 0
 };
 
 enum class eTipoVehiculo
@@ -42,9 +43,9 @@ enum class eTipoVehiculo
 };
 
 struct sAdicional {
-
-	eAdicionales Adicional1;
-	eAdicionales Adicional2;
+							 //    CAMIONETA            |           TRAFIC             |       MOTO     |     AUTO
+	eAdicionales Adicional1; //SILLA DE SEGURIDAD       |      SILLA DE SEGURIDAD      |      CASCO     |    SILLAS DE SEGURIDAD
+	eAdicionales Adicional2; //PORTAEQUIPAJE            |      ASIENTO RETRAIBLE       |    NINGUNO     |    NINGUNO
 	unsigned int cant1;
 	unsigned int cant2;
 };

@@ -80,18 +80,20 @@ int main() {
 	Alamo->Mantenimiento(Vespa, 50);
 
 	//SE ALQUILAN AUTOS
-	try { Alamo->Alquilar(BatiMovil, 7, miCliente3->getClave(), adicionales_auto); }
-	catch (exception* ex)
-	{
-		cout << ex->what() << endl;
-		delete ex;
-	}
 	try { Alamo->getListaClientes()->Agregar(miCliente3); }
 	catch (exception* ex)
 	{
 		cout << ex->what() << endl;
 		delete ex;
 	}
+
+	try { Alamo->Alquilar(BatiMovil, 7, miCliente3->getClave(), adicionales_auto); }
+	catch (exception* ex)
+	{
+		cout << ex->what() << endl;
+		delete ex;
+	}
+	
 	
 	Alamo->getListaAlquileres()->Listar();
 

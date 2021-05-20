@@ -47,3 +47,14 @@ float cMotocicleta::getPrecioXDia() const
 {
 	return PrecioAlquilerXDia;
 }
+
+string cMotocicleta::To_string() const
+{
+	string output;
+
+	output += "Tipo de vehiculo: Motocicleta" + '\n' +
+	output += "Cantidad de sillas de cascos alquilados: " + to_string(Adicionales.cant1) + '\n';
+	output += cVehiculo::To_string();
+
+	return output;
+}

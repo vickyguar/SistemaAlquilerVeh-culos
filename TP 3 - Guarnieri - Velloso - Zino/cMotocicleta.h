@@ -38,5 +38,7 @@ public:
 	virtual string PasosMantenimiento();
 	virtual float getPrecioXDia()const;
 
+	virtual string To_string()const;
+
 };
 #endif // !defined(EA_5A24C7CC_36CA_4341_A725_018D81902B96__INCLUDED_)

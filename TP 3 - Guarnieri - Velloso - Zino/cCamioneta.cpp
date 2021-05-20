@@ -52,7 +52,7 @@ string cCamioneta::To_string() const
 	string output;
 
 	output += "Tipo de vehiculo: Camioneta" + '\n';
-	//Las camionetas pueden alquilar sillas para niños y/o portaequipahe adicinal
+
 	output += "Cantidad de sillas para niños: " + to_string(Adicionales.cant1) + '\n';
 	output += "Portaequipaje adicional: " + to_string(Adicionales.cant2) + '\n';
 

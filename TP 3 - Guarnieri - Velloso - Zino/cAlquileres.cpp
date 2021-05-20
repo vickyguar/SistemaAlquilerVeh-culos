@@ -35,3 +35,12 @@ void cAlquileres::ListarXVehiculo(cVehiculo*Vehiculo){
 	//DUDA sobre estar casteando el tipo cAlquiler con cVehiculo
 	//cAnimal ptr y (dynamic_cast<cMamiferos*>(ptr))->Nombre
 }
+
+void cAlquileres::ListarAlquileres()
+{
+	for (unsigned int i = 0; i < CA; i++)
+	{
+		cout << "\n\t# " << i + 1 << endl;
+		cout << Lista[i]->To_string(); //TODO: se rompe -> sobrecarga del To_String
+	}
+}

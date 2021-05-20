@@ -19,6 +19,7 @@ public:
 	
 	float CalcularGanancia();
 	void ListarXVehiculo(cVehiculo*Vehiculo);
+	void ListarAlquileres();
 
 };
 #endif // !defined(EA_28424133_7ED8_4704_BCB7_1D640A9AC898__INCLUDED_)

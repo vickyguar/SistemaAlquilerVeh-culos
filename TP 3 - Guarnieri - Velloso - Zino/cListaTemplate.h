@@ -252,7 +252,7 @@ void cListaTemplate<T>::Listar() const
 {
 	for (unsigned int i = 0; i < CA; i++)
 	{
-		cout << "\n\t# " << i + 1 << endl;
+		//cout << "\n\t# " << i + 1 << endl;
 		cout << Lista[i]->To_string(); //TODO: se rompe -> sobrecarga del To_String
 	}
 }

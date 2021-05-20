@@ -164,6 +164,7 @@ void cListaTemplate<T>::AgregarXCopia(T newItem)
 			Lista[CA++] = &newItem;
 			//Lista + newItem; //SObrecarga de +
 			delete ex;
+			return;
 		}
 		throw new exception("El item ya esta en la lista");
 	}

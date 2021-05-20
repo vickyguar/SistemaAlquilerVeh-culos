@@ -30,7 +30,7 @@ int main() {
 	cEmpresa* Alamo = new cEmpresa(miListaClientes, miListaVehiculos, miListaAlquileres);
 
 	//AUTOS
-	cAutomovil* RayoMcqueen = new cAutomovil(eEstadoVehiculo::DISPONIBLE, 1000, adicionales_auto,eColor::ROJO, "CHASIS1", "AA 111 AA", "POLIZA1", FECHA, 4);
+	cAutomovil* RayoMcqueen = new cAutomovil(eEstadoVehiculo::DISPONIBLE, 1000, adicionales_auto, eColor::ROJO, "CHASIS1", "AA 111 AA", "POLIZA1", FECHA, 4);
 	cAutomovil* Herbie = new cAutomovil(eEstadoVehiculo::DISPONIBLE, 500, adicionales_auto, eColor::BLANCO, "CHASIS2", "AA 222 AB", "POLIZA2", FECHA, 4);
 	cAutomovil* BatiMovil = new cAutomovil(eEstadoVehiculo::DISPONIBLE, 5000, adicionales_auto, eColor::NEGRO, "CHASIS3", "AA 333 AC", "POLIZA3", FECHA, 4);
 
@@ -67,9 +67,9 @@ int main() {
 	//SE ADQUIEREN VEHICULOS
 	try
 	{
-	Alamo->Adquirir(BatiMovil, 50000);
-	Alamo->Adquirir(DeLorean, 10000);
-	Alamo->Adquirir(Vespa, 500);
+		Alamo->Adquirir(BatiMovil, 50000);
+		Alamo->Adquirir(DeLorean, 10000);
+		Alamo->Adquirir(Vespa, 500);
 	}
 	catch (exception* ex)
 	{
@@ -77,12 +77,26 @@ int main() {
 		delete ex;
 	}
 
-	Alamo->getListaVehiculos()->Listar();
 
+	//Alamo->getListaVehiculos()->Listar();
 
+	//ALQUILO AUTOS
+	try
+	{
+		Alamo->Alquilar(BatiMovil, 7, miCliente3->getClave(), adicionales_auto);
+	}
+	catch (exception* ex)
+	{
+		cout << ex->what() << endl;
+		delete ex;
+	}
+
+	//Alamo->ListarxVehiculo(BatiMovil);
 	//PREGUNTAR AL CLIENTE SI QUIERE UN CASCO -> SI
 
 
+	delete Alamo;
+	//delete miListaAlquileres;
 	return 0;
 }
 

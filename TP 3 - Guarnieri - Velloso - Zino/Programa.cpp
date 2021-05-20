@@ -84,6 +84,7 @@ int main() {
 	try
 	{
 		Alamo->Alquilar(BatiMovil, 7, miCliente3->getClave(), adicionales_auto);
+		miListaClientes->Agregar(miCliente3);
 	}
 	catch (exception* ex)
 	{
@@ -95,7 +96,7 @@ int main() {
 	//PREGUNTAR AL CLIENTE SI QUIERE UN CASCO -> SI
 
 
-	delete Alamo;
+	delete Alamo; //TODO: PROBLEMA AL DESTRUIR
 	//delete miListaAlquileres;
 	return 0;
 }

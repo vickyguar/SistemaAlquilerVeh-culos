@@ -11,13 +11,11 @@
 #include "cVehiculo.h"
 #include "cAlquiler.h"
 #include "cListaTemplate.h"
-class cAlquileres:public cListaTemplate<cAlquiler>
+class cAlquileres:public cListaTemplate<class cAlquiler>
 {
 
 public:
 	cAlquileres(unsigned int _TAM = NMAX, bool _Delete = true);
-	~cAlquileres();
-	
 	
 	float CalcularGanancia();
 	void ListarXVehiculo(cVehiculo*Vehiculo);

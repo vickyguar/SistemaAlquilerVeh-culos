@@ -24,12 +24,13 @@ cEmpresa::cEmpresa(cListaTemplate<cCliente>* _Clientes, cListaTemplate<cVehiculo
 }
 
 cEmpresa::~cEmpresa() {
-	if (ListaAlquileres != NULL)
-		delete ListaAlquileres;
+	
 	if (ListaClientes != NULL)
 		delete ListaClientes;
 	if (ListaVehiculos != NULL)
 		delete ListaVehiculos;
+	if (ListaAlquileres != NULL)
+		delete ListaAlquileres;
 }
 
 void cEmpresa::Adquirir(cVehiculo* newVehiculo,float PrecioCompra) {

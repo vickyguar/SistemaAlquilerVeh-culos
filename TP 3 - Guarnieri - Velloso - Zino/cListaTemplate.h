@@ -82,7 +82,10 @@ cListaTemplate<T>::~cListaTemplate()
 	if (Lista != NULL) {
 		if (Delete) {
 			for (unsigned int i = 0; i < CA; i++)
-				delete Lista[i];
+			{
+				if(Lista[i]!= NULL)
+					delete Lista[i];
+			}
 		}
 		delete[] Lista;
 	}

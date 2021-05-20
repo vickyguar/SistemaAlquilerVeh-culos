@@ -12,11 +12,6 @@ cAlquileres::cAlquileres(unsigned int _TAM, bool _Delete):cListaTemplate<cAlquil
 
 }
 
-cAlquileres::~cAlquileres(){
-
-}
-
-
 float cAlquileres::CalcularGanancia(){
 	float Ganancia= 0;
 	for (unsigned int i = 0; i < CA; i++)

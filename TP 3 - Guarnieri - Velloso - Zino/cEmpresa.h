@@ -27,10 +27,14 @@ public:
 	virtual ~cEmpresa();
 	void Adquirir(cVehiculo* newVehiculo, float PrecioCompra);
 	void Alquilar(cVehiculo* Vehiculo, unsigned int CantDias, const string DNI, sAdicional adicional);
-	void RegistrarDevolucion(cVehiculo* Vehiculo, const string DNI, sAdicional adicionales);
+	void RegistrarDevolucion(cVehiculo* Vehiculo, const string DNI, sAdicional adicionales_devueltos);
 	void Mantenimiento(cVehiculo* Vehiculo, float GastoMantenimiento);
 	void RetirarCirculacion(cVehiculo* Vehiculo);
+	void ListarxVehiculo(cVehiculo*Vehiculo);
 	float CalcularGanancia();
+	cListaTemplate<cVehiculo>* getListaVehiculos();
+
+
 
 };
 #endif // !defined(EA_1AE703F9_42E0_4b65_A672_7DE8013B46E2__INCLUDED_)

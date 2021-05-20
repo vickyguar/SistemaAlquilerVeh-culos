@@ -26,7 +26,7 @@ void cVehiculo::AnadirAdicionales(sAdicional adicional){
 }
 
 float cVehiculo::CalcularTarifas(){
-	return float(); //TODO: calcular tarifas
+	return float(); 
 }
 
 string cVehiculo::PasosMantenimiento(){

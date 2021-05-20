@@ -22,7 +22,7 @@ private:
 	float MontoTotal;
 	const string DNI;
 	const string Patente;
-	const string Code;
+	const string Code; //Por si tenemos que buscar en la lista de alquileres 
 	bool Devuelto;
 
 public:
@@ -32,8 +32,8 @@ public:
 	
 #pragma endregion
 
-	void Imprimir();
-
+	void Imprimir()const;
+	string To_string()const;
 
 #pragma region GETTERS Y SETTERS
 	string getClave() const;

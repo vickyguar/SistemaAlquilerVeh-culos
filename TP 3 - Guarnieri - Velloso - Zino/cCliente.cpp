@@ -21,3 +21,20 @@ string cCliente::getClave() const
 {
 	return DNI;
 }
+
+string cCliente::To_string() const
+{
+	string output;
+
+	output += "Nombre: " + Nombre + '\n' +
+		"Contacto: " + Contacto + '\n' +
+		"DNI: " + DNI + '\n' +
+		"Edad: " + to_string(Edad) + " años" + '\n';
+
+	return output;
+}
+
+void cCliente::Imprimir() const
+{
+	cout << this->To_string();
+}

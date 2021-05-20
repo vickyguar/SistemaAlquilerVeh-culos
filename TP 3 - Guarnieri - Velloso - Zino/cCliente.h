@@ -9,6 +9,7 @@
 #define EA_38B6FEF6_D888_4b51_B635_DC289A931700__INCLUDED_
 
 #include <string>
+#include <iostream>
 
 using namespace std;
 
@@ -34,6 +35,9 @@ public:
 	*/
 	virtual ~cCliente();
 	string getClave()const;
+
+	string To_string()const;
+	void Imprimir()const;
 
 };
 #endif // !defined(EA_38B6FEF6_D888_4b51_B635_DC289A931700__INCLUDED_)

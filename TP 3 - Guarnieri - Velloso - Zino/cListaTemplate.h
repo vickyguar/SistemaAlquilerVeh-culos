@@ -102,6 +102,7 @@ void cListaTemplate<T>::Agregar(T* newItem)
 		catch (exception* ex) {
 			Lista[CA++] = newItem;
 			delete ex;
+			return;
 		}
 		throw new exception("El item ya esta en la lista");
 	}
@@ -241,7 +242,7 @@ void cListaTemplate<T>::Listar() const
 {
 	for (unsigned int i = 0; i < CA; i++)
 	{
-		cout << Lista[i];
+		cout << Lista[i]; //TODO: se rompe -> sobrecarga del To_String
 	}
 }
 
@@ -260,12 +261,12 @@ cListaTemplate<T>& operator+(cListaTemplate<T>& lista, T* newItem)
 	return lista;
 }
 
-template<class T>
-ostream& operator<<(ostream& out, T& obj)
-{
-	out << obj.To_String();
-	return out;
-}
+//template<class T>
+//ostream& operator<<(ostream& out, T& obj)
+//{
+//	out << obj.To_String();
+//	return out;
+//}
 
 //bool operator==(string clave)
 //{

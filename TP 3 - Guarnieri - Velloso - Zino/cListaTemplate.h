@@ -173,14 +173,15 @@ void cListaTemplate<T>::AgregarXCopia(T newItem)
 template<class T>
 void cListaTemplate<T>::Redimensionar() //TODO: ver redimensionar!!!!
 {
-	T** aux = new T * [2 * TAM]; //La redimensionamos al doble de su tamaño
+	unsigned int n = 2 * TAM;
+	T** aux = new T * [n]; //La redimensionamos al doble de su tamaño
 
+	//--------------------------------------------
 	for (unsigned int i = 0; i < TAM; i++) {
 		aux[i] = Lista[i];
 		aux[i + TAM] = NULL;
-
-		delete Lista[i];
 	}
+	//--------------------------------------------
 
 	delete[] Lista;
 

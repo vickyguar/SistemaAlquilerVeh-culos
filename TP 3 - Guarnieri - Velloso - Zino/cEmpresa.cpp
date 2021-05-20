@@ -75,9 +75,10 @@ void cEmpresa::Alquilar(cVehiculo* Vehiculo, unsigned int CantDias, const string
 		float MontoTotal =  dynamic_cast<cVehiculo*>(Vehiculo)->CalcularTarifa(CantDias); //calculo el monto total
 		//-----------------------------------------------------------------------------------------
 
-		cAlquiler* aux = new cAlquiler(Adicional, FECHA, FECHA_FIN, MontoTotal, DNI, Vehiculo->getClave(), to_string(ListaAlquileres->getCA() + 1)); //El codigo es la cantidad "nueva" de alquileres resgistrados
-		ListaAlquileres->AgregarXCopia(*aux);
-		delete aux;
+		//cAlquiler* aux = new cAlquiler(Adicional, FECHA, FECHA_FIN, MontoTotal, DNI, Vehiculo->getClave(), to_string(ListaAlquileres->getCA() + 1)); //El codigo es la cantidad "nueva" de alquileres resgistrados
+		//*ListaAlquileres + aux;
+		*ListaAlquileres + new cAlquiler(Adicional, FECHA, FECHA_FIN, MontoTotal, DNI, Vehiculo->getClave(), to_string(ListaAlquileres->getCA() + 1));
+		//delete aux;
 
 	}
 }

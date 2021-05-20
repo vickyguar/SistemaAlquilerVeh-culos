@@ -87,7 +87,7 @@ int main() {
 		delete ex;
 	}
 
-	try { Alamo->Alquilar(BatiMovil, 7, miCliente3->getClave(), adicionales_auto); }
+	try { Alamo->Alquilar(BatiMovil, 7, miCliente3->getClave(), adicionales_auto); } 
 	catch (exception* ex)
 	{
 		cout << ex->what() << endl;

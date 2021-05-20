@@ -8,8 +8,6 @@
 
 using namespace std;
 
-//Importante: Damian hizo algo distinto! creo una clase template!
-
 template<class T>
 class cListaTemplate
 {
@@ -55,11 +53,11 @@ public:
 
 #pragma region SOBRECARGA
 	T* operator[](unsigned int pos);
-	friend cListaTemplate<T>& operator+(cListaTemplate<T>& lista, T* newItem);
-	friend ostream& operator<<(ostream& out, T& obj);
+	void operator+(T* newItem);
+	//ostream& operator<<(ostream& out, const T& obj);
+	//friend ostream& operator<<(ostream& out, const T& obj);
 
 #pragma endregion
-
 };
 
 template<class T>
@@ -252,28 +250,30 @@ void cListaTemplate<T>::Listar() const
 {
 	for (unsigned int i = 0; i < CA; i++)
 	{
-		//cout << "\n\t# " << i + 1 << endl;
-		cout << Lista[i]->To_string(); //TODO: se rompe -> sobrecarga del To_String
+		cout << "\n\t# " << i + 1 << endl;
+		cout << Lista[i]->To_string();
 	}
 }
 
 template<class T>
 T* cListaTemplate<T>::operator[](unsigned int pos) {
 	return BuscarItem(pos);
+	//Podría ser return Lista[pos]?
 }
 
 template<class T>
-cListaTemplate<T>& operator+(cListaTemplate<T>& lista, T* newItem)
+inline void cListaTemplate<T>::operator+(T* newItem)
 {
-	try { lista.Agregar(newItem); }
+	try { Agregar(newItem); }
 	catch (exception* ex) {
-		delete ex; //significa que no existe!
+		throw ex; //TODO: cambiar el ex
 	}
-	return lista;
+	return;
 }
 
+
 //template<class T>
-//ostream& operator<<(ostream& out, T& obj)
+//inline ostream& operator<<(ostream& out, const T& obj)
 //{
 //	out << obj.To_String();
 //	return out;

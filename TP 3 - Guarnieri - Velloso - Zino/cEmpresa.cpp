@@ -158,6 +158,12 @@ cListaTemplate<cVehiculo>* cEmpresa::getListaVehiculos()
 	return ListaVehiculos;
 }
 
+float cEmpresa::GananciaXVehiculo(cVehiculo*Vehiculo)
+{
+	
+	return ;
+}
+
 cListaTemplate<cCliente>* cEmpresa::getListaClientes()
 {
 	return ListaClientes;

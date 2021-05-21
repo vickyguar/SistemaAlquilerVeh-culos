@@ -62,7 +62,6 @@ public:
 	float getMontoTotal()const;
 	tm getFechaFin()const;
 	sAdicional getAdicionales()const;
-	string getPatente()const;
 	void setDevuelto(bool Devuelto = true);
 #pragma endregion
 

@@ -35,11 +35,11 @@ float cAlquileres::ListarXVehiculo(cVehiculo* Vehiculo, cListaTemplate<cVehiculo
 	for (unsigned int i = 0; i < CA; i++)
 	{
 		
-		if (Vehiculo == dynamic_cast<cVehiculo*>(ListaVehiculos->BuscarItem(Lista[i]->getPatente()))) //TODO: el condicional no funca
-		{
-			cout << Lista[i]->To_string() << endl;
-			gananciaxvehiculo += Lista[i]->getMontoTotal();
-		}
+		//if (Vehiculo == dynamic_cast<cVehiculo*>(ListaVehiculos->BuscarItem(Lista[i]->getPatente()))) //TODO: el condicional no funca
+		//{
+		//	cout << Lista[i]->To_string() << endl;
+		//	gananciaxvehiculo += Lista[i]->getMontoTotal();
+		//}
 		//Lista[i]->Imprimir(); cout << endl;
 	}
 	return gananciaxvehiculo;

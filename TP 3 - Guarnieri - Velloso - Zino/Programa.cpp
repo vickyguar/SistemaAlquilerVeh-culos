@@ -79,7 +79,7 @@ int main() {
 		delete ex;
 	}
 
-	Alamo->getListaVehiculos()->Listar();
+	cout << Alamo->getListaVehiculos();
 
 	cout << "--- SE LLEVA A LA MOTO A ARREGLAR ---" << endl;
 	Alamo->Mantenimiento(Vespa, 50);

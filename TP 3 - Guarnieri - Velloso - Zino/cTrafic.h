@@ -30,38 +30,38 @@ public:
 	* ~cTrafic
 	* destructor de la clase Trafic
 	*/
-	virtual ~cTrafic();
+	~cTrafic();
 
 #pragma endregion
 	/**
 * AñadirAdicionales
 * permite que se añadan adicionales al alquiler. El precio de estos se agrega a precio por dia
 */
-	virtual void AnadirAdicionales(unsigned int cant_portaequipaje, unsigned int cant_sillas);
+	void AnadirAdicionales(unsigned int cant_portaequipaje, unsigned int cant_sillas);
 
 	/**
 	* CalcularTarifas
 	* calcula la tarifa a abonar por el cliente
 	*/
-	virtual float CalcularTarifa(unsigned int dias);
+	float CalcularTarifa(unsigned int dias);
 
 	/**
 * PasosMantenimiento
 * crea un string con los pasos de mantenimiento de un auto
 */
-	virtual string PasosMantenimiento();
+	string PasosMantenimiento();
 	/**
 * To_string
 * crea un string con todos los atributos de la calse
 */
-	virtual string To_string() const;
+	string To_string() const;
 	/**
 	* Imprimir 
 	* imprime los atributos en pantalla
 	*/
-	virtual void Imprimir();
+	void Imprimir();
 
-	virtual float getPrecioXDia()const; //getter
+	float getPrecioXDia()const; //getter
 
 };
 #endif // !defined(EA_3737C318_36CB_4163_A3E3_C785B54048AA__INCLUDED_)

@@ -29,7 +29,7 @@ public:
 	* ~cMotocicleta
 	* destructor de la clase Motocicleta
 	*/
-	virtual ~cMotocicleta();
+	~cMotocicleta();
 
 #pragma endregion
 
@@ -37,30 +37,30 @@ public:
 	* AñadirAdicionales
 	* permite que se añadan adicionales al alquiler. El precio de estos se agrega a precio por dia
 	*/
-	virtual void AnadirAdicionales(unsigned int cant);
+	void AnadirAdicionales(unsigned int cant);
 	/**
 	* CalcularTarifas
 	* calcula la tarifa a abonar por el cliente
 	*/
-	virtual float CalcularTarifa(unsigned int dias);
+	float CalcularTarifa(unsigned int dias);
 
 	/**
 * PasosMantenimiento
 * crea un string con los pasos de mantenimiento de un auto
 */
-	virtual string PasosMantenimiento();
+	string PasosMantenimiento();
 	/**
 * To_string
 * crea un string con todos los atributos de la calse
 */
-	virtual string To_string() const;
+	string To_string() const;
 	/**
 	* Imprimir
 	* imprime los atributos en pantalla
 	*/
-	virtual void Imprimir();
+	void Imprimir();
 
-	virtual float getPrecioXDia()const; //getter
+	float getPrecioXDia()const; //getter
 
 };
 #endif // !defined(EA_5A24C7CC_36CA_4341_A725_018D81902B96__INCLUDED_)

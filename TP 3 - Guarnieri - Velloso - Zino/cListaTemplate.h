@@ -245,11 +245,11 @@ unsigned int cListaTemplate<T>::getTAM() const
 template<class T>
 void cListaTemplate<T>::Listar() const
 {
-	for (unsigned int i = 0; i < CA; i++)
+	/*for (unsigned int i = 0; i < CA; i++)
 	{
 		cout << "\n\t# " << i + 1 << endl;
-		cout << Lista[i]->To_string();
-	}
+		cout << (*Lista)[i];
+	}*/
 }
 
 template<class T>
@@ -272,12 +272,14 @@ inline void cListaTemplate<T>::operator+(T* newItem)
 }
 
 
-//template<class T>
-//inline ostream& operator<<(ostream& out, const T& obj)
-//{
-//	out << obj.To_String();
-//	return out;
-//}
+template<class T>
+void operator<<(ostream& o, cListaTemplate<T>& obj)
+{
+	for (int i = 0; i < cListaTemplate<T>::CA; i++)
+	{
+		o << obj[i]->To_String();
+	}
+}
 
 //bool operator==(string clave)
 //{

@@ -29,7 +29,7 @@ public:
 	* ~cCamioneta
 	* destructor de la clase Camioneta
 	*/
-	virtual ~cCamioneta();
+	~cCamioneta();
 
 #pragma endregion
 	
@@ -48,19 +48,19 @@ public:
 * PasosMantenimiento
 * crea un string con los pasos de mantenimiento de un auto
 */
-	virtual string PasosMantenimiento();
+	string PasosMantenimiento();
 	/**
 * To_string
 * crea un string con todos los atributos de la calse
 */
-	virtual string To_string() const;
+	string To_string() const;
 	/**
 	* Imprimir
 	* imprime los atributos en pantalla
 	*/
-	virtual void Imprimir();
+	void Imprimir();
 
-	virtual float getPrecioXDia()const; //getter
+	float getPrecioXDia()const; //getter
 
 };
 #endif // !defined(EA_47399F2C_B863_4471_87EE_0238E7D8DCB0__INCLUDED_)

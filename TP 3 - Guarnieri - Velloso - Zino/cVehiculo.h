@@ -58,12 +58,12 @@ public:
 	* CalcularTarifas
 	* calcula la tarifa a abonar por el cliente
 	*/
-	virtual float CalcularTarifa(unsigned int dias);
+	virtual float CalcularTarifa(unsigned int dias) = 0;
 	/**
 * PasosMantenimiento
 * crea un string con los pasos de mantenimiento de un auto
 */
-	virtual string PasosMantenimiento();
+	virtual string PasosMantenimiento() = 0;
 
 #pragma region GETTERS & SETTERS
 
@@ -88,7 +88,7 @@ public:
 		* Imprimir
 		* imprime los atributos en pantalla.
 		*/
-	virtual void Imprimir();
+	//virtual void Imprimir() const = 0;
 
 #pragma endregion
 

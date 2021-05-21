@@ -8,6 +8,9 @@
 #if !defined(EA_C52A1F53_D428_43a1_BDEA_184C2FF46D19__INCLUDED_)
 #define EA_C52A1F53_D428_43a1_BDEA_184C2FF46D19__INCLUDED_
 
+#include <ctime>
+tm FechaFinAlquiler(unsigned int CantDias, tm FECHA);
+
 enum class eColor
 {
 	GRIS = 1,

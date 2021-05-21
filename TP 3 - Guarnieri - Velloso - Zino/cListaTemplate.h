@@ -178,11 +178,12 @@ void cListaTemplate<T>::Redimensionar()
 	T** aux = new T * [n]; //La redimensionamos al doble de su tamaño
 
 	//--------------------------------------------
+	for (unsigned int i = 0; i < TAM * 2; i++)
+		aux[i] = NULL;
+
 	for (unsigned int i = 0; i < TAM; i++) {
 		aux[i] = Lista[i]; //me copio el elemento
-		aux[i + TAM] = NULL; //los otros los pongo en NULL
 	}
-	//Atencion: en este for al visual no le gusta!! preferible hacer dos
 	//--------------------------------------------
 
 	delete[] Lista; //borro el puntero grande
@@ -266,7 +267,10 @@ inline void cListaTemplate<T>::operator+(T* newItem)
 {
 	try { Agregar(newItem); }
 	catch (exception* ex) {
-		throw ex; //TODO: cambiar el ex
+		string error = ex->what();
+		delete ex;
+		ex = new exception(("Error al usar operator+: " + error).c_str());
+		throw ex;
 	}
 	return;
 }

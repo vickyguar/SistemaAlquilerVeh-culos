@@ -59,6 +59,7 @@ string cAlquiler::To_string() const
 		to_string(FechaFin.tm_mday) + '/' +
 		to_string(FechaFin.tm_mon) + '/' +
 		to_string(FechaFin.tm_year) + '\n';
+
 	//----------------------------------------------------------------------------------------------------------------------------------------
 	switch (Adicional.Adicional1) //solo se switchea la posibilidad de que sea CASCO o SILLA_SEGURIDAD (ver Header.h)
 	{
@@ -72,21 +73,13 @@ string cAlquiler::To_string() const
 	case eAdicionales::PORTA_EQUIPAJE: output += "Cantidad de porta equipajes alquilados: " + to_string(Adicional.cant2) + '\n'; break;
 	}
 	//----------------------------------------------------------------------------------------------------------------------------------------
+	
 	output += "Monto total: " + to_string(MontoTotal) + '\n';
 	output += "Patente del vehiculo: " + Patente + '\n';
 	output += "DNI: " + DNI + '\n';
 	output += "Codigo de alquiler: " + Code + '\n';
 	output += "Estado de alquiler: ";
 	output += (Devuelto ? ("Vehiculo devuelto\n") : ("Vehiculo no devuelto\n"));
-
-	/*if (Devuelto) {
-		output += "Estado de alquiler: ";
-		output += "el vehiculo ha sido devuelto" + '\n';
-	}
-	else {
-		output += "Estado de alquiler: ";
-		output += "el vehiculo aun no ha sido devuelto" + '\n';
-	}*/
 
 	return output;
 

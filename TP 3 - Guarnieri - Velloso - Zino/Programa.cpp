@@ -9,6 +9,7 @@
 #pragma warning(disable : 4996)
 
 //TODOS LOS PRECIOS SON EN U$D :)
+//TODO: nunca usamos el setDevuelto :( (el atributo "Devuelto" de alquileres siempre va a ser false
 
 int main() {
 

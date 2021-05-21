@@ -24,18 +24,53 @@ private:
 public:
 	
 #pragma region CONSTRUCTORES & DESTRUCTORES
+	/**
+	* cEmpresa 
+	* constructor de la clase empresa
+	*/
 	cEmpresa(cListaTemplate<cCliente>* _Clientes = NULL, cListaTemplate<cVehiculo>* _Vehiculos = NULL, cAlquileres* _Alquileres = NULL, float _Ganancia = 0);
+	/**
+	* ~cEmpresa
+	* destructor de la clase empresa
+	*/
 	virtual ~cEmpresa();
 #pragma endregion
 
 #pragma region METODOS
+	/**
+	* Adquirir
+	* agrega un vehiculo a la lista de vehiculos de la empresa
+	* @param vehiculo*, precio de compra
+	*/
 	void Adquirir(cVehiculo* newVehiculo, float PrecioCompra);
+	/**
+	* Alquilar
+	* cambia el estado del vehiculo. Agrega el alquiler a la lista de alquileres
+	* @param vehiculo*, cantidad de dias, DNI, adicionales
+	*/
 	void Alquilar(cVehiculo* Vehiculo, unsigned int CantDias, const string DNI, sAdicional adicional);
-	void RegistrarDevolucion(cVehiculo* Vehiculo, const string DNI, sAdicional adicionales_devueltos);
+	/**
+	* RegistrarDevolucion
+	* registra la devolucion del vehiculo. Si se pasa de dias, se le cobra una multa
+	* @param vehiculo*, precio de compra
+	*/
+	void RegistrarDevolucion(cVehiculo* Vehiculo, const string DNI, sAdicional adicionales_devueltos); //TODO: aca no seria el code del alquiler, envés del DNI?
+	/**
+	* Mantenimiento 
+	* cambia el estado del vehiculo a "en mantenimiento" y le cobra a la empresa (perdida)
+	*/
 	void Mantenimiento(cVehiculo* Vehiculo, float GastoMantenimiento);
+	/**
+	* RetirarCirculacion 
+	* elimina a un vehiculo de la lista de vehiculos de la empresa
+	*/
 	void RetirarCirculacion(cVehiculo* Vehiculo);
-	void ListarxVehiculo(cVehiculo* Vehiculo);
-	float CalcularGanancia();
+
+	//TODO: porque empresa y alquileres tiene el mismo metod?
+	void ListarxVehiculo(cVehiculo* Vehiculo);  //***
+
+	float CalcularGanancia(); //***
+
 #pragma endregion
 
 #pragma region GETTES & SETTERS

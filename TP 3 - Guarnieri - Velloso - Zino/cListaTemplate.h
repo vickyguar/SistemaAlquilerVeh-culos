@@ -164,7 +164,6 @@ void cListaTemplate<T>::AgregarXCopia(T newItem)
 		}
 		catch (exception* ex) {
 			Lista[CA++] = &newItem;
-			//Lista + newItem; //SObrecarga de +
 			delete ex;
 			return;
 		}

@@ -50,20 +50,34 @@ public:
 	virtual ~cVehiculo();
 #pragma endregion
 
+	/**
+* AñadirAdicionales
+* permite que se añadan adicionales al alquiler. El precio de estos se agrega a precio por dia
+*/
 	virtual void AnadirAdicionales(sAdicional adicional);
+	/**
+	* CalcularTarifas
+	* calcula la tarifa a abonar por el cliente
+	*/
 	virtual float CalcularTarifa(unsigned int dias);
+	/**
+* PasosMantenimiento
+* crea un string con los pasos de mantenimiento de un auto
+*/
 	virtual string PasosMantenimiento();
 
 #pragma region GETTERS & SETTERS
+
 	string getClave()const;
-	float getTarifaBase()const; //se puede poner en el virtual?
+	float getTarifaBase()const; 
 	eEstadoVehiculo getEstado()const;
 	void setEstado(eEstadoVehiculo newEstado);
 	void setFechaUltMantenimiento(tm newUltMantenimiento);
 	void setTarifaBase(float tarifa);
 	virtual float getPrecioXDia()const;
-#pragma endregion
-	virtual string To_string() const;
 
+#pragma endregion
+
+	virtual string To_string() const;
 };
 #endif // !defined(EA_EC55E7BC_2390_417c_A6F2_559933EB7B4E__INCLUDED_)

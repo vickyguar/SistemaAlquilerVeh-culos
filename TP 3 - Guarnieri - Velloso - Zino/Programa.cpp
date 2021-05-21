@@ -97,7 +97,7 @@ int main() {
 		Alamo->Alquilar(Herbie, 4, miCliente2->getClave(), adicionales_auto);
 		adicionales_auto.Adicional1 = eAdicionales::SILLA_SEGURIDAD;
 		Alamo->Alquilar(DeLorean, 30, miCliente1->getClave(), adicionales_auto);
-		Alamo->Alquilar(HarleyDavidson, 14, miCliente4->getClave(), adicionales_moto);
+		/*Alamo->Alquilar(HarleyDavidson, 14, miCliente4->getClave(), adicionales_moto);*/
 	} 
 	catch (exception* ex)
 	{
@@ -109,6 +109,9 @@ int main() {
 	Alamo->getListaAlquileres()->Listar();
 	cout << "\n--- LISTA POR VEHICULO ---" << endl;
 	Alamo->getListaAlquileres()->ListarXVehiculo(BatiMovil);
+
+	cout << "\n--- GANANCIA DE LA EMPRESA ---" << endl;
+	cout << "\t" << Alamo->CalcularGanancia();
 
 	//PREGUNTAR AL CLIENTE SI QUIERE UN CASCO -> SI
 

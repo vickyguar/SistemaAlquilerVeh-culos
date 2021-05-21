@@ -34,10 +34,21 @@ public:
 	* destructor de la clase cliente
 	*/
 	virtual ~cCliente();
+
 	string getClave()const;
-
-	string To_string()const;
+#pragma region IMPRIMIR & TO STRING
+	/**
+	* Imprimir
+	* imprimir los atributos de la clase en pantalla
+	*/
 	void Imprimir()const;
+	/**
+	* To_string
+	* crea un string con todos los atributos de la calse
+	*/
+	string To_string()const;
+#pragma endregion
 
+	
 };
 #endif // !defined(EA_38B6FEF6_D888_4b51_B635_DC289A931700__INCLUDED_)

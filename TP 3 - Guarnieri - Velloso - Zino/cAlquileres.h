@@ -15,11 +15,29 @@ class cAlquileres:public cListaTemplate<class cAlquiler>
 {
 
 public:
+	/**
+* cAlquileres 
+* constructor de clase cAlquileres
+* @param TAM, delete
+*/
 	cAlquileres(unsigned int _TAM = NMAX, bool _Delete = true);
-	
+	/**
+* ~cAlquileres
+* destructor de la clase cAutomovil
+*/
+	~cAlquileres();
+
+	/**
+	* CalcularGanancia
+	* calcula la ganancia de la empresa, sumando los montostotales
+	*/
 	float CalcularGanancia();
+	/**
+	* ListarXVehiculo
+	*  lista por tipo de vehiculo
+	* @param vehiculo
+	*/
 	void ListarXVehiculo(cVehiculo*Vehiculo);
-	void ListarAlquileres();
 
 };
 #endif // !defined(EA_28424133_7ED8_4704_BCB7_1D640A9AC898__INCLUDED_)

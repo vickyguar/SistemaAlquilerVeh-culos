@@ -12,6 +12,10 @@ cAlquileres::cAlquileres(unsigned int _TAM, bool _Delete):cListaTemplate<cAlquil
 
 }
 
+cAlquileres::~cAlquileres()
+{
+}
+
 float cAlquileres::CalcularGanancia(){
 	float Ganancia= 0;
 	for (unsigned int i = 0; i < CA; i++)
@@ -35,13 +39,4 @@ void cAlquileres::ListarXVehiculo(cVehiculo*Vehiculo){
 	}
 	//DUDA sobre estar casteando el tipo cAlquiler con cVehiculo
 	//cAnimal ptr y (dynamic_cast<cMamiferos*>(ptr))->Nombre
-}
-
-void cAlquileres::ListarAlquileres()
-{
-	for (unsigned int i = 0; i < CA; i++)
-	{
-		cout << "\n\t# " << i + 1 << endl;
-		cout << Lista[i]->To_string(); //TODO: se rompe -> sobrecarga del To_String
-	}
 }

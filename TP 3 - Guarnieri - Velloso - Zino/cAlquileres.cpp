@@ -27,18 +27,22 @@ float cAlquileres::CalcularGanancia(){
 }
 
 
-void cAlquileres::ListarXVehiculo(cVehiculo* Vehiculo, cListaTemplate<cVehiculo>* ListaVehiculos) {
 
+
+float cAlquileres::ListarXVehiculo(cVehiculo* Vehiculo, cListaTemplate<cVehiculo>* ListaVehiculos) {
+
+	float gananciaxvehiculo= 0;
 	for (unsigned int i = 0; i < CA; i++)
 	{
-		if (Vehiculo == dynamic_cast<cAutomovil*>(ListaVehiculos->BuscarXPos(i))) //TODO: el condicional no funca
+		
+		if (Vehiculo == dynamic_cast<cVehiculo*>(ListaVehiculos->BuscarItem(Lista[i]->getPatente()))) //TODO: el condicional no funca
+		{
 			cout << Lista[i]->To_string() << endl;
+			gananciaxvehiculo += Lista[i]->getMontoTotal();
+		}
+		//Lista[i]->Imprimir(); cout << endl;
 	}
-
-
-
-
-
+	return gananciaxvehiculo;
 	//DUDA sobre estar casteando el tipo cAlquiler con cVehiculo
 	// 	   //DUDA: ponerle el dynamic cast al vehiculo que llega por parametro?
 	//cAnimal ptr y (dynamic_cast<cMamiferos*>(ptr))->Nombre

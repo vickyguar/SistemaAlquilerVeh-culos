@@ -61,6 +61,11 @@ string cCamioneta::To_string() const
 	return output;
 }
 
+void cCamioneta::Imprimir()
+{
+	cout << To_string();
+}
+
 float cCamioneta::getPrecioXDia() const
 {
 	return PrecioAlquilerXDia;

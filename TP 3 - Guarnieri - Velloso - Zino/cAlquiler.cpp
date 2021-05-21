@@ -45,7 +45,7 @@ void cAlquiler::setDevuelto(bool Devuelto)
 
 void cAlquiler::Imprimir() const
 {
-	cout << To_string();
+
 }
 
 string cAlquiler::To_string() const

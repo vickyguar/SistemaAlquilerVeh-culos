@@ -16,7 +16,7 @@ cAlquiler::cAlquiler(sAdicional _Adicional, tm _FechaInicio, tm _FechaFin, float
 	FechaFin = _FechaFin;
 	FechaInicio = _FechaInicio;
 	MontoTotal = _MontoTotal;
-	Devuelto = _Devuelto;
+	Devuelto = _Devuelto; //TODO: esta llamando al destructor de vehiculo ¿?
 }
 
 cAlquiler::~cAlquiler(){

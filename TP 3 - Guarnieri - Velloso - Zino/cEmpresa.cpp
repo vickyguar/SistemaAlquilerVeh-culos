@@ -76,7 +76,6 @@ void cEmpresa::Alquilar(cVehiculo* Vehiculo, unsigned int CantDias, const string
 		//-----------------------------------------------------------------------------------------
 
 		*ListaAlquileres + new cAlquiler(Adicional, FECHA, FECHA_FIN, MontoTotal, DNI, *Vehiculo, to_string(ListaAlquileres->getCA() + 1));
-
 	}
 }
 

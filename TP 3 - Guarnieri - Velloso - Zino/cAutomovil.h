@@ -33,11 +33,28 @@ public:
 
 #pragma endregion
 
+	/**
+	* AñadirAdicionales 
+	* permite que se añadan adicionales al alquiler. El precio de estos se agrega a precio por dia
+	*/
 	virtual void AnadirAdicionales(unsigned int cant);
+	/**
+	* CalcularTarifas 
+	* calcula la tarifa a abonar por el cliente
+	*/
 	virtual float CalcularTarifa(unsigned int dias);
-	virtual string PasosMantenimiento();
-	virtual string To_string() const;
-	virtual float getPrecioXDia()const;
 
+	/**
+* PasosMantenimiento
+* crea un string con los pasos de mantenimiento de un auto
+*/
+	virtual string PasosMantenimiento();
+	/**
+* To_string
+* crea un string con todos los atributos de la calse
+*/
+	virtual string To_string() const;
+
+	virtual float getPrecioXDia()const; //getter
 };
 #endif // !defined(EA_13DEC193_FD8B_4c41_B1BB_56B69270B260__INCLUDED_)

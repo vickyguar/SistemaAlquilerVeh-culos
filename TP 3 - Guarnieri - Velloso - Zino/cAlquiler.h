@@ -27,15 +27,35 @@ private:
 
 public:
 #pragma region CONSTRUCTORES Y DESTRUCTORES
+	/**
+* cAlquiler
+* constructor de alquiler
+* @param adicionales, fecha fin, fehca inicio, monto total, DNI, Patente, codigo, devuelto
+*/
 	cAlquiler(sAdicional _Adicional, tm _FechaFin, tm _FechaInicio, float _MontoTotal, const string _DNI, const string _Patente, const string code, bool _Devuelto=false);
+	/**
+* ~cAlquiler
+* destructor de la clase cAlquiler
+*/
 	virtual ~cAlquiler();
 	
 #pragma endregion
 
+#pragma region IMPRIMIR & TO STRING
+	/**
+	* Imprimir
+	* imprimir los atributos de la clase en pantalla
+	*/
 	void Imprimir()const;
+	/**
+	* To_string
+	* crea un string con todos los atributos de la calse
+	*/
 	string To_string()const;
+#pragma endregion
 
 #pragma region GETTERS Y SETTERS
+
 	string getClave() const;
 	float getMontoTotal()const;
 	tm getFechaFin()const;

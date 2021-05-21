@@ -54,7 +54,7 @@ public:
 #pragma region SOBRECARGA
 	T* operator[](unsigned int pos);
 	void operator+(T* newItem);
-	//ostream& operator<<(const T& obj);
+	//ostream& operator<<(ostream& out, const T& obj);
 	//friend ostream& operator<<(ostream& out, const T& obj);
 
 #pragma endregion
@@ -151,26 +151,26 @@ void cListaTemplate<T>::Eliminar(const string Key)
 	delete aux; //Eliminamos
 }
 
-//template<class T>
-//void cListaTemplate<T>::AgregarXCopia(T newItem)
-//{
-//	if (Lista != NULL) {
-//
-//		if (CA == TAM) //Si la cantidad actual es igual al tamaño máximo
-//			Redimensionar(); //Redimensiono la lista
-//
-//		try {
-//			int pos = getIndex(newItem.getClave());
-//		}
-//		catch (exception* ex) {
-//			Lista[CA++] = &newItem;
-//			delete ex;
-//			return;
-//		}
-//		throw new exception("El item ya esta en la lista");
-//	}
-//	throw new exception("Error en agregar por copia: la lista es NULL"); 
-//}
+template<class T>
+void cListaTemplate<T>::AgregarXCopia(T newItem)
+{
+	if (Lista != NULL) {
+
+		if (CA == TAM) //Si la cantidad actual es igual al tamaño máximo
+			Redimensionar(); //Redimensiono la lista
+
+		try {
+			int pos = getIndex(newItem.getClave()); //TODO: Fijarse
+		}
+		catch (exception* ex) {
+			Lista[CA++] = &newItem;
+			delete ex;
+			return;
+		}
+		throw new exception("El item ya esta en la lista");
+	}
+	throw new exception("Error en agregar por copia: la lista es NULL"); 
+}
 
 template<class T>
 void cListaTemplate<T>::Redimensionar()
@@ -271,15 +271,13 @@ inline void cListaTemplate<T>::operator+(T* newItem)
 	return;
 }
 
+
 //template<class T>
-//inline ostream& cListaTemplate<T>::operator<<(const T& obj)
+//inline ostream& operator<<(ostream& out, const T& obj)
 //{
-//	return << obj.To_String();
-//
+//	out << obj.To_String();
+//	return out;
 //}
-
-
-
 
 //bool operator==(string clave)
 //{

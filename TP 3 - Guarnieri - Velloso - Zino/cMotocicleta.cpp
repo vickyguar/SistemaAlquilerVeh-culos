@@ -43,6 +43,11 @@ string cMotocicleta::PasosMantenimiento(){
 	return steps;
 }
 
+void cMotocicleta::Imprimir()
+{
+	cout << To_string();
+}
+
 float cMotocicleta::getPrecioXDia() const
 {
 	return PrecioAlquilerXDia;

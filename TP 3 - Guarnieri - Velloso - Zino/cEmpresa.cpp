@@ -57,9 +57,9 @@ void cEmpresa::Alquilar(cVehiculo* Vehiculo, unsigned int CantDias, const string
 	
 	time_t now = time(NULL); //para obtener hora de SO
 	tm FECHA = *localtime(&now); 
-	tm FECHA_FIN = FechaFinAlquiler(CantDias, FECHA); //fecha de fin es la misma que la del día de hoy, nada más que con != numero de día
+	tm FECHA_FIN = FECHA;
+	FECHA_FIN.tm_mday += CantDias; //fecha de fin es la misma que la del día de hoy, nada más que con != numero de día
 	
-
 	if (Vehiculo != NULL) {
 		if (Vehiculo->getEstado() != eEstadoVehiculo::DISPONIBLE) //Si no esta disponible, no lo puede alquilar
 			throw new exception(("El auto con patente " + Vehiculo->getClave() +
@@ -75,7 +75,7 @@ void cEmpresa::Alquilar(cVehiculo* Vehiculo, unsigned int CantDias, const string
 		float MontoTotal =  dynamic_cast<cVehiculo*>(Vehiculo)->CalcularTarifa(CantDias); //calculo el monto total
 		//-----------------------------------------------------------------------------------------
 
-		*ListaAlquileres + new cAlquiler(Adicional, FECHA, FECHA_FIN, MontoTotal, DNI, *Vehiculo, to_string(ListaAlquileres->getCA() + 1));
+		*ListaAlquileres + new cAlquiler(Adicional, FECHA, FECHA_FIN, MontoTotal, DNI, Vehiculo->getClave(), to_string(ListaAlquileres->getCA() + 1));
 
 	}
 }
@@ -156,6 +156,12 @@ void cEmpresa::ListarxVehiculo(cVehiculo*Vehiculo)
 cListaTemplate<cVehiculo>* cEmpresa::getListaVehiculos()
 {
 	return ListaVehiculos;
+}
+
+float cEmpresa::GananciaXVehiculo(cVehiculo*Vehiculo)
+{
+	float ganancia = ListaAlquileres->ListarXVehiculo(Vehiculo,ListaVehiculos);
+	return ganancia;
 }
 
 cListaTemplate<cCliente>* cEmpresa::getListaClientes()

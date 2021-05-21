@@ -275,9 +275,9 @@ inline void cListaTemplate<T>::operator+(T* newItem)
 template<class T>
 void operator<<(ostream& o, cListaTemplate<T>& obj)
 {
-	for (int i = 0; i < cListaTemplate<T>::CA; i++)
+	for (int i = 0; i < obj.getCA(); i++)
 	{
-		o << obj[i]->To_String();
+		o << obj[i]->To_string(); //TODO: for adentro del to string
 	}
 }
 

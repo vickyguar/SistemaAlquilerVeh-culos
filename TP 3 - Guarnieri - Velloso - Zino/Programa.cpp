@@ -10,6 +10,8 @@
 
 //TODOS LOS PRECIOS SON EN U$D :)
 //TODO: cheuear ema fechas!!!
+//TODO: dynamic_cast
+//TODO: ganancia
 
 int main() {
 
@@ -79,7 +81,7 @@ int main() {
 		delete ex;
 	}
 
-	cout << Alamo->getListaVehiculos();
+	cout << *(Alamo->getListaVehiculos());
 
 	cout << "--- SE LLEVA A LA MOTO A ARREGLAR ---" << endl;
 	Alamo->Mantenimiento(Vespa, 50);

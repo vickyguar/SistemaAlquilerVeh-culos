@@ -32,7 +32,7 @@ public:
 * constructor de alquiler
 * @param adicionales, fecha fin, fehca inicio, monto total, DNI, Patente, codigo, devuelto
 */
-	cAlquiler(sAdicional _Adicional, tm _FechaFin, tm _FechaInicio, float _MontoTotal, const string _DNI, const string _Patente, const string code, bool _Devuelto=false);
+	cAlquiler(sAdicional _Adicional, tm _FechaInicio, tm _FechaFin, float _MontoTotal, const string _DNI, const string _Patente, const string code, bool _Devuelto=false);
 	/**
 * ~cAlquiler
 * destructor de la clase cAlquiler
@@ -60,7 +60,8 @@ public:
 	float getMontoTotal()const;
 	tm getFechaFin()const;
 	sAdicional getAdicionales()const;
-	void setDevuelto();
+	string getPatente()const;
+	void setDevuelto(bool Devuelto = true);
 #pragma endregion
 
 };

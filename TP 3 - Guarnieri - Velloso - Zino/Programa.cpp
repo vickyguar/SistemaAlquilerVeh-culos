@@ -9,9 +9,12 @@
 #pragma warning(disable : 4996)
 
 //TODOS LOS PRECIOS SON EN U$D :)
-//TODO: nunca usamos el setDevuelto :( (el atributo "Devuelto" de alquileres siempre va a ser false
+//TODO: cheuear ema fechas!!!
 
 int main() {
+
+	
+
 
 	time_t now = time(NULL); //para obtener hora de SO
 	tm FECHA = *localtime(&now);
@@ -48,6 +51,8 @@ int main() {
 	cCliente* miCliente2 = new cCliente("555-111-0002", "Maggie Peyton", "44131412", 30);
 	cCliente* miCliente3 = new cCliente("555-111-0003", "Bat Man", "44131413", 40);
 	cCliente* miCliente4 = new cCliente("555-111-0004", "NN", "44131414", 50);
+
+
 
 	//LOS VEHICULOS QUE YA SON DE LA EMPRESA -> LOS QUE ESTAN EN MANTENIMIENTO
 	try { Alamo->getListaVehiculos()->Agregar(Mate); }
@@ -109,7 +114,7 @@ int main() {
 	cout << "\n--- LISTA DE ALQUILERES ---" << endl;
 	Alamo->getListaAlquileres()->Listar();
 	cout << "\n--- LISTA POR VEHICULO ---" << endl;
-	Alamo->getListaAlquileres()->ListarXVehiculo(BatiMovil);
+	Alamo->ListarxVehiculo(BatiMovil);
 
 	cout << "\n--- GANANCIA DE LA EMPRESA ---" << endl;
 	cout << "\t" << Alamo->CalcularGanancia();
@@ -117,9 +122,10 @@ int main() {
 
 	cout << endl << endl;
 
+
 	//PREGUNTAR AL CLIENTE SI QUIERE UN CASCO -> SI
 
-	delete Alamo; //TODO: PROBLEMA AL DESTRUIR
+	delete Alamo;
 	//delete miListaAlquileres;
 	return 0;
 }

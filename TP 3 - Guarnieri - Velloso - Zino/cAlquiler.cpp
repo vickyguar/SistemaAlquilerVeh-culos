@@ -8,7 +8,7 @@
 #include "cAlquiler.h"
 
 //LA PALABRA CONST NO VA
-cAlquiler::cAlquiler(sAdicional _Adicional, tm _FechaFin, tm _FechaInicio, float _MontoTotal, const string _DNI, const string _Patente, const string code, bool _Devuelto)
+cAlquiler::cAlquiler(sAdicional _Adicional, tm _FechaInicio, tm _FechaFin, float _MontoTotal, const string _DNI, const string _Patente, const string code, bool _Devuelto)
 	:DNI(_DNI), Patente(_Patente), Code(code)
 {
 	Adicional = _Adicional;
@@ -37,14 +37,19 @@ sAdicional cAlquiler::getAdicionales() const
 	return Adicional;
 }
 
+string cAlquiler::getPatente() const
+{
+	return Patente;
+}
+
+void cAlquiler::setDevuelto(bool Devuelto)
+{
+	this->Devuelto = Devuelto;
+}
+
 void cAlquiler::Imprimir() const
 {
 
-}
-
-void cAlquiler::setDevuelto()
-{
-	Devuelto = true;
 }
 
 string cAlquiler::To_string() const
@@ -53,12 +58,12 @@ string cAlquiler::To_string() const
 
 	output += "\nFecha de inicio: " +
 		to_string(FechaInicio.tm_mday) + '/' +
-		to_string(FechaInicio.tm_mon) + '/' +
-		to_string(FechaInicio.tm_year) + '\n';
+		to_string(FechaInicio.tm_mon + 1) + '/' +
+		to_string(FechaInicio.tm_year + 1900) + '\n';
 	output += "Fecha de fin: " +
 		to_string(FechaFin.tm_mday) + '/' +
-		to_string(FechaFin.tm_mon) + '/' +
-		to_string(FechaFin.tm_year) + '\n';
+		to_string(FechaFin.tm_mon + 1) + '/' +
+		to_string(FechaFin.tm_year + 1900) + '\n';
 
 	//----------------------------------------------------------------------------------------------------------------------------------------
 	switch (Adicional.Adicional1) //solo se switchea la posibilidad de que sea CASCO o SILLA_SEGURIDAD (ver Header.h)

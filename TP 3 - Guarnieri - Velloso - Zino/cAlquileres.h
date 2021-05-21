@@ -26,7 +26,6 @@ public:
 * destructor de la clase cAutomovil
 */
 	~cAlquileres();
-
 	/**
 	* CalcularGanancia
 	* calcula la ganancia de la empresa, sumando los montostotales
@@ -37,7 +36,7 @@ public:
 	*  lista por tipo de vehiculo
 	* @param vehiculo
 	*/
-	void ListarXVehiculo(cVehiculo*Vehiculo);
+	void ListarXVehiculo(cVehiculo*Vehiculo, cListaTemplate<cVehiculo>*ListaVehiculos);
 
 };
 #endif // !defined(EA_28424133_7ED8_4704_BCB7_1D640A9AC898__INCLUDED_)

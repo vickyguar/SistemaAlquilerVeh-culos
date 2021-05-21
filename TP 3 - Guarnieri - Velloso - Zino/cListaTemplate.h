@@ -169,6 +169,7 @@ void cListaTemplate<T>::AgregarXCopia(T newItem)
 		}
 		throw new exception("El item ya esta en la lista");
 	}
+	throw new exception("Error en agregar por copia: la lista es NULL"); 
 }
 
 template<class T>
@@ -207,11 +208,7 @@ T* cListaTemplate<T>::BuscarItem(const string Key)
 		}
 		return Lista[pos];
 	}
-	throw new exception("Error al buscar el item"); //Esto lo pongo, porque el visual me pone una advertencia:
-	//si la lista - SI - es NULL, entonces va a querer retornar Lista[pos], cuando pos= -1
-	//Por eso esta subrayado en verde! prueben de descomentar esto de abajo, y comentar el return que puse arriba (adentro del if)
-
-	//return Lista[pos];
+	throw new exception("Error al buscar el item"); 
 }
 
 template<class T>
@@ -257,11 +254,10 @@ void cListaTemplate<T>::Listar() const
 
 template<class T>
 T* cListaTemplate<T>::operator[](unsigned int pos) {
-	return BuscarItem(pos);
-	//Podría ser return Lista[pos]?
+	return BuscarXPos(pos);
+	//Podría ser return Lista[pos]? //TODO:USAR OPERATOR[]
 }
 
-//ESTO ESTA MAL!!! --> es lo que le comento julieta al otro grupo
 template<class T>
 inline void cListaTemplate<T>::operator+(T* newItem)
 {

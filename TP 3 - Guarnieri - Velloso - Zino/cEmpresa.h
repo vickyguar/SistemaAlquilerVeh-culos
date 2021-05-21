@@ -54,7 +54,7 @@ public:
 	* registra la devolucion del vehiculo. Si se pasa de dias, se le cobra una multa
 	* @param vehiculo*, precio de compra
 	*/
-	void RegistrarDevolucion(cVehiculo* Vehiculo, const string DNI, sAdicional adicionales_devueltos); //TODO: aca no seria el code del alquiler, envés del DNI?
+	void RegistrarDevolucion(cVehiculo* Vehiculo, const string code, sAdicional adicionales_devueltos); 
 	/**
 	* Mantenimiento 
 	* cambia el estado del vehiculo a "en mantenimiento" y le cobra a la empresa (perdida)
@@ -66,10 +66,9 @@ public:
 	*/
 	void RetirarCirculacion(cVehiculo* Vehiculo);
 
-	//TODO: porque empresa y alquileres tiene el mismo metod?
-	void ListarxVehiculo(cVehiculo* Vehiculo);  //***
+	void ListarxVehiculo(cVehiculo* Vehiculo);  
 
-	float CalcularGanancia(); //***
+	float CalcularGanancia(); 
 
 #pragma endregion
 

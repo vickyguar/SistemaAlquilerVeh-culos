@@ -75,10 +75,7 @@ void cEmpresa::Alquilar(cVehiculo* Vehiculo, unsigned int CantDias, const string
 		float MontoTotal =  dynamic_cast<cVehiculo*>(Vehiculo)->CalcularTarifa(CantDias); //calculo el monto total
 		//-----------------------------------------------------------------------------------------
 
-		//cAlquiler* aux = new cAlquiler(Adicional, FECHA, FECHA_FIN, MontoTotal, DNI, Vehiculo->getClave(), to_string(ListaAlquileres->getCA() + 1)); //El codigo es la cantidad "nueva" de alquileres resgistrados
-		//*ListaAlquileres + aux;
 		*ListaAlquileres + new cAlquiler(Adicional, FECHA, FECHA_FIN, MontoTotal, DNI, Vehiculo->getClave(), to_string(ListaAlquileres->getCA() + 1));
-		//delete aux;
 
 	}
 }
@@ -103,7 +100,7 @@ void cEmpresa::Mantenimiento(cVehiculo *Vehiculo, float PrecioMantenimiento){
 	
 }
 
-void cEmpresa::RegistrarDevolucion(cVehiculo* Vehiculo, const string DNI, sAdicional adicionales_devueltos)
+void cEmpresa::RegistrarDevolucion(cVehiculo* Vehiculo, const string code, sAdicional adicionales_devueltos)
 {
 	if (Vehiculo != NULL) {
 		float CobroExtra = 0;
@@ -111,11 +108,11 @@ void cEmpresa::RegistrarDevolucion(cVehiculo* Vehiculo, const string DNI, sAdici
 		tm FECHA = *localtime(&now);
 
 		//Cantidades de no devueltos
-		unsigned int CANT1 = ListaAlquileres->BuscarItem(DNI)->getAdicionales().cant1 - adicionales_devueltos.cant1;
-		unsigned int CANT2 = ListaAlquileres->BuscarItem(DNI)->getAdicionales().cant2 - adicionales_devueltos.cant2;
+		unsigned int CANT1 = ListaAlquileres->BuscarItem(code)->getAdicionales().cant1 - adicionales_devueltos.cant1;
+		unsigned int CANT2 = ListaAlquileres->BuscarItem(code)->getAdicionales().cant2 - adicionales_devueltos.cant2;
 
 
-		CobroExtra += (FECHA.tm_mday - ListaAlquileres->BuscarItem(DNI)->getFechaFin().tm_mday) * 5000; // se cobran 5000 por dia de atraso
+		CobroExtra += (FECHA.tm_mday - ListaAlquileres->BuscarItem(code)->getFechaFin().tm_mday) * 5000; // se cobran 5000 por dia de atraso
 		CobroExtra += (CANT1 + CANT2) * 3000; //y 3000 por adicionales no devueltos pero se le resta la cantidad de plata destinada a reponer el adicional faltante
 
 
@@ -130,8 +127,7 @@ void cEmpresa::RegistrarDevolucion(cVehiculo* Vehiculo, const string DNI, sAdici
 
 		Ganancia += CobroExtra;
 
-		//TODO: uso el setDevuelto!!
-		ListaAlquileres->BuscarItem(DNI)->setDevuelto();
+		ListaAlquileres->BuscarItem(code)->setDevuelto(); //El estado del alquiler ahora es vehiculo devuelto
 	}
 }
 
@@ -154,7 +150,7 @@ void cEmpresa::RetirarCirculacion(cVehiculo* Vehiculo){
 void cEmpresa::ListarxVehiculo(cVehiculo*Vehiculo)
 {
 	if (Vehiculo != NULL)
-		ListaAlquileres->ListarXVehiculo(Vehiculo);
+		ListaAlquileres->ListarXVehiculo(Vehiculo, ListaVehiculos);
 }
 
 cListaTemplate<cVehiculo>* cEmpresa::getListaVehiculos()
@@ -174,7 +170,7 @@ cAlquileres* cEmpresa::getListaAlquileres()
 
 float cEmpresa::CalcularGanancia()
 {
-	Ganancia+=ListaAlquileres->CalcularGanancia();
+	Ganancia += ListaAlquileres->CalcularGanancia();
 
 	return Ganancia;
 }

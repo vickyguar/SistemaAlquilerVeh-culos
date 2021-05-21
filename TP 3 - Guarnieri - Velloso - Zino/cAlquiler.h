@@ -10,6 +10,7 @@
 
 #include <ctime>
 #include <string>
+#include <iostream>
 #include "Headers.h"
 using namespace std;
 

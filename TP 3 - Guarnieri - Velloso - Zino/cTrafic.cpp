@@ -64,3 +64,8 @@ string cTrafic::To_string() const
 	return output;
 
 }
+
+void cTrafic::Imprimir()
+{
+	cout << To_string();
+}

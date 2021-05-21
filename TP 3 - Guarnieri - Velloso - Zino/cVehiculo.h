@@ -11,10 +11,9 @@
 #include <string>
 #include "Headers.h"
 #include <ctime>
+#include <iostream>
 
 using namespace std;
-
-
 
 class cVehiculo
 {
@@ -78,6 +77,20 @@ public:
 
 #pragma endregion
 
+#pragma region IMPRIMIR & TO STRING
+
+	/**
+* To_string
+* crea un string con todos los atributos de la calse
+*/
 	virtual string To_string() const;
+	/**
+		* Imprimir
+		* imprime los atributos en pantalla
+		*/
+	virtual void Imprimir();
+
+#pragma endregion
+
 };
 #endif // !defined(EA_EC55E7BC_2390_417c_A6F2_559933EB7B4E__INCLUDED_)

@@ -262,6 +262,7 @@ T* cListaTemplate<T>::operator[](unsigned int pos) {
 	return BuscarItem(pos);
 }
 
+//ESTO ESTA MAL!!! --> es lo que le comento julieta al otro grupo
 template<class T>
 cListaTemplate<T>& operator+(cListaTemplate<T>& lista, T* newItem)
 {

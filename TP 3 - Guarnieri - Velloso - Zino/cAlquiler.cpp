@@ -51,7 +51,7 @@ string cAlquiler::To_string() const
 {
 	string output;
 
-	output += "Fecha de inicio: " +
+	output += "\nFecha de inicio: " +
 		to_string(FechaInicio.tm_mday) + '/' +
 		to_string(FechaInicio.tm_mon) + '/' +
 		to_string(FechaInicio.tm_year) + '\n';
@@ -71,14 +71,22 @@ string cAlquiler::To_string() const
 	case eAdicionales::ASIENTOS_REBATIBLES: output += "Cantidad de asientos rebatibles alquilados: " + to_string(Adicional.cant2) + '\n'; break;
 	case eAdicionales::PORTA_EQUIPAJE: output += "Cantidad de porta equipajes alquilados: " + to_string(Adicional.cant2) + '\n'; break;
 	}
-
+	//----------------------------------------------------------------------------------------------------------------------------------------
 	output += "Monto total: " + to_string(MontoTotal) + '\n';
 	output += "Patente del vehiculo: " + Patente + '\n';
 	output += "DNI: " + DNI + '\n';
 	output += "Codigo de alquiler: " + Code + '\n';
 	output += "Estado de alquiler: ";
+	output += (Devuelto ? ("Vehiculo devuelto\n") : ("Vehiculo no devuelto\n"));
 
-	output += Devuelto ? "el vehiculo ya ha sido devuelto" + '\n' : "el vehiculo aun no ha sido devuelto" + '\n';
+	/*if (Devuelto) {
+		output += "Estado de alquiler: ";
+		output += "el vehiculo ha sido devuelto" + '\n';
+	}
+	else {
+		output += "Estado de alquiler: ";
+		output += "el vehiculo aun no ha sido devuelto" + '\n';
+	}*/
 
 	return output;
 

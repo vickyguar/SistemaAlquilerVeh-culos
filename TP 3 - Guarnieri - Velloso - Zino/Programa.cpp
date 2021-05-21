@@ -113,6 +113,9 @@ int main() {
 	cout << "\n--- GANANCIA DE LA EMPRESA ---" << endl;
 	cout << "\t" << Alamo->CalcularGanancia();
 
+
+	cout << endl << endl;
+
 	//PREGUNTAR AL CLIENTE SI QUIERE UN CASCO -> SI
 
 	delete Alamo; //TODO: PROBLEMA AL DESTRUIR

@@ -8,10 +8,10 @@
 #include "cAlquiler.h"
 
 //LA PALABRA CONST NO VA
-cAlquiler::cAlquiler(sAdicional _Adicional, tm _FechaInicio, tm _FechaFin, float _MontoTotal, const string _DNI, cVehiculo _Vehiculo, const string code, bool _Devuelto)
+cAlquiler::cAlquiler(sAdicional _Adicional, tm _FechaInicio, tm _FechaFin, float _MontoTotal, const string _DNI, cVehiculo* _Vehiculo, const string code, bool _Devuelto)
 	:DNI(_DNI), Code(code)
 {
-	Vehiculo = &_Vehiculo;
+	Vehiculo = _Vehiculo;
 	Adicional = _Adicional;
 	FechaFin = _FechaFin;
 	FechaInicio = _FechaInicio;

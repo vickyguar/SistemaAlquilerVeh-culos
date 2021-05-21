@@ -57,6 +57,7 @@ void cEmpresa::Alquilar(cVehiculo* Vehiculo, unsigned int CantDias, const string
 	
 	time_t now = time(NULL); //para obtener hora de SO
 	tm FECHA = *localtime(&now); 
+	FECHA.tm_mon++;
 	tm FECHA_FIN = FechaFinAlquiler(CantDias, FECHA); //fecha de fin es la misma que la del día de hoy, nada más que con != numero de día
 	
 
@@ -75,7 +76,7 @@ void cEmpresa::Alquilar(cVehiculo* Vehiculo, unsigned int CantDias, const string
 		float MontoTotal =  dynamic_cast<cVehiculo*>(Vehiculo)->CalcularTarifa(CantDias); //calculo el monto total
 		//-----------------------------------------------------------------------------------------
 
-		*ListaAlquileres + new cAlquiler(Adicional, FECHA, FECHA_FIN, MontoTotal, DNI, *Vehiculo, to_string(ListaAlquileres->getCA() + 1));
+		*ListaAlquileres + new cAlquiler(Adicional, FECHA, FECHA_FIN, MontoTotal, DNI, Vehiculo, to_string(ListaAlquileres->getCA() + 1));
 	}
 }
 

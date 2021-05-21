@@ -34,6 +34,7 @@ public:
 	/**
 	* ListarXVehiculo
 	*  lista por tipo de vehiculo
+	*  devuelve la ganancia total de los alquileres de este tipo de vehiculo
 	* @param vehiculo
 	*/
 	float ListarXVehiculo(cVehiculo*Vehiculo, cListaTemplate<cVehiculo>*ListaVehiculos);

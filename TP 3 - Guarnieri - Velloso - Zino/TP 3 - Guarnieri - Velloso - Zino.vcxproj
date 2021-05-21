@@ -148,6 +148,7 @@
     <ClCompile Include="cMotocicleta.cpp" />
     <ClCompile Include="cTrafic.cpp" />
     <ClCompile Include="cVehiculo.cpp" />
+    <ClCompile Include="Implementación.cpp" />
     <ClCompile Include="Programa.cpp" />
   </ItemGroup>
   <ItemGroup>

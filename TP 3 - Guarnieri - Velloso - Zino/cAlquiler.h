@@ -11,6 +11,7 @@
 #include <ctime>
 #include <string>
 #include "Headers.h"
+#include "cVehiculo.h"
 using namespace std;
 
 class cAlquiler
@@ -21,7 +22,7 @@ private:
 	tm FechaInicio;
 	float MontoTotal;
 	const string DNI;
-	const string Patente;
+	cVehiculo* Vehiculo;
 	const string Code; //Por si tenemos que buscar en la lista de alquileres 
 	bool Devuelto;
 
@@ -32,7 +33,7 @@ public:
 * constructor de alquiler
 * @param adicionales, fecha fin, fehca inicio, monto total, DNI, Patente, codigo, devuelto
 */
-	cAlquiler(sAdicional _Adicional, tm _FechaInicio, tm _FechaFin, float _MontoTotal, const string _DNI, const string _Patente, const string code, bool _Devuelto=false);
+	cAlquiler(sAdicional _Adicional, tm _FechaInicio, tm _FechaFin, float _MontoTotal, const string _DNI, cVehiculo _Vehiculo, const string code, bool _Devuelto=false);
 	/**
 * ~cAlquiler
 * destructor de la clase cAlquiler

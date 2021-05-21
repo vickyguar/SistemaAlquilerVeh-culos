@@ -31,12 +31,14 @@ void cAlquileres::ListarXVehiculo(cVehiculo* Vehiculo, cListaTemplate<cVehiculo>
 
 	for (unsigned int i = 0; i < CA; i++)
 	{
-		
-
-		if (Vehiculo == dynamic_cast<cVehiculo*>(ListaVehiculos->BuscarItem(Lista[i]->getPatente()))) //TODO: el condicional no funca
+		if (Vehiculo == dynamic_cast<cAutomovil*>(ListaVehiculos->BuscarXPos(i))) //TODO: el condicional no funca
 			cout << Lista[i]->To_string() << endl;
-		//Lista[i]->Imprimir(); cout << endl;
 	}
+
+
+
+
+
 	//DUDA sobre estar casteando el tipo cAlquiler con cVehiculo
 	// 	   //DUDA: ponerle el dynamic cast al vehiculo que llega por parametro?
 	//cAnimal ptr y (dynamic_cast<cMamiferos*>(ptr))->Nombre

@@ -60,6 +60,7 @@ void cEmpresa::Alquilar(cVehiculo* Vehiculo, unsigned int CantDias, const string
 	tm FECHA_FIN = FECHA;
 	FECHA_FIN.tm_mday += CantDias; //fecha de fin es la misma que la del día de hoy, nada más que con != numero de día
 	
+
 	if (Vehiculo != NULL) {
 		if (Vehiculo->getEstado() != eEstadoVehiculo::DISPONIBLE) //Si no esta disponible, no lo puede alquilar
 			throw new exception(("El auto con patente " + Vehiculo->getClave() +

@@ -11,6 +11,7 @@
 #include "cVehiculo.h"
 #include "cAlquiler.h"
 #include "cListaTemplate.h"
+#include "cAutomovil.h"
 class cAlquileres:public cListaTemplate<class cAlquiler>
 {
 

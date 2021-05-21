@@ -55,11 +55,6 @@ string cAutomovil::To_string() const
 	return output;
 }
 
-void cAutomovil::Imprimir()
-{
-	cout << To_string();
-}
-
 float cAutomovil::getPrecioXDia() const
 {
 	return PrecioAlquilerXDia;

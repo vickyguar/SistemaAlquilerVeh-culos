@@ -11,6 +11,7 @@
 #include "cVehiculo.h"
 #include "cAlquiler.h"
 #include "cListaTemplate.h"
+#include "cAutomovil.h"
 class cAlquileres:public cListaTemplate<class cAlquiler>
 {
 
@@ -34,10 +35,9 @@ public:
 	/**
 	* ListarXVehiculo
 	*  lista por tipo de vehiculo
-	*  devuelve la ganancia total de los alquileres de este tipo de vehiculo
 	* @param vehiculo
 	*/
-	float ListarXVehiculo(cVehiculo*Vehiculo, cListaTemplate<cVehiculo>*ListaVehiculos);
+	void ListarXVehiculo(cVehiculo*Vehiculo, cListaTemplate<cVehiculo>*ListaVehiculos);
 
 };
 #endif // !defined(EA_28424133_7ED8_4704_BCB7_1D640A9AC898__INCLUDED_)

@@ -88,7 +88,7 @@ public:
 		* Imprimir
 		* imprime los atributos en pantalla
 		*/
-	virtual void Imprimir();
+	//virtual void Imprimir();
 
 #pragma endregion
 

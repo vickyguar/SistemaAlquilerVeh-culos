@@ -69,8 +69,6 @@ public:
 	void ListarxVehiculo(cVehiculo* Vehiculo);  
 
 	float CalcularGanancia(); 
-	
-	float GananciaXVehiculo(cVehiculo*Vehiculo);
 
 #pragma endregion
 

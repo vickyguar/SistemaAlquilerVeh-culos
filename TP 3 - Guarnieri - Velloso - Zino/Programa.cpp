@@ -13,6 +13,9 @@
 
 int main() {
 
+	
+
+
 	time_t now = time(NULL); //para obtener hora de SO
 	tm FECHA = *localtime(&now);
 
@@ -48,6 +51,8 @@ int main() {
 	cCliente* miCliente2 = new cCliente("555-111-0002", "Maggie Peyton", "44131412", 30);
 	cCliente* miCliente3 = new cCliente("555-111-0003", "Bat Man", "44131413", 40);
 	cCliente* miCliente4 = new cCliente("555-111-0004", "NN", "44131414", 50);
+
+
 
 	//LOS VEHICULOS QUE YA SON DE LA EMPRESA -> LOS QUE ESTAN EN MANTENIMIENTO
 	try { Alamo->getListaVehiculos()->Agregar(Mate); }
@@ -121,6 +126,7 @@ int main() {
 	//PREGUNTAR AL CLIENTE SI QUIERE UN CASCO -> SI
 
 	delete Alamo;
+	//delete miListaAlquileres;
 	return 0;
 }
 

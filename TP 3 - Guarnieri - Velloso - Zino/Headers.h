@@ -8,6 +8,13 @@
 #if !defined(EA_C52A1F53_D428_43a1_BDEA_184C2FF46D19__INCLUDED_)
 #define EA_C52A1F53_D428_43a1_BDEA_184C2FF46D19__INCLUDED_
 
+#include <ctime>
+#include <iostream>
+#include <string>
+
+//Funciones 
+tm FechaFinAlquiler(unsigned int CantDias, tm FECHA);
+
 enum class eColor
 {
 	GRIS = 1,
@@ -34,6 +41,14 @@ enum class eAdicionales
 	NINGUNO = 0
 };
 
+enum class eTipoVehiculo
+{
+	MOTOCICLETA = 1,
+	AUTOMOVIL,
+	CAMIONETA,
+	TRAFIC
+};
+
 struct sAdicional {
 							 //    CAMIONETA            |           TRAFIC             |       MOTO     |     AUTO
 	eAdicionales Adicional1; //SILLA DE SEGURIDAD       |      SILLA DE SEGURIDAD      |      CASCO     |    SILLAS DE SEGURIDAD
@@ -41,4 +56,6 @@ struct sAdicional {
 	unsigned int cant1;
 	unsigned int cant2;
 };
+
+
 #endif // !defined(EA_C52A1F53_D428_43a1_BDEA_184C2FF46D19__INCLUDED_)

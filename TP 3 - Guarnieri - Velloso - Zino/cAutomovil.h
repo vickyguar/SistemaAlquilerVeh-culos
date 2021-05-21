@@ -54,6 +54,11 @@ public:
 * crea un string con todos los atributos de la calse
 */
 	virtual string To_string() const;
+	/**
+	* Imprimir
+	* imprime los atributos en pantalla
+	*/
+	virtual void Imprimir();
 
 	virtual float getPrecioXDia()const; //getter
 };

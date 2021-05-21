@@ -89,6 +89,9 @@ string cVehiculo::To_string()const
 
 	return output;
 }
+void cVehiculo::Imprimir() const
+{
+}
 void cVehiculo::setTarifaBase(float tarifa)
 {
 	TarifaBase = tarifa;

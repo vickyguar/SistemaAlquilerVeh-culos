@@ -86,9 +86,9 @@ public:
 	virtual string To_string() const;
 	/**
 		* Imprimir
-		* imprime los atributos en pantalla
+		* imprime los atributos en pantalla.
 		*/
-	//virtual void Imprimir();
+	virtual void Imprimir();
 
 #pragma endregion
 

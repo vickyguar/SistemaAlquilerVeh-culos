@@ -89,6 +89,7 @@ string cVehiculo::To_string()const
 
 	return output;
 }
+
 void cVehiculo::setTarifaBase(float tarifa)
 {
 	TarifaBase = tarifa;

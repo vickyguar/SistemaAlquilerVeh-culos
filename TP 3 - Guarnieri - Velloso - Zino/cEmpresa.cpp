@@ -160,8 +160,8 @@ cListaTemplate<cVehiculo>* cEmpresa::getListaVehiculos()
 
 float cEmpresa::GananciaXVehiculo(cVehiculo*Vehiculo)
 {
-	
-	return ;
+	float ganancia = ListaAlquileres->ListarXVehiculo(Vehiculo,ListaVehiculos);
+	return ganancia;
 }
 
 cListaTemplate<cCliente>* cEmpresa::getListaClientes()

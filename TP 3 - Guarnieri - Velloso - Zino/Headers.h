@@ -41,14 +41,6 @@ enum class eAdicionales
 	NINGUNO = 0
 };
 
-enum class eTipoVehiculo
-{
-	MOTOCICLETA = 1,
-	AUTOMOVIL,
-	CAMIONETA,
-	TRAFIC
-};
-
 struct sAdicional {
 							 //    CAMIONETA            |           TRAFIC             |       MOTO     |     AUTO
 	eAdicionales Adicional1; //SILLA DE SEGURIDAD       |      SILLA DE SEGURIDAD      |      CASCO     |    SILLAS DE SEGURIDAD

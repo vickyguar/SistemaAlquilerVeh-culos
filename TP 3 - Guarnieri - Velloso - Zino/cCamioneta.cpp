@@ -61,7 +61,7 @@ string cCamioneta::To_string() const
 	return output;
 }
 
-void cCamioneta::Imprimir()
+void cCamioneta::Imprimir() const
 {
 	cout << To_string();
 }

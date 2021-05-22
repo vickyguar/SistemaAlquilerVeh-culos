@@ -58,7 +58,7 @@ public:
 	* Imprimir
 	* imprime los atributos en pantalla
 	*/
-	void Imprimir();
+	void Imprimir() const;
 
 	float getPrecioXDia()const; //getter
 };

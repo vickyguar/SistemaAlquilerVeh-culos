@@ -55,7 +55,7 @@ string cAutomovil::To_string() const
 	return output;
 }
 
-void cAutomovil::Imprimir()
+void cAutomovil::Imprimir() const
 {
 	cout << To_string();
 }

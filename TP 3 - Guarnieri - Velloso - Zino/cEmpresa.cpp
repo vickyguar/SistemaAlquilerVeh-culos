@@ -12,13 +12,12 @@
 #pragma warning(disable : 4996)
 
 
-cEmpresa::cEmpresa(string cuit, string nombre, cListaTemplate<cCliente>* _Clientes, cListaTemplate<cVehiculo>* _Vehiculos, cAlquileres* _Alquileres,float _Ganancia)
+cEmpresa::cEmpresa(const string cuit, string nombre, cListaTemplate<cCliente>* _Clientes, cListaTemplate<cVehiculo>* _Vehiculos, cAlquileres* _Alquileres,float _Ganancia): CUIT(cuit)
 {
 	this->ListaAlquileres = _Alquileres;
 	this->ListaClientes = _Clientes;
 	this->ListaVehiculos = _Vehiculos;
 	this->Nombre = nombre;
-	this->CUIT = cuit;
 	this->Ganancia = _Ganancia;
 }
 
@@ -202,6 +201,17 @@ cListaTemplate<cCliente>* cEmpresa::getListaClientes()
 cAlquileres* cEmpresa::getListaAlquileres()
 {
 	return ListaAlquileres;
+}
+
+string cEmpresa::To_String() const
+{
+	string output = "Nombre: " + Nombre + "\nCUIT: " + CUIT + "\nGanancia: " + to_string(Ganancia);
+	return output;
+}
+
+void cEmpresa::Imprimir() const
+{
+	cout << To_String();
 }
 
 float cEmpresa::GananciaNeta()

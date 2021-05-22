@@ -26,7 +26,7 @@ int main() {
 	cAlquileres* miListaAlquileres = new cAlquileres();
 	cListaTemplate<cVehiculo>* miListaVehiculos = new cListaTemplate<cVehiculo>();
 	
-	cEmpresa* miEmpresa = new cEmpresa("Alamo", "23-25723451-12", miListaClientes, miListaVehiculos, miListaAlquileres);
+	cEmpresa* miEmpresa = new cEmpresa("23-25723451-12", "Alamo", miListaClientes, miListaVehiculos, miListaAlquileres);
 
 	//AUTOS
 	cAutomovil* RayoMcqueen = new cAutomovil(eEstadoVehiculo::DISPONIBLE, 1000, adicionales_auto, eColor::ROJO, "CHASIS1", "AA 111 AA", "POLIZA1", FECHA, 4);
@@ -50,6 +50,9 @@ int main() {
 	cCliente* miCliente2 = new cCliente("555-111-0002", "Maggie Peyton", "44131412", 30);
 	cCliente* miCliente3 = new cCliente("555-111-0003", "Bat Man", "44131413", 40);
 	cCliente* miCliente4 = new cCliente("555-111-0004", "Gatubela", "44131414", 50);
+
+	//IMPRIMO DATOS DE EMPRESA
+	miEmpresa->Imprimir();
 
 	//LOS VEHICULOS QUE YA SON DE LA EMPRESA -> LOS QUE ESTAN EN MANTENIMIENTO
 	try { miEmpresa->getListaVehiculos()->Agregar(Mate); }

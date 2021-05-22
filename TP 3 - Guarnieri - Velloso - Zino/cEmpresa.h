@@ -19,7 +19,7 @@ private:
 	cListaTemplate<cCliente>* ListaClientes; //lista de clientes
 	cListaTemplate<cVehiculo>* ListaVehiculos; //lista de vehiculos
 	cAlquileres* ListaAlquileres; //lista de alquileres
-	string CUIT;
+	const string CUIT;
 	string Nombre;
 	float Ganancia; //ganancia de la empresa
 
@@ -30,7 +30,7 @@ public:
 	* cEmpresa 
 	* constructor de la clase empresa
 	*/
-	cEmpresa(string cuit, string nombre, cListaTemplate<cCliente>* _Clientes, cListaTemplate<cVehiculo>* _Vehiculos, cAlquileres* _Alquileres, float _Ganancia = 0);
+	cEmpresa(const string cuit, string nombre, cListaTemplate<cCliente>* _Clientes, cListaTemplate<cVehiculo>* _Vehiculos, cAlquileres* _Alquileres, float _Ganancia = 0);
 	/**
 	* ~cEmpresa
 	* destructor de la clase empresa
@@ -86,6 +86,11 @@ public:
 	cListaTemplate<cVehiculo>* getListaVehiculos();
 	cListaTemplate<cCliente>* getListaClientes();
 	cAlquileres* getListaAlquileres();
+#pragma endregion
+
+#pragma region IMPRIMIR & TO STRING
+	string To_String() const;
+	void Imprimir() const;
 #pragma endregion
 
 };

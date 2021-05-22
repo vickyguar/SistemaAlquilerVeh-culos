@@ -9,6 +9,38 @@
 #pragma warning(disable : 4996)
 
 //TODOS LOS PRECIOS SON EN U$D :)
+bool VerificarAdicionales(cVehiculo* Vehiculo, sAdicional adicional) {
+
+	if (cAutomovil* aux = dynamic_cast<cAutomovil*>(Vehiculo)) {
+		if (adicional.Adicional1 != eAdicionales::SILLA_SEGURIDAD)
+			return false;
+		if (adicional.Adicional2 != (eAdicionales)0)
+			return false;
+	}
+
+	if (cMotocicleta* aux = dynamic_cast<cMotocicleta*>(Vehiculo)) {
+		if (adicional.Adicional1 != eAdicionales::CASCO || adicional.Adicional2 != (eAdicionales)0)
+			return false;
+		if (adicional.cant1 > 2)
+			return false;
+	}
+
+	if (cTrafic* aux = dynamic_cast<cTrafic*>(Vehiculo)) {
+		if (adicional.Adicional1 != eAdicionales::SILLA_SEGURIDAD ||
+			adicional.Adicional2 != eAdicionales::ASIENTOS_REBATIBLES)
+			return false;
+
+	}
+
+	if (cCamioneta* aux = dynamic_cast<cCamioneta*>(Vehiculo)) {
+		if (adicional.Adicional1 != eAdicionales::SILLA_SEGURIDAD ||
+			adicional.Adicional2 != eAdicionales::PORTA_EQUIPAJE)
+			return false;
+	}
+
+	return true;
+
+}
 
 int main() {
 

@@ -70,6 +70,7 @@ public:
 #pragma endregion
 
 #pragma region LISTAR
+	//estos metodos recorren la lista de alquileres y calculan la ganancia
 	void ListarxVehiculo();
 	float ListarxAutomovil();
 	float ListarxCamioneta();

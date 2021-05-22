@@ -220,7 +220,7 @@ void cListaTemplate<T>::Listar() const
 	for (unsigned int i = 0; i < CA; i++) //recorro la lista
 	{
 		cout << "\n\t# " << i + 1 << endl;
-		cout << Lista[i]->To;
+		cout << Lista[i]->To_string();
 	}
 }
 

@@ -22,7 +22,11 @@ int main() {
 
 	sAdicional adicionales_devueltos = { eAdicionales::CASCO, eAdicionales::NINGUNO, 1, 0 };
 
-	cEmpresa* miEmpresa = new cEmpresa("Alamo", "23-25723451-12");
+	cListaTemplate<cCliente>* miListaClientes = new cListaTemplate<cCliente>();
+	cAlquileres* miListaAlquileres = new cAlquileres();
+	cListaTemplate<cVehiculo>* miListaVehiculos = new cListaTemplate<cVehiculo>();
+	
+	cEmpresa* miEmpresa = new cEmpresa("Alamo", "23-25723451-12", miListaClientes, miListaVehiculos, miListaAlquileres);
 
 	//AUTOS
 	cAutomovil* RayoMcqueen = new cAutomovil(eEstadoVehiculo::DISPONIBLE, 1000, adicionales_auto, eColor::ROJO, "CHASIS1", "AA 111 AA", "POLIZA1", FECHA, 4);
@@ -45,7 +49,7 @@ int main() {
 	cCliente* miCliente1 = new cCliente("555-111-0001", "Marty McFly", "44131411", 20);
 	cCliente* miCliente2 = new cCliente("555-111-0002", "Maggie Peyton", "44131412", 30);
 	cCliente* miCliente3 = new cCliente("555-111-0003", "Bat Man", "44131413", 40);
-	cCliente* miCliente4 = new cCliente("555-111-0004", "Gatuvela", "44131414", 50);
+	cCliente* miCliente4 = new cCliente("555-111-0004", "Gatubela", "44131414", 50);
 
 	//LOS VEHICULOS QUE YA SON DE LA EMPRESA -> LOS QUE ESTAN EN MANTENIMIENTO
 	try { miEmpresa->getListaVehiculos()->Agregar(Mate); }
@@ -83,26 +87,19 @@ int main() {
 	miEmpresa->Mantenimiento(Vespa, 50);
 
 	//SE ALQUILAN AUTOS
-	try { miEmpresa->getListaClientes()->Agregar(miCliente3); }
-	catch (exception* ex)
-	{
-		cout << ex->what() << endl;
-		delete ex;
-	}
-
 	try 
 	{ 
-		miEmpresa->Alquilar(BatiMovil, 7, miCliente3->getClave(), adicionales_auto);
-		miEmpresa->Alquilar(Herbie, 4, miCliente2->getClave(), adicionales_auto);
+		miEmpresa->Alquilar(BatiMovil, 7, miCliente3, adicionales_auto);
+		miEmpresa->Alquilar(Herbie, 4, miCliente2, adicionales_auto);
 		adicionales_auto.cant1 = 1;
-		miEmpresa->Alquilar(DeLorean, 30, miCliente1->getClave(), adicionales_auto);
+		miEmpresa->Alquilar(DeLorean, 30, miCliente1, adicionales_auto);
+
 
 		cout << endl <<endl << "Usted esta alquilando una moto" << endl;
-		cout << "Cuantos cascos quiere? ";
+		cout << "Cuantos cascos quiere? (MAX 2)";
 		cin >> adicionales_moto.cant1;
 
-		miEmpresa->Alquilar(HarleyDavidson, 14, miCliente4->getClave(), adicionales_moto);
-
+		miEmpresa->Alquilar(HarleyDavidson, 14, miCliente4, adicionales_moto);
 	} 
 	catch (exception* ex)
 	{
@@ -111,7 +108,8 @@ int main() {
 	}
 	
 	cout << "\n--- LISTA DE ALQUILERES ---" << endl;
-	miEmpresa->getListaAlquileres()->Listar();
+	cout << *(miEmpresa->getListaAlquileres());
+
 	cout << "\n--- LISTA POR VEHICULO ---" << endl;
 	miEmpresa->ListarxVehiculo();
 
@@ -135,7 +133,10 @@ int main() {
 	printf("Ganancia bruta proveniente de las camionetas: %.2f", GananciaCamionetas);
 	cout << endl;
 
-	cout << "--- GANANCIA BRUTA DE LA EMPRESA ---" << endl;
+	cout << "\n--- LISTA DE CLIENTES ---" << endl;
+	cout << *(miEmpresa->getListaClientes());
+
+	cout << endl <<  "--- GANANCIA BRUTA DE LA EMPRESA ---" << endl;
 	cout << "\t" << miEmpresa->GananciaBruta();
 	cout << endl;
 

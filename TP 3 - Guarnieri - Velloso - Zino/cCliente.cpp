@@ -29,7 +29,7 @@ string cCliente::To_string() const
 	output += "Nombre: " + Nombre + '\n' +
 		"Contacto: " + Contacto + '\n' +
 		"DNI: " + DNI + '\n' +
-		"Edad: " + to_string(Edad) + " años" + '\n';
+		"Edad: " + to_string(Edad) + " anios" + '\n';
 
 	return output;
 }

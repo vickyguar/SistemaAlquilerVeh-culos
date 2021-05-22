@@ -30,7 +30,7 @@ public:
 	* cEmpresa 
 	* constructor de la clase empresa
 	*/
-	cEmpresa(string cuit, string nombre, cListaTemplate<cCliente>* _Clientes = NULL, cListaTemplate<cVehiculo>* _Vehiculos = NULL, cAlquileres* _Alquileres = NULL, float _Ganancia = 0);
+	cEmpresa(string cuit, string nombre, cListaTemplate<cCliente>* _Clientes, cListaTemplate<cVehiculo>* _Vehiculos, cAlquileres* _Alquileres, float _Ganancia = 0);
 	/**
 	* ~cEmpresa
 	* destructor de la clase empresa
@@ -50,7 +50,7 @@ public:
 	* cambia el estado del vehiculo. Agrega el alquiler a la lista de alquileres
 	* @param vehiculo*, cantidad de dias, DNI, adicionales
 	*/
-	void Alquilar(cVehiculo* Vehiculo, unsigned int CantDias, const string DNI, sAdicional adicional);
+	void Alquilar(cVehiculo* Vehiculo, unsigned int CantDias, cCliente* Cliente, sAdicional Adicional);
 	/**
 	* RegistrarDevolucion
 	* registra la devolucion del vehiculo. Si se pasa de dias, se le cobra una multa

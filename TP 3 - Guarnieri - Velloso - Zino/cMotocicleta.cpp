@@ -43,7 +43,7 @@ string cMotocicleta::PasosMantenimiento(){
 	return steps;
 }
 
-void cMotocicleta::Imprimir()
+void cMotocicleta::Imprimir()const 
 {
 	cout << To_string();
 }

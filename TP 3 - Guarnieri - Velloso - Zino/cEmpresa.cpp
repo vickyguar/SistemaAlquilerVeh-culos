@@ -14,10 +14,6 @@
 
 cEmpresa::cEmpresa(string cuit, string nombre, cListaTemplate<cCliente>* _Clientes, cListaTemplate<cVehiculo>* _Vehiculos, cAlquileres* _Alquileres,float _Ganancia)
 {
-	_Clientes = new cListaTemplate<cCliente>();
-	_Alquileres = new cAlquileres();
-	_Vehiculos = new cListaTemplate<cVehiculo>();
-
 	this->ListaAlquileres = _Alquileres;
 	this->ListaClientes = _Clientes;
 	this->ListaVehiculos = _Vehiculos;
@@ -55,7 +51,7 @@ void cEmpresa::Adquirir(cVehiculo* newVehiculo,float PrecioCompra) {
 	Ganancia -= PrecioCompra;
 }
 
-void cEmpresa::Alquilar(cVehiculo* Vehiculo, unsigned int CantDias, const string DNI, sAdicional Adicional){
+void cEmpresa::Alquilar(cVehiculo* Vehiculo, unsigned int CantDias, cCliente* Cliente, sAdicional Adicional){
 	
 	time_t now = time(NULL); //para obtener hora de SO
 	tm FECHA = *localtime(&now); 
@@ -63,21 +59,41 @@ void cEmpresa::Alquilar(cVehiculo* Vehiculo, unsigned int CantDias, const string
 	tm FECHA_FIN = FechaFinAlquiler(CantDias, FECHA); //fecha de fin es la misma que la del día de hoy, nada más que con != numero de día
 	
 	if (Vehiculo != NULL) {
-		if (Vehiculo->getEstado() != eEstadoVehiculo::DISPONIBLE) //Si no esta disponible, no lo puede alquilar
-			throw new exception(("El auto con patente " + Vehiculo->getClave() +
-				"no esta disponible y por lo tanto puede ser alquilado").c_str());
-		else {
-			
-			Vehiculo->setEstado(eEstadoVehiculo::ALQUILADO); //si se puede alquilar, le cambio el estado
+		if (Cliente != NULL)
+		{
+			if (Adicional.Adicional1 == eAdicionales::CASCO && Adicional.cant1 > 2)
+				Adicional.cant1 = 2;
+
+			if (Vehiculo->getEstado() != eEstadoVehiculo::DISPONIBLE) //Si no esta disponible, no lo puede alquilar
+			{
+				throw new exception(("El auto con patente " + Vehiculo->getClave() +
+					"no esta disponible y por lo tanto puede ser alquilado").c_str());
+				return;
+			}
+			else {
+
+				Vehiculo->setEstado(eEstadoVehiculo::ALQUILADO); //si se puede alquilar, le cambio el estado
+			}
+
+			if (Adicional.cant1 + Adicional.cant2 > 0) //la cantidad de adicionales solicitada es > 0
+				Vehiculo->AnadirAdicionales(Adicional); //agrego los adicionales
+			//-----------------------------------------------------------------------------------------
+
+			float MontoTotal = dynamic_cast<cVehiculo*>(Vehiculo)->CalcularTarifa(CantDias); //calculo el monto total
+
+			//-----------------------------------------------------------------------------------------
+			try
+			{
+				*ListaClientes + Cliente;
+				
+			}
+			catch (exception* ex) { delete ex; } //el cliente ya existe, pero se puede hacer el alquiler porque puede alquilar otro vehiculo (#)
+			try
+			{
+				*ListaAlquileres + new cAlquiler(Adicional, FECHA, FECHA_FIN, MontoTotal, Cliente->getClave(), Vehiculo, to_string(ListaAlquileres->getCA() + 1));
+			}
+			catch (exception* ex) { delete ex; } // ya se contempla que sea != NULL y ademas el codigo del alquiler siempre es !=
 		}
-
-		if (Adicional.cant1 + Adicional.cant2 > 0) //la cantidad de adicionales solicitada es > 0
-			Vehiculo->AnadirAdicionales(Adicional); //agrego los adicionales
-		//-----------------------------------------------------------------------------------------
-		float MontoTotal =  dynamic_cast<cVehiculo*>(Vehiculo)->CalcularTarifa(CantDias); //calculo el monto total
-		//-----------------------------------------------------------------------------------------
-
-		*ListaAlquileres + new cAlquiler(Adicional, FECHA, FECHA_FIN, MontoTotal, DNI, Vehiculo, to_string(ListaAlquileres->getCA() + 1));
 	}
 }
 

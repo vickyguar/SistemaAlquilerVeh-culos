@@ -11,6 +11,11 @@
 #include "cVehiculo.h"
 #include "cAlquiler.h"
 #include "cListaTemplate.h"
+#include "cAutomovil.h"
+#include "cCamioneta.h"
+#include "cMotocicleta.h"
+#include "cTrafic.h"
+
 class cAlquileres:public cListaTemplate<class cAlquiler>
 {
 
@@ -31,13 +36,18 @@ public:
 	* calcula la ganancia de la empresa, sumando los montostotales
 	*/
 	float CalcularGanancia();
+	float ListarXCamioneta();
+	float ListarXTrafic();
 	/**
 	* ListarXVehiculo
 	*  lista por tipo de vehiculo
 	*  devuelve la ganancia total de los alquileres de este tipo de vehiculo
 	* @param vehiculo
 	*/
-	float ListarXVehiculo(cVehiculo*Vehiculo, cListaTemplate<cVehiculo>*ListaVehiculos);
+	float ListarXAutomovil();
+	float ListarXMotocicleta();
+	float ListarXVehiculo();
+
 
 };
 #endif // !defined(EA_28424133_7ED8_4704_BCB7_1D640A9AC898__INCLUDED_)

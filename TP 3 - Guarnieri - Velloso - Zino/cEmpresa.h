@@ -65,13 +65,19 @@ public:
 	* elimina a un vehiculo de la lista de vehiculos de la empresa
 	*/
 	void RetirarCirculacion(cVehiculo* Vehiculo);
+#pragma endregion
 
-	void ListarxVehiculo(cVehiculo* Vehiculo);  
+#pragma region LISTAR
+	void ListarxVehiculo();
+	float ListarxAutomovil();
+	float ListarxCamioneta();
+	float ListarxMotocicleta();
+	float ListarxTrafic();
+#pragma endregion
 
-	float CalcularGanancia(); 
-	
-	float GananciaXVehiculo(cVehiculo*Vehiculo);
-
+#pragma region GANANCIAS
+	float GananciaNeta();
+	float GananciaBruta();
 #pragma endregion
 
 #pragma region GETTES & SETTERS

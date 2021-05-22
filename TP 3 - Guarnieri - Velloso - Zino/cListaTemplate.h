@@ -92,7 +92,7 @@ cListaTemplate<T>::~cListaTemplate()
 template<class T>
 void cListaTemplate<T>::Agregar(T* newItem)
 {
-	if (Lista != NULL && newItem != NULL) {
+	if (newItem != NULL) {
 
 		if (CA == TAM) //Si la cantidad actual es igual al tamaño máximo
 			Redimensionar(); //Redimensiono la lista
@@ -108,6 +108,7 @@ void cListaTemplate<T>::Agregar(T* newItem)
 		}
 		throw new exception("El item ya esta en la lista");
 	}
+	throw new exception("El nuevo item que se desea agregar a la lista es NULL");
 }
 
 template<class T>
@@ -147,8 +148,10 @@ void cListaTemplate<T>::Eliminar(const string Key)
 			ex = new exception(("No se puede eliminar el item: " + error).c_str());
 			throw ex;
 		}
+		delete aux; //Eliminamos
 	}
-	delete aux; //Eliminamos
+	throw new exception("Error al eliminar: la lista es NULL");
+	
 }
 
 template<class T>
@@ -182,9 +185,9 @@ void cListaTemplate<T>::Redimensionar()
 	for (unsigned int i = 0; i < TAM * 2; i++)
 		aux[i] = NULL;
 
-	for (unsigned int i = 0; i < TAM; i++) {
+	for (unsigned int i = 0; i < TAM; i++) 
 		aux[i] = Lista[i]; //me copio el elemento
-	}
+	
 	//--------------------------------------------
 
 	delete[] Lista; //borro el puntero grande
@@ -275,9 +278,9 @@ inline void cListaTemplate<T>::operator+(T* newItem)
 template<class T>
 void operator<<(ostream& o, cListaTemplate<T>& obj)
 {
-	for (int i = 0; i < obj.getCA(); i++)
+	for (unsigned int i = 0; i < obj.getCA(); i++)
 	{
-		o << obj[i]->To_string(); //TODO: for adentro del to string
+		o << obj[i]->To_string(); 
 	}
 }
 

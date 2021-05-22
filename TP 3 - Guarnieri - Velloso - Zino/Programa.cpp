@@ -111,10 +111,34 @@ int main() {
 	cout << "\n--- LISTA DE ALQUILERES ---" << endl;
 	Alamo->getListaAlquileres()->Listar();
 	cout << "\n--- LISTA POR VEHICULO ---" << endl;
-	Alamo->ListarxVehiculo(BatiMovil);
+	Alamo->ListarxVehiculo();
 
-	cout << "\n--- GANANCIA DE LA EMPRESA ---" << endl;
-	cout << "\t" << Alamo->CalcularGanancia();
+	cout << "\n--- LISTA POR AUTOMOVILES ---" << endl;
+	float GananciaAutos = Alamo->ListarxAutomovil();
+	printf("Ganancia bruta proveniente de los automoviles: %.2f", GananciaAutos);
+	cout << endl;
+
+	cout << "\n--- LISTA POR MOTOCICLETAS ---" << endl;
+	float GananciaMotocicletas = Alamo->ListarxMotocicleta();
+	printf("Ganancia bruta proveniente de las motocicletas: %.2f", GananciaMotocicletas);
+	cout << endl;
+
+	cout << "\n--- LISTA POR TRAFIC ---" << endl;
+	float GananciaTrafic = Alamo->ListarxTrafic();
+	printf("Ganancia bruta proveniente de las trafic : %.2f", GananciaTrafic);
+	cout << endl;
+
+	cout << "\n--- LISTA POR CAMIONETA ---" << endl;
+	float GananciaCamionetas = Alamo->ListarxCamioneta();
+	printf("Ganancia bruta proveniente de las camionetas: %.2f", GananciaCamionetas);
+	cout << endl;
+
+	cout << "--- GANANCIA BRUTA DE LA EMPRESA ---" << endl;
+	cout << "\t" << Alamo->GananciaBruta();
+	cout << endl;
+
+	cout << "\n--- GANANCIA NETA DE LA EMPRESA ---" << endl;
+	cout << "\t" << Alamo->GananciaNeta();
 
 
 	cout << endl << endl;

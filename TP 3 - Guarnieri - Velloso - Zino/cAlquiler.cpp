@@ -38,6 +38,11 @@ sAdicional cAlquiler::getAdicionales() const
 	return Adicional;
 }
 
+cVehiculo* cAlquiler::getVehiculo() const
+{
+	return Vehiculo;
+}
+
 void cAlquiler::setDevuelto(bool Devuelto)
 {
 	this->Devuelto = Devuelto;

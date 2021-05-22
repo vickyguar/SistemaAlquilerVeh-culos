@@ -146,21 +146,35 @@ void cEmpresa::RetirarCirculacion(cVehiculo* Vehiculo){
 	}
 }
 
-void cEmpresa::ListarxVehiculo(cVehiculo*Vehiculo)
+void cEmpresa::ListarxVehiculo() {
+	float aux = ListaAlquileres->ListarXVehiculo();
+}
+
+float cEmpresa::ListarxAutomovil() {
+	return ListaAlquileres->ListarXAutomovil();
+}
+
+float cEmpresa::ListarxCamioneta() {
+	return ListaAlquileres->ListarXCamioneta();
+}
+
+float cEmpresa::ListarxMotocicleta() {
+	return ListaAlquileres->ListarXMotocicleta();
+}
+
+float cEmpresa::ListarxTrafic() {
+	return ListaAlquileres->ListarXTrafic();
+}
+
+
+float cEmpresa::GananciaBruta()
 {
-	if (Vehiculo != NULL)
-		ListaAlquileres->ListarXVehiculo(Vehiculo, ListaVehiculos);
+	return ListaAlquileres->CalcularGanancia();
 }
 
 cListaTemplate<cVehiculo>* cEmpresa::getListaVehiculos()
 {
 	return ListaVehiculos;
-}
-
-float cEmpresa::GananciaXVehiculo(cVehiculo*Vehiculo)
-{
-	float ganancia = ListaAlquileres->ListarXVehiculo(Vehiculo,ListaVehiculos);
-	return ganancia;
 }
 
 cListaTemplate<cCliente>* cEmpresa::getListaClientes()
@@ -173,7 +187,7 @@ cAlquileres* cEmpresa::getListaAlquileres()
 	return ListaAlquileres;
 }
 
-float cEmpresa::CalcularGanancia()
+float cEmpresa::GananciaNeta()
 {
 	Ganancia += ListaAlquileres->CalcularGanancia();
 

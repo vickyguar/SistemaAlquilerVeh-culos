@@ -141,8 +141,7 @@ void cEmpresa::RetirarCirculacion(cVehiculo* Vehiculo){
 			throw ex;
 		}
 		Vehiculo->setEstado(eEstadoVehiculo::FUERA_CIRCULACION); 
-		//TODO: hay que sacarlo de la lista?
-		//ListaVehiculos->Quitar(Vehiculo->getPatente());
+
 	}
 }
 

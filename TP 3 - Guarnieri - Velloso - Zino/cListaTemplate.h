@@ -26,7 +26,6 @@ public:
 	void Agregar(T* newItem);
 	T* Quitar(const string Key);
 	void Eliminar(const string Key);
-	void AgregarXCopia(T newItem); //Agrego por copia
 
 #pragma endregion
 	void Redimensionar();
@@ -154,26 +153,6 @@ void cListaTemplate<T>::Eliminar(const string Key)
 	
 }
 
-template<class T>
-void cListaTemplate<T>::AgregarXCopia(T newItem)
-{
-	if (Lista != NULL) {
-
-		if (CA == TAM) //Si la cantidad actual es igual al tamaño máximo
-			Redimensionar(); //Redimensiono la lista
-
-		try {
-			int pos = getIndex(newItem.getClave()); //TODO: Fijarse
-		}
-		catch (exception* ex) {
-			Lista[CA++] = &newItem;
-			delete ex;
-			return;
-		}
-		throw new exception("El item ya esta en la lista");
-	}
-	throw new exception("Error en agregar por copia: la lista es NULL"); 
-}
 
 template<class T>
 void cListaTemplate<T>::Redimensionar()

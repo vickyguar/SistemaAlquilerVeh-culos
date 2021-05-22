@@ -9,9 +9,6 @@
 #pragma warning(disable : 4996)
 
 //TODOS LOS PRECIOS SON EN U$D :)
-//TODO: cheuear ema fechas!!!
-//TODO: dynamic_cast
-//TODO: ganancia
 
 int main() {
 
@@ -38,7 +35,6 @@ int main() {
 	cCamioneta* March5 = new cCamioneta(eEstadoVehiculo::EN_MANTENIMIENTO, 800, adicionales_camioneta, eColor::BLANCO, "CHASIS6", "BB 666 AF", "POLIZA6", FECHA, 7);
 
 	//TRAFIC
-	cTrafic* Fillmore = new cTrafic(eEstadoVehiculo::DISPONIBLE, 2500, adicionales_trafic, eColor::AZUL, "CHASIS7", "CC 777 AG", "POLIZA7", FECHA, 10);
 	cTrafic* Dusty = new cTrafic(eEstadoVehiculo::DISPONIBLE, 2000, adicionales_trafic, eColor::AZUL, "CHASIS8", "CC 888 AH", "POLIZA8", FECHA, 10);
 
 	//MOTOS
@@ -49,7 +45,7 @@ int main() {
 	cCliente* miCliente1 = new cCliente("555-111-0001", "Marty McFly", "44131411", 20);
 	cCliente* miCliente2 = new cCliente("555-111-0002", "Maggie Peyton", "44131412", 30);
 	cCliente* miCliente3 = new cCliente("555-111-0003", "Bat Man", "44131413", 40);
-	cCliente* miCliente4 = new cCliente("555-111-0004", "NN", "44131414", 50);
+	cCliente* miCliente4 = new cCliente("555-111-0004", "Gatuvela", "44131414", 50);
 
 	//LOS VEHICULOS QUE YA SON DE LA EMPRESA -> LOS QUE ESTAN EN MANTENIMIENTO
 	try { Alamo->getListaVehiculos()->Agregar(Mate); }
@@ -98,9 +94,15 @@ int main() {
 	{ 
 		Alamo->Alquilar(BatiMovil, 7, miCliente3->getClave(), adicionales_auto);
 		Alamo->Alquilar(Herbie, 4, miCliente2->getClave(), adicionales_auto);
-		adicionales_auto.Adicional1 = eAdicionales::SILLA_SEGURIDAD;
+		adicionales_auto.cant1 = 1;
 		Alamo->Alquilar(DeLorean, 30, miCliente1->getClave(), adicionales_auto);
-		/*Alamo->Alquilar(HarleyDavidson, 14, miCliente4->getClave(), adicionales_moto);*/
+
+		cout << endl <<endl << "Usted esta alquilando una moto" << endl;
+		cout << "Cuantos cascos quiere? ";
+		cin >> adicionales_moto.cant1;
+
+		Alamo->Alquilar(HarleyDavidson, 14, miCliente4->getClave(), adicionales_moto);
+
 	} 
 	catch (exception* ex)
 	{
@@ -142,9 +144,6 @@ int main() {
 
 
 	cout << endl << endl;
-
-
-	//PREGUNTAR AL CLIENTE SI QUIERE UN CASCO -> SI
 
 	delete Alamo;
 	return 0;

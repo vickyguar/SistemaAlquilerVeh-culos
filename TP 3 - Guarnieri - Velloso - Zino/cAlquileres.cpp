@@ -27,8 +27,6 @@ float cAlquileres::CalcularGanancia(){
 }
 
 
-
-
 float cAlquileres::ListarXAutomovil() {
 
 	float gananciaxvehiculo = 0; //Acumulador
@@ -113,9 +111,6 @@ float cAlquileres::ListarXTrafic() {
 	cout << (cont == 0 ? "No hay trafics alquiladas\n" : " \n");
 	return gananciaxvehiculo;
 }
-
-
-
 
 
 float cAlquileres::ListarXVehiculo() {

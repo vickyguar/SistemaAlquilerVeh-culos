@@ -42,20 +42,10 @@ public:
 #pragma endregion
 
 	void Listar()const; 
-	//Imprime en pantalla la lista -> HAY QUE HACER UN TO STRING DE LOS ELEMENTOS!
-	/*Damian tiene a Listar asi: DESPUES MIRAR!
-	for (unsigned int i = 0; i < CA; i++)
-	{
-		vector[i]->Imprimir();// SOBRECARGA DEL COUT
-	}
-	*/
 
 #pragma region SOBRECARGA
 	T* operator[](unsigned int pos);
 	void operator+(T* newItem);
-	//ostream& operator<<(ostream& out, const T& obj);
-	//friend ostream& operator<<(ostream& out, const T& obj);
-
 #pragma endregion
 };
 
@@ -204,9 +194,9 @@ T* cListaTemplate<T>::BuscarXPos(unsigned int Index)
 template<class T>
 unsigned int cListaTemplate<T>::getIndex(const string Key) const
 {
-	for (unsigned int i = 0; i < CA; i++) { //POR ACA TIRA ERROR
-		if (Lista[i]->getClave() == Key) //EL ->KEY debe llamarse igual pa todas para que no tire error
-			return i;
+	for (unsigned int i = 0; i < CA; i++) { 
+		if (Lista[i]->getClave() == Key) //si tiene la misma clave
+			return i; //retorno la posición donde lo encontré
 	}
 
 	throw new exception((Key + " El item no existe").c_str());
@@ -227,17 +217,16 @@ unsigned int cListaTemplate<T>::getTAM() const
 template<class T>
 void cListaTemplate<T>::Listar() const
 {
-	/*for (unsigned int i = 0; i < CA; i++)
+	for (unsigned int i = 0; i < CA; i++) //recorro la lista
 	{
 		cout << "\n\t# " << i + 1 << endl;
-		cout << (*Lista)[i];
-	}*/
+		cout << Lista[i]->To;
+	}
 }
 
 template<class T>
 T* cListaTemplate<T>::operator[](unsigned int pos) {
 	return BuscarXPos(pos);
-	//Podría ser return Lista[pos]? //TODO:USAR OPERATOR[]
 }
 
 template<class T>
@@ -253,7 +242,6 @@ inline void cListaTemplate<T>::operator+(T* newItem)
 	return;
 }
 
-
 template<class T>
 void operator<<(ostream& o, cListaTemplate<T>& obj)
 {
@@ -262,14 +250,3 @@ void operator<<(ostream& o, cListaTemplate<T>& obj)
 		o << obj[i]->To_string(); 
 	}
 }
-
-//bool operator==(string clave)
-//{
-//	if (clave == DNI)
-//		return true;
-//	if (clave == Nombre)
-//		return true;
-//	if (clave == Apellido)
-//		return true;
-//	return false;
-//}

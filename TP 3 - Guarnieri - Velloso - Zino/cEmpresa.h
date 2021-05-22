@@ -19,6 +19,8 @@ private:
 	cListaTemplate<cCliente>* ListaClientes; //lista de clientes
 	cListaTemplate<cVehiculo>* ListaVehiculos; //lista de vehiculos
 	cAlquileres* ListaAlquileres; //lista de alquileres
+	string CUIT;
+	string Nombre;
 	float Ganancia; //ganancia de la empresa
 
 public:
@@ -28,7 +30,7 @@ public:
 	* cEmpresa 
 	* constructor de la clase empresa
 	*/
-	cEmpresa(cListaTemplate<cCliente>* _Clientes = NULL, cListaTemplate<cVehiculo>* _Vehiculos = NULL, cAlquileres* _Alquileres = NULL, float _Ganancia = 0);
+	cEmpresa(string cuit, string nombre, cListaTemplate<cCliente>* _Clientes = NULL, cListaTemplate<cVehiculo>* _Vehiculos = NULL, cAlquileres* _Alquileres = NULL, float _Ganancia = 0);
 	/**
 	* ~cEmpresa
 	* destructor de la clase empresa

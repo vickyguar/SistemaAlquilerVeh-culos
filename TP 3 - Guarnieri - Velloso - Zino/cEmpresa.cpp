@@ -12,7 +12,7 @@
 #pragma warning(disable : 4996)
 
 
-cEmpresa::cEmpresa(cListaTemplate<cCliente>* _Clientes, cListaTemplate<cVehiculo>* _Vehiculos, cAlquileres* _Alquileres,float _Ganancia)
+cEmpresa::cEmpresa(string cuit, string nombre, cListaTemplate<cCliente>* _Clientes, cListaTemplate<cVehiculo>* _Vehiculos, cAlquileres* _Alquileres,float _Ganancia)
 {
 	_Clientes = new cListaTemplate<cCliente>();
 	_Alquileres = new cAlquileres();
@@ -21,6 +21,8 @@ cEmpresa::cEmpresa(cListaTemplate<cCliente>* _Clientes, cListaTemplate<cVehiculo
 	this->ListaAlquileres = _Alquileres;
 	this->ListaClientes = _Clientes;
 	this->ListaVehiculos = _Vehiculos;
+	this->Nombre = nombre;
+	this->CUIT = cuit;
 	this->Ganancia = _Ganancia;
 }
 

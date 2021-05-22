@@ -22,7 +22,7 @@ int main() {
 
 	sAdicional adicionales_devueltos = { eAdicionales::CASCO, eAdicionales::NINGUNO, 1, 0 };
 
-	cEmpresa* Alamo = new cEmpresa();
+	cEmpresa* miEmpresa = new cEmpresa("Alamo", "23-25723451-12");
 
 	//AUTOS
 	cAutomovil* RayoMcqueen = new cAutomovil(eEstadoVehiculo::DISPONIBLE, 1000, adicionales_auto, eColor::ROJO, "CHASIS1", "AA 111 AA", "POLIZA1", FECHA, 4);
@@ -48,13 +48,13 @@ int main() {
 	cCliente* miCliente4 = new cCliente("555-111-0004", "Gatuvela", "44131414", 50);
 
 	//LOS VEHICULOS QUE YA SON DE LA EMPRESA -> LOS QUE ESTAN EN MANTENIMIENTO
-	try { Alamo->getListaVehiculos()->Agregar(Mate); }
+	try { miEmpresa->getListaVehiculos()->Agregar(Mate); }
 	catch (exception* ex)
 	{
 		cout << ex->what() << endl;
 		delete ex;
 	}
-	try { Alamo->getListaVehiculos()->Agregar(March5); }
+	try { miEmpresa->getListaVehiculos()->Agregar(March5); }
 	catch (exception* ex)
 	{
 		cout << ex->what() << endl;
@@ -64,11 +64,11 @@ int main() {
 	//SE ADQUIEREN VEHICULOS
 	try
 	{
-		Alamo->Adquirir(BatiMovil, 50000);
-		Alamo->Adquirir(DeLorean, 10000);
-		Alamo->Adquirir(Vespa, 500);
-		Alamo->Adquirir(Herbie, 20000);
-		Alamo->Adquirir(HarleyDavidson, 10000);
+		miEmpresa->Adquirir(BatiMovil, 50000);
+		miEmpresa->Adquirir(DeLorean, 10000);
+		miEmpresa->Adquirir(Vespa, 500);
+		miEmpresa->Adquirir(Herbie, 20000);
+		miEmpresa->Adquirir(HarleyDavidson, 10000);
 
 	}
 	catch (exception* ex)
@@ -77,13 +77,13 @@ int main() {
 		delete ex;
 	}
 
-	cout << *(Alamo->getListaVehiculos());
+	cout << *(miEmpresa->getListaVehiculos());
 
 	cout << "--- SE LLEVA A LA MOTO A ARREGLAR ---" << endl;
-	Alamo->Mantenimiento(Vespa, 50);
+	miEmpresa->Mantenimiento(Vespa, 50);
 
 	//SE ALQUILAN AUTOS
-	try { Alamo->getListaClientes()->Agregar(miCliente3); }
+	try { miEmpresa->getListaClientes()->Agregar(miCliente3); }
 	catch (exception* ex)
 	{
 		cout << ex->what() << endl;
@@ -92,16 +92,16 @@ int main() {
 
 	try 
 	{ 
-		Alamo->Alquilar(BatiMovil, 7, miCliente3->getClave(), adicionales_auto);
-		Alamo->Alquilar(Herbie, 4, miCliente2->getClave(), adicionales_auto);
+		miEmpresa->Alquilar(BatiMovil, 7, miCliente3->getClave(), adicionales_auto);
+		miEmpresa->Alquilar(Herbie, 4, miCliente2->getClave(), adicionales_auto);
 		adicionales_auto.cant1 = 1;
-		Alamo->Alquilar(DeLorean, 30, miCliente1->getClave(), adicionales_auto);
+		miEmpresa->Alquilar(DeLorean, 30, miCliente1->getClave(), adicionales_auto);
 
 		cout << endl <<endl << "Usted esta alquilando una moto" << endl;
 		cout << "Cuantos cascos quiere? ";
 		cin >> adicionales_moto.cant1;
 
-		Alamo->Alquilar(HarleyDavidson, 14, miCliente4->getClave(), adicionales_moto);
+		miEmpresa->Alquilar(HarleyDavidson, 14, miCliente4->getClave(), adicionales_moto);
 
 	} 
 	catch (exception* ex)
@@ -111,41 +111,41 @@ int main() {
 	}
 	
 	cout << "\n--- LISTA DE ALQUILERES ---" << endl;
-	Alamo->getListaAlquileres()->Listar();
+	miEmpresa->getListaAlquileres()->Listar();
 	cout << "\n--- LISTA POR VEHICULO ---" << endl;
-	Alamo->ListarxVehiculo();
+	miEmpresa->ListarxVehiculo();
 
 	cout << "\n--- LISTA POR AUTOMOVILES ---" << endl;
-	float GananciaAutos = Alamo->ListarxAutomovil();
+	float GananciaAutos = miEmpresa->ListarxAutomovil();
 	printf("Ganancia bruta proveniente de los automoviles: %.2f", GananciaAutos);
 	cout << endl;
 
 	cout << "\n--- LISTA POR MOTOCICLETAS ---" << endl;
-	float GananciaMotocicletas = Alamo->ListarxMotocicleta();
+	float GananciaMotocicletas = miEmpresa->ListarxMotocicleta();
 	printf("Ganancia bruta proveniente de las motocicletas: %.2f", GananciaMotocicletas);
 	cout << endl;
 
 	cout << "\n--- LISTA POR TRAFIC ---" << endl;
-	float GananciaTrafic = Alamo->ListarxTrafic();
+	float GananciaTrafic = miEmpresa->ListarxTrafic();
 	printf("Ganancia bruta proveniente de las trafic : %.2f", GananciaTrafic);
 	cout << endl;
 
 	cout << "\n--- LISTA POR CAMIONETA ---" << endl;
-	float GananciaCamionetas = Alamo->ListarxCamioneta();
+	float GananciaCamionetas = miEmpresa->ListarxCamioneta();
 	printf("Ganancia bruta proveniente de las camionetas: %.2f", GananciaCamionetas);
 	cout << endl;
 
 	cout << "--- GANANCIA BRUTA DE LA EMPRESA ---" << endl;
-	cout << "\t" << Alamo->GananciaBruta();
+	cout << "\t" << miEmpresa->GananciaBruta();
 	cout << endl;
 
 	cout << "\n--- GANANCIA NETA DE LA EMPRESA ---" << endl;
-	cout << "\t" << Alamo->GananciaNeta();
+	cout << "\t" << miEmpresa->GananciaNeta();
 
 
 	cout << endl << endl;
 
-	delete Alamo;
+	delete miEmpresa;
 	return 0;
 }
 

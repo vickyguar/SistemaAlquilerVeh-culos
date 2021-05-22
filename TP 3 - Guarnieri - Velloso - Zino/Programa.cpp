@@ -1,46 +1,9 @@
 //Main
 
 #include "cEmpresa.h"
-#include "cAutomovil.h"
-#include "cCamioneta.h"
-#include "cTrafic.h"
-#include "cMotocicleta.h"
 
 #pragma warning(disable : 4996)
 
-//TODOS LOS PRECIOS SON EN U$D :)
-bool VerificarAdicionales(cVehiculo* Vehiculo, sAdicional adicional) {
-
-	if (cAutomovil* aux = dynamic_cast<cAutomovil*>(Vehiculo)) {
-		if (adicional.Adicional1 != eAdicionales::SILLA_SEGURIDAD)
-			return false;
-		if (adicional.Adicional2 != (eAdicionales)0)
-			return false;
-	}
-
-	if (cMotocicleta* aux = dynamic_cast<cMotocicleta*>(Vehiculo)) {
-		if (adicional.Adicional1 != eAdicionales::CASCO || adicional.Adicional2 != (eAdicionales)0)
-			return false;
-		if (adicional.cant1 > 2)
-			return false;
-	}
-
-	if (cTrafic* aux = dynamic_cast<cTrafic*>(Vehiculo)) {
-		if (adicional.Adicional1 != eAdicionales::SILLA_SEGURIDAD ||
-			adicional.Adicional2 != eAdicionales::ASIENTOS_REBATIBLES)
-			return false;
-
-	}
-
-	if (cCamioneta* aux = dynamic_cast<cCamioneta*>(Vehiculo)) {
-		if (adicional.Adicional1 != eAdicionales::SILLA_SEGURIDAD ||
-			adicional.Adicional2 != eAdicionales::PORTA_EQUIPAJE)
-			return false;
-	}
-
-	return true;
-
-}
 
 int main() {
 
@@ -61,21 +24,21 @@ int main() {
 	cEmpresa* miEmpresa = new cEmpresa("23-25723451-12", "Alamo", miListaClientes, miListaVehiculos, miListaAlquileres);
 
 	//AUTOS
-	cAutomovil* RayoMcqueen = new cAutomovil(eEstadoVehiculo::DISPONIBLE, 1000, adicionales_auto, eColor::ROJO, "CHASIS1", "AA 111 AA", "POLIZA1", FECHA, 4);
-	cAutomovil* Herbie = new cAutomovil(eEstadoVehiculo::DISPONIBLE, 500, adicionales_auto, eColor::BLANCO, "CHASIS2", "AA 222 AB", "POLIZA2", FECHA, 4);
-	cAutomovil* BatiMovil = new cAutomovil(eEstadoVehiculo::DISPONIBLE, 5000, adicionales_auto, eColor::NEGRO, "CHASIS3", "AA 333 AC", "POLIZA3", FECHA, 4);
+	cAutomovil* RayoMcqueen = new cAutomovil(eEstadoVehiculo::DISPONIBLE, 1000, /*adicionales_auto,*/ eColor::ROJO, "CHASIS1", "AA 111 AA", "POLIZA1", FECHA, 4);
+	cAutomovil* Herbie = new cAutomovil(eEstadoVehiculo::DISPONIBLE, 500, /*adicionales_auto,*/ eColor::BLANCO, "CHASIS2", "AA 222 AB", "POLIZA2", FECHA, 4);
+	cAutomovil* BatiMovil = new cAutomovil(eEstadoVehiculo::DISPONIBLE, 5000, /*adicionales_auto,*/ eColor::NEGRO, "CHASIS3", "AA 333 AC", "POLIZA3", FECHA, 4);
 
 	//CAMIONETAS
-	cCamioneta* Mate = new cCamioneta(eEstadoVehiculo::EN_MANTENIMIENTO, 700, adicionales_camioneta, eColor::GRIS, "CHASIS4", "BB 444 AD", "POLIZA4", FECHA, 7);
-	cCamioneta* DeLorean = new cCamioneta(eEstadoVehiculo::DISPONIBLE, 750, adicionales_camioneta, eColor::GRIS, "CHASIS5", "BB 555 AE", "POLIZA5", FECHA, 7);
-	cCamioneta* March5 = new cCamioneta(eEstadoVehiculo::EN_MANTENIMIENTO, 800, adicionales_camioneta, eColor::BLANCO, "CHASIS6", "BB 666 AF", "POLIZA6", FECHA, 7);
+	cCamioneta* Mate = new cCamioneta(eEstadoVehiculo::EN_MANTENIMIENTO, 700, /*adicionales_camioneta,*/ eColor::GRIS, "CHASIS4", "BB 444 AD", "POLIZA4", FECHA, 7);
+	cCamioneta* DeLorean = new cCamioneta(eEstadoVehiculo::DISPONIBLE, 750, /*adicionales_camioneta,*/ eColor::GRIS, "CHASIS5", "BB 555 AE", "POLIZA5", FECHA, 7);
+	cCamioneta* March5 = new cCamioneta(eEstadoVehiculo::EN_MANTENIMIENTO, 800, /*adicionales_camioneta,*/ eColor::BLANCO, "CHASIS6", "BB 666 AF", "POLIZA6", FECHA, 7);
 
 	//TRAFIC
-	cTrafic* Dusty = new cTrafic(eEstadoVehiculo::DISPONIBLE, 2000, adicionales_trafic, eColor::AZUL, "CHASIS8", "CC 888 AH", "POLIZA8", FECHA, 10);
+	cTrafic* Dusty = new cTrafic(eEstadoVehiculo::DISPONIBLE, 2000, /*adicionales_trafic,*/ eColor::AZUL, "CHASIS8", "CC 888 AH", "POLIZA8", FECHA, 10);
 
 	//MOTOS
-	cMotocicleta* Vespa = new cMotocicleta(eEstadoVehiculo::DISPONIBLE, 100, adicionales_moto, eColor::NEGRO, "CHASIS9", "DD 999 AI", "POLIZA9", FECHA, 1);
-	cMotocicleta* HarleyDavidson = new cMotocicleta(eEstadoVehiculo::DISPONIBLE, 150, adicionales_moto, eColor::NEGRO, "CHASIS10", "DD 110 AJ", "POLIZA10", FECHA, 1);
+	cMotocicleta* Vespa = new cMotocicleta(eEstadoVehiculo::DISPONIBLE, 100, /*adicionales_moto,*/ eColor::NEGRO, "CHASIS9", "DD 999 AI", "POLIZA9", FECHA, 1);
+	cMotocicleta* HarleyDavidson = new cMotocicleta(eEstadoVehiculo::DISPONIBLE, 150, /*adicionales_moto,*/ eColor::NEGRO, "CHASIS10", "DD 110 AJ", "POLIZA10", FECHA, 1);
 
 	//CLIENTES
 	cCliente* miCliente1 = new cCliente("555-111-0001", "Marty McFly", "44131411", 20);
@@ -185,3 +148,35 @@ int main() {
 	return 0;
 }
 
+//bool VerificarAdicionales(cVehiculo* Vehiculo, sAdicional adicional) {
+//
+//	if (cAutomovil* aux = dynamic_cast<cAutomovil*>(Vehiculo)) {
+//		if (adicional.Adicional1 != eAdicionales::SILLA_SEGURIDAD)
+//			return false;
+//		if (adicional.Adicional2 != (eAdicionales)0)
+//			return false;
+//	}
+//
+//	if (cMotocicleta* aux = dynamic_cast<cMotocicleta*>(Vehiculo)) {
+//		if (adicional.Adicional1 != eAdicionales::CASCO || adicional.Adicional2 != (eAdicionales)0)
+//			return false;
+//		if (adicional.cant1 > 2)
+//			return false;
+//	}
+//
+//	if (cTrafic* aux = dynamic_cast<cTrafic*>(Vehiculo)) {
+//		if (adicional.Adicional1 != eAdicionales::SILLA_SEGURIDAD ||
+//			adicional.Adicional2 != eAdicionales::ASIENTOS_REBATIBLES)
+//			return false;
+//
+//	}
+//
+//	if (cCamioneta* aux = dynamic_cast<cCamioneta*>(Vehiculo)) {
+//		if (adicional.Adicional1 != eAdicionales::SILLA_SEGURIDAD ||
+//			adicional.Adicional2 != eAdicionales::PORTA_EQUIPAJE)
+//			return false;
+//	}
+//
+//	return true;
+//
+//}

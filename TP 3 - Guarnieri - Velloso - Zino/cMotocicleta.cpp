@@ -8,8 +8,8 @@
 #include "cMotocicleta.h"
 
 float cMotocicleta::PrecioAlquilerXDia = 500;
-cMotocicleta::cMotocicleta(eEstadoVehiculo estado, float tarifa_base, sAdicional adicionales, eColor color, const string chasis, const string patente, const string poliza, tm fecha_ult_mantenimiento, const unsigned int capacidad):
-		cVehiculo::cVehiculo(estado, tarifa_base, adicionales, color, capacidad, chasis, patente, poliza, fecha_ult_mantenimiento)
+cMotocicleta::cMotocicleta(eEstadoVehiculo estado, float tarifa_base, eColor color, const string chasis, const string patente, const string poliza, tm fecha_ult_mantenimiento, const unsigned int capacidad):
+		cVehiculo::cVehiculo(estado, tarifa_base, color, capacidad, chasis, patente, poliza, fecha_ult_mantenimiento)
 {
 }
 
@@ -58,7 +58,6 @@ string cMotocicleta::To_string() const
 	string output;
 
 	output += "\nTipo de vehiculo: Motocicleta\n";
-	output += "Cantidad de sillas de cascos alquilados: " + to_string(Adicionales.cant1) + '\n';
 	output += cVehiculo::To_string();
 
 	return output;

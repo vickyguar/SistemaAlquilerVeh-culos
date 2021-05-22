@@ -38,7 +38,7 @@ float cAlquileres::ListarXAutomovil() {
 	{
 		if (cAutomovil* aux = dynamic_cast<cAutomovil*>(Lista[i]->getVehiculo()))
 		{
-			cout << Lista[i]->To_string() << endl;
+			Lista[i]->Imprimir();
 			gananciaxvehiculo += Lista[i]->getMontoTotal();
 			cont++;
 		}
@@ -59,7 +59,7 @@ float cAlquileres::ListarXMotocicleta() {
 	{
 		if (cMotocicleta* aux = dynamic_cast<cMotocicleta*>(Lista[i]->getVehiculo()))
 		{
-			cout << Lista[i]->To_string() << endl;
+			Lista[i]->Imprimir();
 			gananciaxvehiculo += Lista[i]->getMontoTotal();
 			cont++;
 		}
@@ -80,7 +80,7 @@ float cAlquileres::ListarXCamioneta() {
 	{
 		if (cCamioneta* aux = dynamic_cast<cCamioneta*>(Lista[i]->getVehiculo()))
 		{
-			cout << Lista[i]->To_string() << endl;
+			Lista[i]->Imprimir();
 			gananciaxvehiculo += Lista[i]->getMontoTotal();
 			cont++;
 		}
@@ -101,7 +101,7 @@ float cAlquileres::ListarXTrafic() {
 	{
 		if (cTrafic* aux = dynamic_cast<cTrafic*>(Lista[i]->getVehiculo()))
 		{
-			cout << Lista[i]->To_string() << endl;
+			Lista[i]->Imprimir();
 			gananciaxvehiculo += Lista[i]->getMontoTotal();
 
 			cont++;
@@ -111,7 +111,6 @@ float cAlquileres::ListarXTrafic() {
 	cout << (cont == 0 ? "No hay trafics alquiladas\n" : " \n");
 	return gananciaxvehiculo;
 }
-
 
 float cAlquileres::ListarXVehiculo() {
 

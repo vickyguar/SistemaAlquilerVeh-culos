@@ -8,11 +8,8 @@
 #if !defined(EA_6ADA5A65_C03D_413b_A8C7_BF7E575C2E63__INCLUDED_)
 #define EA_6ADA5A65_C03D_413b_A8C7_BF7E575C2E63__INCLUDED_
 
-#include <ctime>
-#include <string>
-#include <iostream>
-#include "Headers.h"
 #include "cVehiculo.h"
+
 using namespace std;
 
 class cAlquiler

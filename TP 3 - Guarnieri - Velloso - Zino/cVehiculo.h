@@ -9,9 +9,9 @@
 #define EA_EC55E7BC_2390_417c_A6F2_559933EB7B4E__INCLUDED_
 
 #include <string>
-#include "Headers.h"
 #include <ctime>
 #include <iostream>
+#include "Headers.h"
 
 using namespace std;
 
@@ -24,7 +24,7 @@ private:
 
 protected:
 	eEstadoVehiculo Estado;//No es const por si queremos cambiarla
-	sAdicional Adicionales; //tiene el precio igualado en el enum para poder hacer ++
+	/*sAdicional Adicionales;*/ //tiene el precio igualado en el enum para poder hacer ++
 	eColor Color; 
 	const unsigned int CapacidadPasajeros;
 	const string Chasis;
@@ -40,7 +40,7 @@ public:
 	* @param estado del vehiculo, tarifa base, adicionales, color
 	* cantidad de alquileres, capacidad de pasajeros, chasis, patente, poliza, fecha de ultimo mantenimiento
 	*/
-	cVehiculo(eEstadoVehiculo estado, float tarifa_base, sAdicional adicionales, eColor color, const unsigned int capacidad, const string chasis, const string patente, const string poliza, tm fecha_ult_mantenimiento);
+	cVehiculo(eEstadoVehiculo estado, float tarifa_base, eColor color, const unsigned int capacidad, const string chasis, const string patente, const string poliza, tm fecha_ult_mantenimiento);
 
 	/**
 	* ~cVehiculo

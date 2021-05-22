@@ -8,7 +8,6 @@
 #if !defined(EA_28424133_7ED8_4704_BCB7_1D640A9AC898__INCLUDED_)
 #define EA_28424133_7ED8_4704_BCB7_1D640A9AC898__INCLUDED_
 
-#include "cVehiculo.h"
 #include "cAlquiler.h"
 #include "cListaTemplate.h"
 #include "cAutomovil.h"

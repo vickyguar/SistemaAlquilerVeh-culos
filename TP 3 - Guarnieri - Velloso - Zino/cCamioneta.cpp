@@ -8,8 +8,8 @@
 #include "cCamioneta.h"
 
 float cCamioneta::PrecioAlquilerXDia=1000.0;
-cCamioneta::cCamioneta(eEstadoVehiculo estado, float tarifa_base, sAdicional adicionales, eColor color, const string chasis, const string patente, const string poliza, tm fecha_ult_mantenimiento, const unsigned int capacidad):
-	cVehiculo::cVehiculo(estado, tarifa_base, adicionales, color, capacidad, chasis, patente, poliza, fecha_ult_mantenimiento)
+cCamioneta::cCamioneta(eEstadoVehiculo estado, float tarifa_base, eColor color, const string chasis, const string patente, const string poliza, tm fecha_ult_mantenimiento, const unsigned int capacidad):
+	cVehiculo::cVehiculo(estado, tarifa_base, color, capacidad, chasis, patente, poliza, fecha_ult_mantenimiento)
 {
 }
 
@@ -52,9 +52,6 @@ string cCamioneta::To_string() const
 	string output;
 
 	output += "\nTipo de vehiculo: Camioneta\n";
-
-	output += "Cantidad de sillas para ninios: " + to_string(Adicionales.cant1) + '\n';
-	output += "Portaequipaje adicional: " + to_string(Adicionales.cant2) + '\n';
 
 	output += cVehiculo::To_string();
 

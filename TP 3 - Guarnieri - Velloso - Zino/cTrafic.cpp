@@ -8,8 +8,8 @@
 #include "cTrafic.h"
 
 float cTrafic::PrecioAlquilerXDia=1800.0;
-cTrafic::cTrafic(eEstadoVehiculo estado, float tarifa_base, sAdicional adicionales, eColor color, const string chasis, const string patente, const string poliza, tm fecha_ult_mantenimiento, const unsigned int capacidad):
-	cVehiculo::cVehiculo(estado, tarifa_base, adicionales, color, capacidad, chasis, patente, poliza, fecha_ult_mantenimiento)
+cTrafic::cTrafic(eEstadoVehiculo estado, float tarifa_base, eColor color, const string chasis, const string patente, const string poliza, tm fecha_ult_mantenimiento, const unsigned int capacidad):
+	cVehiculo::cVehiculo(estado, tarifa_base, color, capacidad, chasis, patente, poliza, fecha_ult_mantenimiento)
 {
 }
 
@@ -56,13 +56,9 @@ string cTrafic::To_string() const
 	string output;
 
 	output += "\nTipo de vehiculo: Trafic\n";
-	output += "Cantidad de sillas de seguridad alquilada: " + to_string(Adicionales.cant1) + '\n';
-	output += "Cantidad de asientos rebatibles: " + to_string(Adicionales.cant2) + '\n';
-
 	output += cVehiculo::To_string();
 
 	return output;
-
 }
 
 void cTrafic::Imprimir() const
